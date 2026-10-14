@@ -98,6 +98,30 @@
   .tier .amt{font-family:var(--serif);font-size:34px;font-weight:700;line-height:1.1}
   .tier .save{font-size:13px;color:var(--gold-l);font-weight:500}
 
+  /* origin mosaic */
+  .story{display:grid;grid-template-columns:1.7fr 1fr 1fr;gap:14px;height:470px}
+  .tile{position:relative;overflow:hidden;background:var(--soft);display:block}
+  .tile img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+  .tile:hover img{transform:scale(1.04)}
+  .tile.prod{display:flex;flex-direction:column}
+  .tile.prod img{flex:1 1 0;min-height:0;width:100%;object-fit:contain;padding:8%;mix-blend-mode:multiply}
+  .tile.stud img{padding:20%}
+  .tile .ov{position:absolute;inset:auto 0 0 0;padding:26px 24px;background:linear-gradient(0deg,rgba(15,13,10,.82),rgba(15,13,10,0));color:#fff}
+  .tile .ov .eyebrow{color:var(--gold-l)}
+  .tile .ov h2{font-size:clamp(26px,3vw,38px);margin:6px 0 4px}
+  .tile .ov p{font-size:15px;color:#efe9df;max-width:440px}
+  .tile .cap{padding:14px 16px;background:#fff;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+  .tile .cap h3{font-size:20px}
+  .tile .cap .price{font-family:var(--serif);font-weight:700;font-size:20px;white-space:nowrap}
+  .tile .cap .price s{font-family:var(--sans);font-size:12px;color:var(--muted);font-weight:400;margin-left:4px}
+
+  /* gift box + budget */
+  .budget .split{display:grid;grid-template-columns:1fr 1.15fr;align-items:stretch}
+  .budget .gift-img{position:relative;min-height:380px}
+  .budget .gift-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .budget .gift-img span{position:absolute;left:18px;bottom:18px;background:rgba(20,19,17,.85);color:#fff;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:8px 14px;border:1px solid var(--gold-l)}
+  .budget .inner{padding:40px 44px;display:flex;flex-direction:column;justify-content:center;gap:26px}
+
   /* info accordions */
   .info{display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
   details{border-bottom:1px solid var(--line)}
@@ -161,6 +185,18 @@
     .product h3{font-size:19px}
     .product .meta{font-size:13px}
     .product .price{font-size:20px}
+    .story{grid-template-columns:1fr 1fr;height:auto}
+    .story .shell{grid-column:1/-1;display:flex;flex-direction:column}
+    .story .shell img{height:210px}
+    .story .prod{height:270px}
+    .tile .ov{position:static;background:var(--ink);padding:18px 16px}
+    .tile.stud img{padding:16%}
+    .tile .ov p{font-size:14px}
+    .tile .cap{padding:10px;flex-direction:column;gap:0}
+    .tile .cap h3{font-size:17px}
+    .budget .split{grid-template-columns:1fr}
+    .budget .gift-img{min-height:240px}
+    .budget .inner{padding:28px 20px;gap:20px}
     .coupon .pct{font-size:52px}
     .coupon h2{font-size:23px}
     .tier .amt{font-size:27px}
@@ -279,20 +315,49 @@
     </div>
   </section>
 
-  <section class="budget" id="budget">
+  <section class="sec" style="padding-top:0">
     <div class="wrap">
-      <div class="coupon">
-        <div class="pct">25%</div>
-        <div>
-          <h2>Gifts by budget</h2>
-          <p>25% off every gift with your coupon</p>
-          <button class="code" data-code="TIMELESS25">TIMELESS25 ⧉</button>
+      <div class="story">
+        <div class="tile shell">
+          <img src="images/pearl-in-shell.jpg" alt="Hands opening a mussel shell to reveal a natural white pearl" loading="lazy">
+          <div class="ov">
+            <div class="eyebrow">From the shell to you</div>
+            <h2>Selected by hand</h2>
+            <p>Every pearl takes years to form. Only the rare few with mirror-like luster and a flawless surface earn the AAAA grade — and a place in our jewelry.</p>
+          </div>
         </div>
+        <a href="#shop" class="tile prod">
+          <img src="images/eclair-set.jpg" alt="Éclair teardrop pearl pendant and drop earrings set" loading="lazy">
+          <div class="cap"><h3>Éclair Set</h3><div class="price">₪686 <s>₪915</s></div></div>
+        </a>
+        <a href="#shop" class="tile prod stud">
+          <img src="images/solitaire-stud.jpg" alt="Six-prong solitaire stud earring" loading="lazy">
+          <div class="cap"><h3>El Dorado Stud</h3><div class="price">₪671 <s>₪895</s></div></div>
+        </a>
       </div>
-      <div class="tiers">
-        <a href="#shop" class="tier"><small>Under</small><div class="amt">₪250</div><div class="save">From ₪180 with code</div></a>
-        <a href="#shop" class="tier"><small>Under</small><div class="amt">₪350</div><div class="save">From ₪195 with code</div></a>
-        <a href="#shop" class="tier"><small>Under</small><div class="amt">₪600</div><div class="save">From ₪326 with code</div></a>
+    </div>
+  </section>
+
+  <section class="budget" id="budget">
+    <div class="split">
+      <div class="gift-img">
+        <img src="images/gift-box.jpg" alt="Pearl stud earrings presented in an illuminated navy gift box with gold ribbon" loading="lazy">
+        <span>Illuminated gift box included</span>
+      </div>
+      <div class="inner">
+        <div class="coupon">
+          <div class="pct">25%</div>
+          <div>
+            <h2>Gifts by budget</h2>
+            <p>25% off every gift with your coupon</p>
+            <button class="code" data-code="TIMELESS25">TIMELESS25 ⧉</button>
+          </div>
+        </div>
+        <div class="tiers">
+          <a href="#shop" class="tier"><small>Under</small><div class="amt">₪250</div><div class="save">From ₪180 with code</div></a>
+          <a href="#shop" class="tier"><small>Under</small><div class="amt">₪350</div><div class="save">From ₪195 with code</div></a>
+          <a href="#shop" class="tier"><small>Under</small><div class="amt">₪600</div><div class="save">From ₪326 with code</div></a>
+        </div>
       </div>
     </div>
   </section>
