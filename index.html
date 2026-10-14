@@ -7,531 +7,358 @@
 <meta name="description" content="Natural AAAA pearl earrings and necklaces in 925 sterling silver plated with 18k gold, delivered with a Certificate of Authenticity.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#141311; --muted:#504b44; --line:#e9e4da; --bg:#ffffff;
-    --soft:#f8f5ef; --cream:#f3eee5; --gold:#8c6d3a; --gold-l:#d8c39a;
+    --ink:#141311; --muted:#4f4a43; --line:#e7e1d6; --bg:#fff;
+    --soft:#f8f5ef; --cream:#f2ece2; --gold:#8c6d3a; --gold-l:#d8c39a;
     --serif:"Cormorant Garamond",Georgia,serif; --sans:"Jost",system-ui,sans-serif;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:400;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:400;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   a{color:inherit;text-decoration:none}
   img{display:block;max-width:100%}
-  .wrap{max-width:1240px;margin:0 auto;padding:0 24px}
-  .eyebrow{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:600}
-  h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.12}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 20px}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.1}
   em{font-style:italic;color:var(--gold)}
-  .btn{display:inline-block;padding:15px 34px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;border:1.5px solid var(--ink);transition:.35s;font-weight:600;cursor:pointer;background:none;font-family:var(--sans)}
+  .eyebrow{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 34px;font-size:13px;letter-spacing:.2em;text-transform:uppercase;border:2px solid var(--ink);font-weight:600;font-family:var(--sans);cursor:pointer;transition:.3s;background:none;color:var(--ink)}
   .btn.solid{background:var(--ink);color:#fff}
   .btn.solid:hover{background:var(--gold);border-color:var(--gold)}
+  .btn.ghost{background:#fff}
   .btn.ghost:hover{background:var(--ink);color:#fff}
-  .btn.light{border-color:#fff;color:#fff}
-  .btn.light:hover{background:#fff;color:var(--ink)}
-  .rule{width:48px;height:1px;background:var(--gold);margin:20px 0}
-  .center{text-align:center}.center .rule{margin:20px auto}
-  section{padding:110px 0}
-  .reveal{opacity:0;transform:translateY(26px);transition:opacity 1s ease,transform 1s ease}
-  .reveal.in{opacity:1;transform:none}
+  .sec{padding:56px 0}
+  .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:24px}
+  .sec-head h2{font-size:clamp(28px,3.4vw,40px)}
+  .sec-head a{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;border-bottom:1.5px solid var(--ink);padding-bottom:2px;white-space:nowrap}
 
   /* top */
-  .announce{background:var(--ink);color:#fff;text-align:center;font-size:12px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;padding:10px 16px}
-  .announce b{color:var(--gold-l);font-weight:500}
-  header{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-  nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:80px}
-  .logo{font-family:var(--serif);font-size:26px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;text-align:center;line-height:1;white-space:nowrap;color:var(--ink)}
-  .links{display:flex;gap:30px;font-size:12.5px;font-weight:500;letter-spacing:.18em;text-transform:uppercase}
+  .announce{background:var(--ink);color:#fff;text-align:center;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:9px 14px;font-weight:500}
+  .announce b{color:var(--gold-l)}
+  header{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:64px}
+  .logo{font-family:var(--serif);font-size:26px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;white-space:nowrap;text-align:center}
+  .links{display:flex;gap:26px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
   .links.r{justify-content:flex-end}
-  .links a{position:relative;padding:4px 0}
-  .links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:.3s}
-  .links a:hover::after{width:100%}
+  .links a:hover{color:var(--gold)}
 
   /* hero */
-  .hero{background:linear-gradient(180deg,#fff 0%,var(--soft) 100%);overflow:hidden}
-  .hero .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:50px;align-items:center;min-height:calc(100vh - 118px);padding-top:50px;padding-bottom:50px}
-  .hero h1{font-size:clamp(46px,6.2vw,88px);margin:20px 0 24px}
-  .hero p{max-width:460px;color:var(--muted);font-size:17.5px;margin-bottom:36px}
-  .hero .ctas{display:flex;gap:14px;flex-wrap:wrap}
-  .hero .facts{display:flex;gap:34px;margin-top:46px;padding-top:26px;border-top:1px solid var(--line);flex-wrap:wrap}
-  .hero .facts div{font-family:var(--serif);font-size:30px;line-height:1}
-  .hero .facts small{display:block;font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:8px}
-  .hero-visual{position:relative;aspect-ratio:1/1}
-  .hero-visual .main{position:absolute;inset:0 6% 6% 0;background:#fff;box-shadow:0 40px 80px -40px rgba(80,60,30,.28)}
-  .hero-visual .main img{width:100%;height:100%;object-fit:contain}
-  .hero-visual .float{position:absolute;right:0;bottom:0;width:40%;background:#fff;padding:10px;box-shadow:0 30px 60px -28px rgba(80,60,30,.35);animation:bob 8s ease-in-out infinite}
-  .hero-visual .float img{aspect-ratio:1.46/1;object-fit:contain}
-  .hero-visual .badge{position:absolute;left:-18px;top:12%;background:var(--ink);color:#fff;padding:16px 20px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;line-height:1.6}
-  .hero-visual .badge b{display:block;font-family:var(--serif);font-size:22px;letter-spacing:.02em;text-transform:none;font-weight:400;color:var(--gold-l)}
-  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+  .hero-top{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;padding:22px 0 18px}
+  .hero-top h1{font-size:clamp(32px,4.4vw,56px)}
+  .hero-top p{color:var(--muted);font-size:16px;max-width:430px;margin-top:6px}
+  .hero-top .ctas{display:flex;gap:12px;flex-shrink:0}
+  .banner{position:relative;width:100%;aspect-ratio:2239/900;max-height:62vh;overflow:hidden;background:var(--soft)}
+  .banner img{width:100%;height:100%;object-fit:cover;object-position:45% center}
+  .banner .on-img{position:absolute;left:36%;bottom:9%;display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+  .banner .pill{background:#fff;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:7px 14px;box-shadow:0 6px 20px -8px rgba(0,0,0,.25)}
 
-  /* marquee */
-  .marquee{background:var(--ink);color:#efe9de;overflow:hidden;white-space:nowrap;padding:18px 0}
-  .marquee .track{display:inline-flex;animation:scroll 38s linear infinite}
-  .marquee span{font-family:var(--serif);font-weight:500;font-size:21px;font-style:italic;padding:0 28px}
-  .marquee i{color:var(--gold-l);font-style:normal;font-size:12px;align-self:center}
-  @keyframes scroll{to{transform:translateX(-50%)}}
+  /* category shortcuts */
+  .cats{display:flex;gap:14px;overflow-x:auto;padding:22px 0 6px;scrollbar-width:none;justify-content:space-between}
+  .cats::-webkit-scrollbar{display:none}
+  .cat{flex:0 0 auto;width:120px;text-align:center}
+  .cat .c{width:96px;height:96px;border-radius:50%;background:var(--cream);margin:0 auto 8px;overflow:hidden;border:2px solid transparent;transition:.3s}
+  .cat:hover .c{border-color:var(--gold)}
+  .cat img{width:100%;height:100%;object-fit:contain;padding:10px;mix-blend-mode:multiply}
+  .cat span{font-size:13px;font-weight:600;letter-spacing:.04em;line-height:1.3;display:block}
 
-  /* collections */
-  .coll-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:50px;flex-wrap:wrap}
-  .coll-head .num{font-family:var(--serif);font-style:italic;font-size:64px;color:var(--gold);line-height:.8;margin-bottom:12px}
-  .coll-head h2{font-size:clamp(34px,4vw,54px)}
-  .coll-head p{max-width:420px;color:var(--muted)}
-  .products{display:grid;grid-template-columns:1fr 1fr;gap:34px}
-  .product .frame{position:relative;background:var(--soft);aspect-ratio:1/1;overflow:hidden;margin-bottom:22px}
-  .product .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:6%;mix-blend-mode:multiply;transition:opacity .6s ease,transform 1.2s ease}
+  /* trust */
+  .trust{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:22px}
+  .trust div{padding:16px 10px;text-align:center;font-size:13px;font-weight:600;border-right:1px solid var(--line);display:flex;align-items:center;justify-content:center;gap:8px}
+  .trust div:last-child{border-right:0}
+  .trust svg{width:20px;height:20px;stroke:var(--gold);fill:none;stroke-width:1.6;flex-shrink:0}
+
+  /* products */
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .product .frame{position:relative;background:var(--soft);aspect-ratio:1/1;overflow:hidden;margin-bottom:12px}
+  .product .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:6%;mix-blend-mode:multiply;transition:opacity .4s,transform 1s}
   .product:hover .frame img{transform:scale(1.04)}
-  .product .tag{position:absolute;top:18px;left:18px;z-index:2;background:#fff;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;padding:6px 12px}
-  .product .row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
-  .product h3{font-size:27px}
-  .product .meta{font-size:14.5px;color:var(--muted);margin-top:4px;max-width:420px}
-  .product .price{font-family:var(--serif);font-weight:600;font-size:25px;white-space:nowrap}
-  .swatches{display:flex;gap:10px;margin-top:14px;align-items:center;flex-wrap:wrap}
-  .sw{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);background:none;border:1px solid var(--line);padding:6px 12px 6px 7px;cursor:pointer;font-family:var(--sans);transition:.25s}
-  .sw::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
-  .sw.on,.sw:hover{border-color:var(--ink);color:var(--ink)}
-  .alt-bg{background:var(--soft)}
-  .alt-bg .product .frame{background:#fff}
-
-  /* styles */
-  .styles{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-  .style-tile{position:relative;display:block}
-  .style-tile .frame{background:var(--cream);aspect-ratio:3/4;overflow:hidden;position:relative}
-  .style-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:10%;mix-blend-mode:multiply;transition:transform 1.2s ease}
-  .style-tile:hover img{transform:scale(1.07)}
-  .style-tile .label{position:absolute;left:0;right:0;bottom:0;padding:22px;background:linear-gradient(0deg,rgba(255,255,255,.96),rgba(255,255,255,0));text-align:center}
-  .style-tile h3{font-size:26px}
-  .style-tile small{font-weight:600;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold)}
+  .product .tag{position:absolute;top:10px;left:10px;z-index:2;background:var(--ink);color:#fff;font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:4px 9px}
+  .product h3{font-size:22px}
+  .product .meta{font-size:14px;color:var(--muted);margin:2px 0 6px;line-height:1.45}
+  .product .price{font-family:var(--serif);font-weight:700;font-size:22px}
+  .product .price s{font-family:var(--sans);font-size:13px;color:var(--muted);font-weight:400;margin-left:6px}
+  .swatches{display:flex;gap:8px;margin-top:8px}
+  .sw{width:22px;height:22px;border-radius:50%;background:var(--c);border:2px solid #fff;box-shadow:0 0 0 1px #cfc8bb;cursor:pointer}
+  .sw.on{box-shadow:0 0 0 2px var(--ink)}
+  .add{margin-top:10px;width:100%;padding:12px;font-size:12px}
 
   /* budget */
-  .budget{background:var(--ink);color:#f1ece3}
-  .budget .wrap{display:grid;grid-template-columns:1fr 1.25fr;gap:70px;align-items:center}
-  .budget h2{font-size:clamp(34px,4vw,54px);margin:14px 0 18px}
-  .budget p{color:#ddd7cc;max-width:420px}
-  .coupon{margin-top:34px;border:1px dashed var(--gold-l);padding:24px 26px;display:flex;align-items:center;gap:22px;flex-wrap:wrap;max-width:440px}
-  .coupon .pct{font-family:var(--serif);font-size:56px;line-height:.9;color:var(--gold-l)}
-  .coupon .pct small{font-size:18px}
-  .coupon .txt{flex:1;min-width:150px;font-size:13px;font-weight:500;letter-spacing:.06em;color:#ece6db}
-  .coupon .code{display:inline-flex;align-items:center;gap:10px;margin-top:8px;font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:.2em;color:#fff;background:none;border:1px solid #8a8378;padding:6px 12px;cursor:pointer}
-  .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  .tier{border:1px solid #3d3a35;padding:36px 22px;text-align:center;transition:.4s;display:block}
-  .tier:hover{border-color:var(--gold-l);background:#24221f}
-  .tier small{font-size:11px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:#cfc8bc}
-  .tier .amt{font-family:var(--serif);font-size:48px;line-height:1.1;margin:8px 0}
-  .tier .save{font-size:13.5px;font-weight:500;color:var(--gold-l);letter-spacing:.06em}
-  .tier .ex{font-size:13.5px;color:#cfc8bc;margin-top:12px;border-top:1px solid #3d3a35;padding-top:12px}
+  .budget{background:var(--ink);color:#fff}
+  .budget .wrap{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;padding-top:34px;padding-bottom:34px}
+  .coupon{display:flex;align-items:center;gap:18px}
+  .coupon .pct{font-family:var(--serif);font-size:64px;font-weight:700;line-height:.9;color:var(--gold-l)}
+  .coupon h2{font-size:28px}
+  .coupon p{font-size:14px;color:#e2dcd1}
+  .code{margin-top:6px;font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:.18em;color:#fff;background:none;border:1.5px dashed var(--gold-l);padding:6px 12px;cursor:pointer}
+  .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .tier{border:1.5px solid #4a463f;padding:16px 12px;text-align:center;transition:.3s}
+  .tier:hover{border-color:var(--gold-l);background:#22201d}
+  .tier small{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#d4cdc1}
+  .tier .amt{font-family:var(--serif);font-size:34px;font-weight:700;line-height:1.1}
+  .tier .save{font-size:13px;color:var(--gold-l);font-weight:500}
 
-  /* grade */
-  .grade .wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:70px;align-items:center}
-  .grade h2{font-size:clamp(34px,4vw,52px);margin:14px 0 6px}
-  .grade p{color:var(--muted)}
-  table{width:100%;border-collapse:collapse;font-size:14.5px}
-  th,td{padding:16px 12px;text-align:left;border-bottom:1px solid var(--line)}
-  th{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:600}
-  td:first-child{font-family:var(--serif);font-size:19px}
+  /* info accordions */
+  .info{display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
+  details{border-bottom:1px solid var(--line)}
+  summary{list-style:none;cursor:pointer;padding:18px 0;display:flex;justify-content:space-between;align-items:center;font-family:var(--serif);font-size:23px;font-weight:600}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-family:var(--sans);font-size:22px;color:var(--gold);transition:.3s}
+  details[open] summary::after{transform:rotate(45deg)}
+  details .body{padding:0 0 20px;color:var(--muted);font-size:15px}
+  details .body p+p{margin-top:10px}
+  details ul{padding-left:18px}
+  details li{margin-bottom:6px}
+  table{width:100%;border-collapse:collapse;font-size:14px;margin-top:6px}
+  th,td{padding:9px 6px;text-align:left;border-bottom:1px solid var(--line)}
+  th{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--muted)}
+  td:first-child{font-weight:600;color:var(--ink)}
   .hl{background:var(--soft);color:var(--ink);font-weight:600}
-  th.hl{color:var(--gold)}
-  .fine{font-size:12.5px;color:var(--muted);margin-top:14px}
 
-  /* certificate */
-  .cert{background:var(--soft)}
-  .cert .wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-  .cert-doc{background:#fff;padding:14px;box-shadow:0 34px 70px -34px rgba(60,50,30,.3);transform:rotate(-2deg)}
-  .cert-inner{border:1px solid var(--gold);outline:1px solid var(--line);outline-offset:-8px;padding:44px 38px;text-align:center}
-  .seal{width:66px;height:66px;margin:0 auto 16px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;font-family:var(--serif);font-size:24px;color:var(--gold);font-style:italic}
-  .cert-inner h3{font-size:30px}
-  .cert-inner .sub{font-size:10px;letter-spacing:.38em;text-transform:uppercase;color:var(--muted);margin:6px 0 24px}
-  .cert-table{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;text-align:left;border-top:1px solid var(--line);padding-top:20px}
-  .cert-table dt{color:var(--muted);letter-spacing:.12em;text-transform:uppercase;font-size:10.5px;font-weight:500}
-  .cert-table dd{font-family:var(--serif);font-size:17px;margin-bottom:4px}
-  .cert-sign{display:flex;justify-content:space-between;align-items:flex-end;margin-top:28px;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-  .cert-sign i{font-family:var(--serif);font-size:22px;text-transform:none;letter-spacing:0;color:var(--ink);display:block;border-bottom:1px solid var(--line);padding:0 16px 2px;margin-bottom:6px}
-  .cert-copy h2{font-size:clamp(34px,4vw,50px);margin:14px 0 20px}
-  .cert-copy p{color:var(--muted);margin-bottom:24px}
-  .cert-copy ul{list-style:none;margin-bottom:34px}
-  .cert-copy li{padding:12px 0;font-weight:500;border-bottom:1px solid var(--line);display:flex;gap:14px;align-items:baseline}
-  .cert-copy li span{font-family:var(--serif);color:var(--gold);font-size:18px;min-width:26px}
-
-  /* care */
-  .care-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
-  .care-grid > div{padding:38px 30px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .care-grid .n{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:20px}
-  .care-grid h4{font-family:var(--serif);font-weight:600;font-size:24px;margin:6px 0 8px}
-  .care-grid p{font-size:15px;color:var(--muted)}
-
-  /* about */
-  .about{background:var(--cream)}
-  .about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-  .about-img{background:#fff;aspect-ratio:4/5;position:relative}
-  .about-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:8%}
-  .about h2{font-size:clamp(34px,4vw,52px);margin:14px 0 20px}
-  .about p{color:var(--muted);margin-bottom:18px}
-  .about blockquote{font-family:var(--serif);font-style:italic;font-size:26px;line-height:1.35;margin:28px 0 8px;color:var(--ink)}
-  .values{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
-  .values span{font-size:11.5px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;border:1px solid #d9d0c0;padding:7px 14px}
-
-  /* news + footer */
-  .news{text-align:center;border-top:1px solid var(--line)}
-  .news h2{font-size:clamp(32px,4vw,48px);margin:14px 0 10px}
-  .news p{color:var(--muted);margin-bottom:34px}
-  .news form{display:flex;max-width:480px;margin:0 auto;border-bottom:1px solid var(--ink)}
-  .news input{flex:1;background:transparent;border:0;font-family:var(--sans);font-size:14px;padding:14px 4px;outline:none;color:var(--ink)}
-  .news button{background:none;border:0;font-size:12px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;cursor:pointer;font-family:var(--sans);color:var(--ink)}
-  footer{background:var(--ink);color:#d6d0c5;padding:70px 0 36px;font-size:14.5px}
-  .foot{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:40px;margin-bottom:50px}
-  footer .logo{text-align:left;color:#fff}
-  footer h5{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#fff;font-weight:600;margin-bottom:16px}
-  footer a{display:block;margin-bottom:8px}
+  /* footer */
+  footer{background:var(--ink);color:#d6d0c5;padding:40px 0 26px;font-size:14.5px}
+  .foot{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:30px;align-items:start}
+  footer .logo{text-align:left;color:#fff;font-size:22px;margin-bottom:8px}
+  footer h5{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#fff;font-weight:600;margin-bottom:10px}
+  footer a{display:block;margin-bottom:6px}
   footer a:hover{color:#fff}
-  .legal{border-top:1px solid #34312c;padding-top:24px;display:flex;justify-content:space-between;font-size:12.5px;letter-spacing:.08em;flex-wrap:wrap;gap:8px}
+  .news{display:flex;border-bottom:1.5px solid #8a8378;margin-top:10px;max-width:340px}
+  .news input{flex:1;background:none;border:0;color:#fff;font-family:var(--sans);font-size:14.5px;padding:10px 2px;outline:none}
+  .news input::placeholder{color:#a9a296}
+  .news button{background:none;border:0;color:#fff;font-weight:600;font-size:12px;letter-spacing:.2em;cursor:pointer;font-family:var(--sans)}
+  .legal{border-top:1px solid #34312c;margin-top:28px;padding-top:18px;display:flex;justify-content:space-between;font-size:12.5px;gap:8px;flex-wrap:wrap}
 
-  .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,30px);opacity:0;background:var(--ink);color:#fff;padding:12px 22px;font-size:12px;letter-spacing:.1em;transition:.35s;z-index:50;pointer-events:none}
+  .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,30px);opacity:0;background:var(--ink);color:#fff;padding:12px 22px;font-size:13px;font-weight:500;transition:.35s;z-index:50;pointer-events:none;border:1px solid var(--gold-l)}
   .toast.show{opacity:1;transform:translate(-50%,0)}
 
   @media (max-width:980px){
-    nav{grid-template-columns:1fr}
+    nav{grid-template-columns:1fr;height:58px}
     .links{display:none}
-    .hero .wrap{grid-template-columns:1fr;min-height:auto;padding-top:36px;padding-bottom:70px}
-    .hero-visual{max-width:520px;width:100%;margin:0 auto}
-    .hero-visual .badge{left:0}
-    .products{grid-template-columns:1fr}
-    .styles{grid-template-columns:1fr 1fr}
-    .budget .wrap,.grade .wrap,.cert .wrap,.about .wrap{grid-template-columns:1fr;gap:50px}
-    .care-grid{grid-template-columns:1fr 1fr}
-    .foot{grid-template-columns:1fr 1fr}
-    section{padding:80px 0}
+    .grid{grid-template-columns:1fr 1fr;gap:14px}
+    .budget .wrap{grid-template-columns:1fr;gap:20px}
+    .info{grid-template-columns:1fr}
   }
-  @media (max-width:560px){
-    .styles{gap:12px}
-    .style-tile h3{font-size:21px}
+  @media (max-width:640px){
+    .announce{font-size:11px;letter-spacing:.08em;padding:8px 10px}
     .logo{font-size:21px;letter-spacing:.1em}
-    .announce{font-size:11px;letter-spacing:.12em}
-    .product .meta{font-size:15px}
-    .style-tile .label{padding:14px 8px}
-    .tiers{grid-template-columns:1fr}
-    .care-grid{grid-template-columns:1fr}
-    .cert-inner{padding:30px 18px}
-    .cert-table{grid-template-columns:1fr 1fr;gap:8px 14px}
-    .hero .facts{gap:22px}
-    .product h3{font-size:23px}
-    .product .price{font-size:21px}
-    th,td{padding:12px 6px;font-size:12px}
-    td:first-child{font-size:16px}
-    .foot{grid-template-columns:1fr}
+    .hero-top{flex-direction:column;align-items:flex-start;gap:0;padding:14px 0 12px}
+    .hero-top h1{font-size:30px}
+    .hero-top p{font-size:15px}
+    .hero-top .ctas{display:none}
+    .banner{aspect-ratio:auto;height:250px;max-height:none}
+    .banner .on-img{left:50%;transform:translateX(-50%);bottom:14px;align-items:center;width:max-content}
+    .banner .pill{display:none}
+    .banner .btn{padding:14px 30px}
+    .cats{justify-content:flex-start;gap:6px;padding-top:16px}
+    .cat{width:84px}
+    .cat .c{width:70px;height:70px}
+    .cat span{font-size:12px}
+    .trust{grid-template-columns:1fr 1fr;margin-top:14px}
+    .trust div{font-size:12px;padding:11px 6px}
+    .trust div:nth-child(2){border-right:0}
+    .trust div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+    .sec{padding:38px 0}
+    .product h3{font-size:19px}
+    .product .meta{font-size:13px}
+    .product .price{font-size:20px}
+    .coupon .pct{font-size:52px}
+    .coupon h2{font-size:23px}
+    .tier .amt{font-size:27px}
+    .tier .save{font-size:12px}
+    summary{font-size:20px;padding:15px 0}
+    .foot{grid-template-columns:1fr 1fr}
+    .foot > div:first-child{grid-column:1/-1}
   }
 </style>
 </head>
 <body>
 
-<div class="announce"><b>25% off</b> with your coupon &nbsp;·&nbsp; Certificate of Authenticity with every piece &nbsp;·&nbsp; Delivery across Israel</div>
+<div class="announce"><b>25% off</b> with code TIMELESS25 · Certificate of Authenticity with every piece</div>
 
 <header>
   <nav class="wrap">
     <div class="links">
-      <a href="#earrings">Earrings</a>
-      <a href="#necklaces">Necklaces</a>
-      <a href="#styles">Shop by Style</a>
+      <a href="#shop">Earrings</a>
+      <a href="#shop">Necklaces</a>
+      <a href="#styles">By Style</a>
     </div>
     <a href="#" class="logo">Timeless Pearls</a>
     <div class="links r">
       <a href="#budget">Gifts</a>
-      <a href="#certificate">Authenticity</a>
-      <a href="#about">About</a>
+      <a href="#info">Authenticity</a>
+      <a href="#contact">Contact</a>
     </div>
   </nav>
 </header>
 
 <main>
-  <section class="hero" style="padding:0">
-    <div class="wrap">
+  <div class="wrap">
+    <div class="hero-top">
       <div>
         <div class="eyebrow">Natural Pearls · Grade AAAA</div>
-        <h1>Designed to be<br><em>remembered.</em></h1>
-        <p>Natural pearls, grade AAAA, selected just for you — set in 925 sterling silver plated with 18k gold and delivered with their own Certificate of Authenticity.</p>
-        <div class="ctas">
-          <a href="#earrings" class="btn solid">Shop the Collection</a>
-          <a href="#styles" class="btn ghost">Shop by Style</a>
-        </div>
-        <div class="facts">
-          <div>AAAA<small>Grade only</small></div>
-          <div>925<small>Sterling silver</small></div>
-          <div>18k<small>Gold plated</small></div>
-        </div>
+        <h1>Selected <em>just for you.</em></h1>
+        <p>925 sterling silver, plated with 18k gold. Delivered in an illuminated gift box with a Certificate of Authenticity.</p>
       </div>
-      <div class="hero-visual">
-        <div class="main"><img src="images/solaray-set-gold.jpg" alt="Solaray gold pendant and pearl stud earrings set"></div>
-        <div class="badge">Certified<b>Authentic</b></div>
-        <div class="float"><img src="images/estelle-tristar-sapphire.jpg" alt="Estelle Tri-Star pearl studs with sapphire-tone stone"></div>
-      </div>
-    </div>
-  </section>
-
-  <div class="marquee" aria-hidden="true">
-    <div class="track">
-      <span>Natural pearls · grade AAAA</span><i>◆</i><span>Exclusive designs</span><i>◆</i><span>925 sterling silver · 18k gold plated</span><i>◆</i><span>Certificate of Authenticity</span><i>◆</i><span>Illuminated gift box</span><i>◆</i><span>12-month warranty</span><i>◆</i>
-      <span>Natural pearls · grade AAAA</span><i>◆</i><span>Exclusive designs</span><i>◆</i><span>925 sterling silver · 18k gold plated</span><i>◆</i><span>Certificate of Authenticity</span><i>◆</i><span>Illuminated gift box</span><i>◆</i><span>12-month warranty</span><i>◆</i>
     </div>
   </div>
 
-  <!-- 01 Earrings -->
-  <section id="earrings">
+  <div class="banner">
+    <img src="images/banner-wide.jpg" alt="Gold pearl station necklace beside a silver pearl pendant and matching stud earrings on white satin">
+    <div class="on-img">
+      <span class="pill">Natural AAAA pearls</span>
+      <a href="#shop" class="btn solid">Shop Now →</a>
+    </div>
+  </div>
+
+  <div class="wrap" id="styles">
+    <div class="cats">
+      <a href="#shop" class="cat"><div class="c"><img src="images/estelle-tristar-white.jpg" alt=""></div><span>Earrings</span></a>
+      <a href="#shop" class="cat"><div class="c"><img src="images/solar-pendant-gold.jpg" alt=""></div><span>Necklaces</span></a>
+      <a href="#shop" class="cat"><div class="c"><img src="images/solaray-set-gold.jpg" alt=""></div><span>Wedding &amp; Bridal</span></a>
+      <a href="#shop" class="cat"><div class="c"><img src="images/estelle-tristar-sapphire.jpg" alt=""></div><span>Anniversary</span></a>
+      <a href="#shop" class="cat"><div class="c"><img src="images/venus-necklace-gold.jpg" alt=""></div><span>Birthday</span></a>
+      <a href="#shop" class="cat"><div class="c"><img src="images/solaray-set-silver-grey.jpg" alt=""></div><span>Special Occasions</span></a>
+    </div>
+
+    <div class="trust">
+      <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.6 2.6L16 9.6"/></svg>Certified authentic</div>
+      <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="9.5" cy="9.5" r="2"/></svg>AAAA grade only</div>
+      <div><svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="13"/><path d="M3 12h18M12 8v13M8 8c-2-3 2-5 4 0 2-5 6-3 4 0"/></svg>Illuminated gift box</div>
+      <div><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg>12-month warranty</div>
+    </div>
+  </div>
+
+  <section class="sec" id="shop">
     <div class="wrap">
-      <div class="coll-head reveal">
-        <div>
-          <div class="num">01</div>
-          <div class="eyebrow">Collection</div>
-          <h2>Pearl Earrings</h2>
-        </div>
-        <p>Natural pearls, grade AAAA, selected just for you — matched pearl by pearl for size, colour and glow, crowned with brilliant stones.</p>
+      <div class="sec-head">
+        <div><h2>Best sellers</h2><div style="font-size:13px;color:var(--muted);font-weight:500;margin-top:4px">Prices shown with code TIMELESS25</div></div>
+        <a href="#shop">View all</a>
       </div>
-      <div class="products">
-        <article class="product reveal">
-          <div class="frame">
-            <span class="tag">Bridal favourite</span>
-            <img src="images/estelle-tristar-white.jpg" alt="Estelle Tri-Star diamond and pearl stud earrings">
-          </div>
-          <div class="row">
-            <div>
-              <h3>Estelle Tri-Star Stud</h3>
-              <div class="meta">8–9 mm AAAA natural freshwater pearl beneath a three-stone cluster</div>
-            </div>
-            <div class="price">₪435</div>
-          </div>
+      <div class="grid">
+        <article class="product">
+          <div class="frame"><span class="tag">Bridal</span><img src="images/estelle-tristar-white.jpg" alt="Estelle Tri-Star pearl stud earrings"></div>
+          <h3>Estelle Tri-Star Stud</h3>
+          <div class="meta">8–9 mm AAAA natural freshwater pearl, three-stone cluster</div>
+          <div class="price">₪326 <s>₪435</s></div>
           <div class="swatches">
-            <button class="sw on" style="--c:#f2efe9" data-img="images/estelle-tristar-white.jpg">White</button>
-            <button class="sw" style="--c:#24407a" data-img="images/estelle-tristar-sapphire.jpg">White &amp; Sapphire</button>
+            <button class="sw on" style="--c:#f2efe9" data-img="images/estelle-tristar-white.jpg" aria-label="White"></button>
+            <button class="sw" style="--c:#24407a" data-img="images/estelle-tristar-sapphire.jpg" aria-label="White and sapphire"></button>
           </div>
         </article>
-        <article class="product reveal">
-          <div class="frame">
-            <span class="tag">Set</span>
-            <img src="images/solaray-set-gold.jpg" alt="Solaray pendant and earrings set in gold">
-          </div>
-          <div class="row">
-            <div>
-              <h3>Solaray Set</h3>
-              <div class="meta">8–9 mm AAAA natural freshwater studs with a matching teardrop pendant</div>
-            </div>
-            <div class="price">₪795</div>
-          </div>
+        <article class="product">
+          <div class="frame"><span class="tag">Set</span><img src="images/solaray-set-gold.jpg" alt="Solaray pendant and earrings set"></div>
+          <h3>Solaray Set</h3>
+          <div class="meta">8–9 mm AAAA studs with matching teardrop pendant</div>
+          <div class="price">₪596 <s>₪795</s></div>
           <div class="swatches">
-            <button class="sw on" style="--c:#d6b56b" data-img="images/solaray-set-gold.jpg">Gold · White</button>
-            <button class="sw" style="--c:#6d717b" data-img="images/solaray-set-silver-grey.jpg">Silver · Grey</button>
+            <button class="sw on" style="--c:#d6b56b" data-img="images/solaray-set-gold.jpg" aria-label="Gold"></button>
+            <button class="sw" style="--c:#6d717b" data-img="images/solaray-set-silver-grey.jpg" aria-label="Silver grey"></button>
+          </div>
+        </article>
+        <article class="product">
+          <div class="frame"><img src="images/solar-pendant-gold.jpg" alt="Solar teardrop pearl pendant necklace"></div>
+          <h3>Solar Teardrop Pendant</h3>
+          <div class="meta">9–10 mm AAAA natural freshwater teardrop, sparkling halo</div>
+          <div class="price">₪353 <s>₪470</s></div>
+          <div class="swatches">
+            <button class="sw on" style="--c:#d6b56b" data-img="images/solar-pendant-gold.jpg" aria-label="Gold"></button>
+            <button class="sw" style="--c:#6d717b" data-img="images/solar-pendant-silver-grey.jpg" aria-label="Silver grey"></button>
+          </div>
+        </article>
+        <article class="product">
+          <div class="frame"><span class="tag">New</span><img src="images/venus-necklace-gold.jpg" alt="Venus pearl station necklace"></div>
+          <h3>Venus Pearl Necklace</h3>
+          <div class="meta">Seven 8–9 mm AAAA natural freshwater pearls</div>
+          <div class="price">₪653 <s>₪870</s></div>
+          <div class="swatches">
+            <button class="sw on" style="--c:#d6b56b" data-img="images/venus-necklace-gold.jpg" aria-label="Gold"></button>
+            <button class="sw" style="--c:#c9cbd0" data-img="images/venus-set-silver.jpg" aria-label="Silver"></button>
           </div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- 02 Necklaces -->
-  <section id="necklaces" class="alt-bg">
-    <div class="wrap">
-      <div class="coll-head reveal">
-        <div>
-          <div class="num">02</div>
-          <div class="eyebrow">Collection</div>
-          <h2>Pearl Necklaces</h2>
-        </div>
-        <p>Natural pearls, grade AAAA, selected just for you — from a single luminous teardrop to a station of seven.</p>
-      </div>
-      <div class="products">
-        <article class="product reveal">
-          <div class="frame">
-            <img src="images/solar-pendant-gold.jpg" alt="Solar teardrop pearl pendant necklace in gold">
-          </div>
-          <div class="row">
-            <div>
-              <h3>Solar Teardrop Pendant</h3>
-              <div class="meta">9–10 mm AAAA natural freshwater teardrop with a sparkling halo · 48 + 6 cm chain</div>
-            </div>
-            <div class="price">₪470</div>
-          </div>
-          <div class="swatches">
-            <button class="sw on" style="--c:#d6b56b" data-img="images/solar-pendant-gold.jpg">Gold · White</button>
-            <button class="sw" style="--c:#6d717b" data-img="images/solar-pendant-silver-grey.jpg">Silver · Grey</button>
-          </div>
-        </article>
-        <article class="product reveal">
-          <div class="frame">
-            <span class="tag">New</span>
-            <img src="images/venus-necklace-gold.jpg" alt="Venus pearl station necklace in gold">
-          </div>
-          <div class="row">
-            <div>
-              <h3>Venus Pearl Necklace</h3>
-              <div class="meta">Seven 8–9 mm AAAA natural freshwater pearls on a fine station chain</div>
-            </div>
-            <div class="price">₪870</div>
-          </div>
-          <div class="swatches">
-            <button class="sw on" style="--c:#d6b56b" data-img="images/venus-necklace-gold.jpg">18k Gold</button>
-            <button class="sw" style="--c:#c9cbd0" data-img="images/venus-set-silver.jpg">Sterling Silver</button>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- 03 By style -->
-  <section id="styles">
-    <div class="wrap">
-      <div class="coll-head reveal">
-        <div>
-          <div class="num">03</div>
-          <div class="eyebrow">Collections by Style</div>
-          <h2>A pearl for every moment</h2>
-        </div>
-        <p>Jewelry is a memory you can wear. Find the piece that marks yours.</p>
-      </div>
-      <div class="styles">
-        <a href="#" class="style-tile reveal"><div class="frame"><img src="images/estelle-tristar-white.jpg" alt=""><div class="label"><small>Collection</small><h3>Wedding &amp; Bridal</h3></div></div></a>
-        <a href="#" class="style-tile reveal"><div class="frame"><img src="images/estelle-tristar-sapphire.jpg" alt=""><div class="label"><small>Collection</small><h3>Anniversary</h3></div></div></a>
-        <a href="#" class="style-tile reveal"><div class="frame"><img src="images/solar-pendant-gold.jpg" alt=""><div class="label"><small>Collection</small><h3>Birthday</h3></div></div></a>
-        <a href="#" class="style-tile reveal"><div class="frame"><img src="images/solaray-set-silver-grey.jpg" alt=""><div class="label"><small>Collection</small><h3>Special Occasions</h3></div></div></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Budget + coupon -->
   <section class="budget" id="budget">
     <div class="wrap">
-      <div class="reveal">
-        <div class="eyebrow">Gifts by Budget</div>
-        <h2>The perfect gift, <em>now 25% off</em></h2>
-        <p>Every gift arrives ready to give in our illuminated gift box. Apply your coupon at checkout and save 25% on any budget.</p>
-        <div class="coupon">
-          <div class="pct">25<small>%</small></div>
-          <div class="txt">OFF YOUR ORDER<br><button class="code" data-code="TIMELESS25">TIMELESS25 <span>⧉</span></button></div>
+      <div class="coupon">
+        <div class="pct">25%</div>
+        <div>
+          <h2>Gifts by budget</h2>
+          <p>25% off every gift with your coupon</p>
+          <button class="code" data-code="TIMELESS25">TIMELESS25 ⧉</button>
         </div>
       </div>
-      <div class="tiers reveal">
-        <a href="#" class="tier"><small>Under</small><div class="amt">₪250</div><div class="save">From ₪180 with coupon</div><div class="ex">Petite pearl studs</div></a>
-        <a href="#" class="tier"><small>Under</small><div class="amt">₪350</div><div class="save">From ₪195 with coupon</div><div class="ex">Pearl drops &amp; studs</div></a>
-        <a href="#" class="tier"><small>Under</small><div class="amt">₪600</div><div class="save">From ₪326 with coupon</div><div class="ex">Pendants &amp; Tri-Star studs</div></a>
+      <div class="tiers">
+        <a href="#shop" class="tier"><small>Under</small><div class="amt">₪250</div><div class="save">From ₪180 with code</div></a>
+        <a href="#shop" class="tier"><small>Under</small><div class="amt">₪350</div><div class="save">From ₪195 with code</div></a>
+        <a href="#shop" class="tier"><small>Under</small><div class="amt">₪600</div><div class="save">From ₪326 with code</div></a>
       </div>
     </div>
   </section>
 
-  <!-- Grade -->
-  <section class="grade" id="quality">
-    <div class="wrap">
-      <div class="reveal">
-        <div class="eyebrow">What AAAA Really Means</div>
-        <h2>Only the top grade</h2>
-        <div class="rule"></div>
-        <p>Pearls are graded from A to AAAA. We set only AAAA: a deep, mirror-like luster, a virtually flawless surface, round from every angle, and earrings paired pearl by pearl.</p>
-      </div>
-      <div class="reveal">
-        <table>
-          <thead><tr><th></th><th class="hl">AAAA · Ours</th><th>AAA</th><th>AA</th><th>A</th></tr></thead>
-          <tbody>
-            <tr><td>Luster</td><td class="hl">Mirror-like</td><td>Very high</td><td>Medium</td><td>Low, chalky</td></tr>
-            <tr><td>Surface</td><td class="hl">Virtually flawless</td><td>Very few marks</td><td>Some marks</td><td>Many marks</td></tr>
-            <tr><td>Shape</td><td class="hl">Round</td><td>Near round</td><td>Slightly off</td><td>Often off</td></tr>
-          </tbody>
-        </table>
-        <div class="fine">Grading standards vary between suppliers; this table is a general guide.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Certificate -->
-  <section class="cert" id="certificate">
-    <div class="wrap">
-      <div class="cert-doc reveal" aria-label="Sample Certificate of Authenticity">
-        <div class="cert-inner">
-          <div class="seal">TP</div>
-          <h3>Certificate of Authenticity</h3>
-          <div class="sub">Timeless Pearls · No. TP-000184</div>
-          <dl class="cert-table">
-            <div><dt>Pearl</dt><dd>Natural Freshwater</dd></div>
-            <div><dt>Grade</dt><dd>AAAA</dd></div>
-            <div><dt>Size</dt><dd>8 – 9 mm</dd></div>
-            <div><dt>Shape</dt><dd>Round</dd></div>
-            <div><dt>Metal</dt><dd>925 Sterling Silver</dd></div>
-            <div><dt>Finish</dt><dd>18k Gold Plated</dd></div>
-          </dl>
-          <div class="cert-sign">
-            <div><i>Timeless Pearls</i>Authorised signature</div>
-            <div style="text-align:right">Sample<br>certificate</div>
+  <section class="sec" id="info">
+    <div class="wrap info">
+      <div>
+        <details open>
+          <summary>Certificate of Authenticity</summary>
+          <div class="body">
+            <p>Every piece ships with its own numbered Certificate of Authenticity recording the pearl type, grade and size, plus the metal and finish — so it can be insured, appraised and passed down with confidence.</p>
+            <p>Every piece is also covered by a 12-month warranty against manufacturing defects in clasps, settings and craftsmanship.</p>
           </div>
-        </div>
+        </details>
+        <details>
+          <summary>What AAAA really means</summary>
+          <div class="body">
+            <p>Pearls are graded A to AAAA. We set only AAAA.</p>
+            <table>
+              <tr><th></th><th class="hl">AAAA</th><th>AAA</th><th>AA</th><th>A</th></tr>
+              <tr><td>Luster</td><td class="hl">Mirror-like</td><td>Very high</td><td>Medium</td><td>Low</td></tr>
+              <tr><td>Surface</td><td class="hl">Flawless</td><td>Few marks</td><td>Some</td><td>Many</td></tr>
+              <tr><td>Shape</td><td class="hl">Round</td><td>Near round</td><td>Off-round</td><td>Often off</td></tr>
+            </table>
+          </div>
+        </details>
       </div>
-      <div class="cert-copy reveal">
-        <div class="eyebrow">Our Promise</div>
-        <h2>Authenticity you can hold in your hand</h2>
-        <p>Every piece ships with its own Certificate of Authenticity, recording exactly what you own — and is protected by our 12-month warranty against manufacturing defects.</p>
-        <ul>
-          <li><span>i.</span>Pearl type, grade and size</li>
-          <li><span>ii.</span>Metal and finish specification</li>
-          <li><span>iii.</span>A unique certificate number</li>
-          <li><span>iv.</span>12-month warranty on clasps, settings and craftsmanship</li>
-        </ul>
-        <a href="#earrings" class="btn solid">Shop Certified Pearls</a>
+      <div>
+        <details>
+          <summary>Pearl care</summary>
+          <div class="body">
+            <ul>
+              <li>Put pearls on after perfume, makeup and lotion; take them off first.</li>
+              <li>Wipe with a soft, lint-free cloth. No ultrasonic or harsh cleaners.</li>
+              <li>Store in the gift box or a soft pouch, away from harder jewelry.</li>
+              <li>Remove before swimming, showering, exercise and sleep.</li>
+              <li>Keep away from long sun, saunas and high heat.</li>
+            </ul>
+          </div>
+        </details>
+        <details>
+          <summary>About us</summary>
+          <div class="body">
+            <p>A family-founded atelier creating natural pearl jewelry that pairs fine craftsmanship with contemporary design — luxury within reach. Each piece is made for life's meaningful moments, and arrives gift-ready in an illuminated box worth keeping.</p>
+          </div>
+        </details>
       </div>
-    </div>
-  </section>
-
-  <!-- Care -->
-  <section id="care">
-    <div class="wrap">
-      <div class="center reveal" style="max-width:620px;margin:0 auto 60px">
-        <div class="eyebrow">Pearl Care</div>
-        <h2 style="font-size:clamp(34px,4vw,52px);margin-top:14px">Made to last for generations</h2>
-        <div class="rule"></div>
-        <p style="color:var(--muted)">Pearls are organic gems. A little care keeps their glow for decades.</p>
-      </div>
-      <div class="care-grid reveal">
-        <div><div class="n">01</div><h4>Last on, first off</h4><p>Put pearls on after perfume, hairspray, makeup and lotion — and take them off first.</p></div>
-        <div><div class="n">02</div><h4>Wear them often</h4><p>A little natural skin moisture helps keep their luster alive.</p></div>
-        <div><div class="n">03</div><h4>Wipe gently</h4><p>Use a soft, lint-free cloth, lightly dampened if needed. No ultrasonic or harsh cleaners.</p></div>
-        <div><div class="n">04</div><h4>Store apart</h4><p>Keep them in their gift box or a soft pouch, away from harder jewelry.</p></div>
-        <div><div class="n">05</div><h4>Avoid water</h4><p>Remove before swimming, hot tubs or long showers — chlorine and soap dull the surface.</p></div>
-        <div><div class="n">06</div><h4>Keep them cool</h4><p>Protect from long sun, saunas and high heat, which can dry pearls out.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section class="about" id="about">
-    <div class="wrap">
-      <div class="about-img reveal"><img src="images/venus-set-silver.jpg" alt="Venus pearl necklace and studs in sterling silver"></div>
-      <div class="reveal">
-        <div class="eyebrow">About Us</div>
-        <h2>True elegance is <em>timeless</em></h2>
-        <p>We are a family-founded atelier creating natural pearl jewelry that pairs fine craftsmanship with contemporary design — luxury that stays within reach.</p>
-        <p>Each piece is made to mark life's meaningful moments: a wedding, an anniversary, a milestone birthday. And because the unboxing should feel as special as the jewelry, every order arrives gift-ready in an illuminated box worth keeping.</p>
-        <blockquote>“Creating timeless pearl jewelry that turns everyday elegance into lasting memories.”</blockquote>
-        <div class="values"><span>Authenticity</span><span>Craftsmanship</span><span>Timeless style</span><span>Accessible luxury</span><span>Personal care</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="news" id="contact">
-    <div class="wrap reveal">
-      <div class="eyebrow">The Timeless Circle</div>
-      <h2>Private offers &amp; new arrivals</h2>
-      <p>Early access to new collections, member offers and pearl care tips.</p>
-      <form onsubmit="event.preventDefault();this.querySelector('button').textContent='Welcome';this.querySelector('input').value='';">
-        <input type="email" placeholder="Your email address" required aria-label="Email address">
-        <button type="submit">Join</button>
-      </form>
     </div>
   </section>
 </main>
 
-<footer>
+<footer id="contact">
   <div class="wrap">
     <div class="foot">
       <div>
-        <div class="logo" style="margin-bottom:18px">Timeless Pearls</div>
-        <p style="max-width:280px">Natural pearls, grade AAAA, in 925 sterling silver, plated with 18k gold. Certified authentic.</p>
+        <div class="logo">Timeless Pearls</div>
+        <p>Private offers &amp; new arrivals</p>
+        <form class="news" onsubmit="event.preventDefault();this.querySelector('button').textContent='WELCOME';this.querySelector('input').value='';">
+          <input type="email" placeholder="Your email address" required aria-label="Email address">
+          <button type="submit">JOIN</button>
+        </form>
       </div>
-      <div><h5>Shop</h5><a href="#earrings">Pearl Earrings</a><a href="#necklaces">Pearl Necklaces</a><a href="#styles">Bridal</a><a href="#styles">Anniversary</a><a href="#styles">Birthday</a><a href="#budget">Gifts by Budget</a></div>
-      <div><h5>Help</h5><a href="#certificate">Certificate &amp; Warranty</a><a href="#care">Pearl Care</a><a href="#quality">Pearl Grading</a><a href="#about">About Us</a></div>
-      <div><h5>Contact</h5><a href="tel:+972586389000">+972-58-638-9000</a><a href="mailto:asher@maisonperle.store">asher@maisonperle.store</a><p>Mon–Sat · 10:00–19:00</p></div>
+      <div><h5>Shop</h5><a href="#shop">Earrings</a><a href="#shop">Necklaces</a><a href="#styles">By Style</a><a href="#budget">Gifts</a></div>
+      <div><h5>Contact</h5><a href="tel:+972586389000">+972-58-638-9000</a><a href="mailto:asher@maisonperle.store">asher@maisonperle.store</a><span>Mon–Sat · 10:00–19:00</span></div>
     </div>
-    <div class="legal"><span>© <span id="yr"></span> Timeless Pearls. All rights reserved.</span><span>timelesspearls.shop</span></div>
+    <div class="legal"><span>© <span id="yr"></span> Timeless Pearls</span><span>timelesspearls.shop</span></div>
   </div>
 </footer>
 
@@ -539,21 +366,16 @@
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
-
-  // colour swatches swap the product photo
   document.querySelectorAll('.product').forEach(function(p){
     var img = p.querySelector('.frame img');
     p.querySelectorAll('.sw').forEach(function(b){
       b.addEventListener('click', function(){
         p.querySelectorAll('.sw').forEach(function(x){ x.classList.remove('on'); });
-        b.classList.add('on');
-        img.style.opacity = 0;
-        setTimeout(function(){ img.src = b.dataset.img; img.onload = function(){ img.style.opacity = 1; }; }, 250);
+        b.classList.add('on'); img.style.opacity = 0;
+        setTimeout(function(){ img.src = b.dataset.img; img.onload = function(){ img.style.opacity = 1; }; }, 200);
       });
     });
   });
-
-  // copy coupon
   var toast = document.getElementById('toast');
   document.querySelectorAll('[data-code]').forEach(function(b){
     b.addEventListener('click', function(){
@@ -561,10 +383,6 @@
       toast.classList.add('show'); setTimeout(function(){ toast.classList.remove('show'); }, 2200);
     });
   });
-
-  // reveal on scroll
-  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:.12});
-  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
 </script>
 </body>
 </html>
