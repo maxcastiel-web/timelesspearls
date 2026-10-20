@@ -43,6 +43,35 @@
   .links.r{justify-content:flex-end}
   .links a:hover{color:var(--gold)}
 
+
+  /* header (mockup) */
+  header{height:auto}
+  nav.top{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;height:88px}
+  .brand{display:flex;flex-direction:column;align-items:center;line-height:1;color:#3b2a1c}
+  .brand img{display:block;height:68px;width:auto}
+  .brand .bn{font-family:"Cinzel",Georgia,serif;font-weight:700;font-size:24px;letter-spacing:.2em;white-space:nowrap}
+  .brand .bs{display:flex;align-items:center;gap:8px;font-family:"Cinzel",Georgia,serif;font-size:11px;letter-spacing:.4em;color:var(--gold);margin-top:5px}
+  .brand .bs::before,.brand .bs::after{content:"";width:34px;height:1px;background:var(--gold-l)}
+  .menu{display:flex;justify-content:flex-end;gap:30px;font-family:var(--serif);font-size:18px;font-weight:600}
+  .menu a{padding:4px 0;border-bottom:2px solid transparent;color:#3b2a1c}
+  .menu a.on,.menu a:hover{border-color:var(--gold)}
+  .icons{display:flex;gap:18px;align-items:center}
+  .icons a{display:flex;color:#3b2a1c}
+  .icons svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6}
+
+  /* hero (mockup) */
+  .hero2{position:relative;background:#f4eee7;min-height:clamp(560px,80vh,760px);display:flex;align-items:center;overflow:hidden}
+  .hero2 picture img{position:absolute;right:0;top:0;height:100%;width:min(64%,940px);object-fit:cover;object-position:60% 75%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 22%);mask-image:linear-gradient(90deg,transparent 0,#000 22%)}
+  .hero2 > .wrap{width:100%}
+  .hero2 .copy{position:relative;z-index:2;max-width:520px;padding:48px 0}
+  .hero2 .eyebrow{margin-bottom:14px}
+  .hero2 h1{font-family:var(--serif);font-size:clamp(58px,7.2vw,108px);font-weight:600;line-height:.92;color:#3b2a1c;letter-spacing:-.01em}
+  .hero2 .rule2{width:110px;height:2px;background:#3b2a1c;margin:26px 0 22px}
+  .hero2 .tag{font-family:var(--serif);font-size:clamp(18px,1.8vw,24px);font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#3b2a1c;line-height:1.35}
+  .hero2 .lead{font-family:var(--serif);font-size:20px;font-weight:500;color:#4a3a2c;margin:18px 0 28px;line-height:1.45}
+  .btn.gold{background:linear-gradient(180deg,#a67c4b,#8a6236);border:0;color:#fff;font-family:var(--serif);font-size:17px;letter-spacing:.16em;padding:17px 34px;border-radius:2px;box-shadow:0 10px 24px -14px rgba(90,60,25,.7)}
+  .btn.gold:hover{filter:brightness(1.08)}
+  .hero2 .trustline{margin-top:18px;font-size:13px;font-weight:500;color:#5a4a3a;letter-spacing:.04em}
   /* hero */
   .hero-top{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;padding:22px 0 18px}
   .hero-top h1{font-size:clamp(32px,4.4vw,56px)}
@@ -191,6 +220,23 @@
   @media (max-width:640px){
     .announce{font-size:11px;letter-spacing:.08em;padding:8px 10px}
     .logo{font-size:19px;letter-spacing:.2em}
+    nav.top{grid-template-columns:1fr auto;height:72px}
+    .menu{display:none}
+    .brand .bn{font-size:17px;letter-spacing:.14em}
+    .brand .bs{font-size:9px}
+    .brand .bs::before,.brand .bs::after{width:20px}
+    .brand img{height:50px}
+    .icons{gap:12px}
+    .icons svg{width:22px;height:22px}
+    .hero2{flex-direction:column;align-items:stretch;min-height:0}
+    .hero2 .copy{padding:22px 0 20px}
+    .hero2 > .wrap{order:-1}
+    .hero2 .tag{font-size:16px;letter-spacing:.08em}
+    .hero2 h1{font-size:54px}
+    .hero2 picture img{position:static;width:100%;height:auto;-webkit-mask-image:none;mask-image:none}
+    .hero2 .lead{font-size:17px;margin:12px 0 20px}
+    .hero2 .rule2{margin:18px 0 14px}
+
     .hero-top{flex-direction:column;align-items:flex-start;gap:0;padding:14px 0 12px}
     .hero-top h1{font-size:30px}
     .hero-top p{font-size:15px}
@@ -243,39 +289,41 @@
 <div class="announce"><b>25% off</b> with code TIMELESS25 · <b>Free delivery</b> over ₪650</div>
 
 <header>
-  <nav class="wrap">
-    <div class="links">
-      <a href="#earrings" data-filter="earrings">Earrings</a>
-      <a href="#necklaces" data-filter="necklaces">Necklaces</a>
-      <a href="#styles">By Style</a>
-    </div>
-    <a href="#" class="logo">Timeless Pearls</a>
-    <div class="links r">
-      <a href="#budget">Gifts</a>
-      <a href="#info">Authenticity</a>
+  <nav class="wrap top">
+    <a href="#" class="brand" aria-label="Timeless Pearls home"><img src="images/logo-timeless-pearls.png" alt="Timeless Pearls .shop" width="182" height="68"></a>
+    <div class="menu">
+      <a href="#" class="on">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#info" data-open="about">Our Story</a>
+      <a href="#info" data-open="care">Pearl Care</a>
       <a href="#contact">Contact</a>
+    </div>
+    <div class="icons">
+      <a href="#shop" aria-label="Search the collection"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg></a>
+      <a href="https://maisonperle.store/account" aria-label="My account"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></a>
+      <a href="https://maisonperle.store/cart" aria-label="Cart"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></a>
     </div>
   </nav>
 </header>
 
 <main>
-  <div class="wrap">
-    <div class="hero-top">
-      <div>
+  <section class="hero2">
+    <picture>
+      <source media="(max-width:640px)" srcset="images/hero-satin-mobile.jpg">
+      <img src="images/hero-satin.jpg" alt="Pearl lariat necklace on a bust, pearl drop earrings and a pearl pendant set on cream marble and white satin">
+    </picture>
+    <div class="wrap">
+      <div class="copy">
         <div class="eyebrow">Natural Pearls · Grade AAAA</div>
-        <h1>Selected <em>just for you.</em></h1>
-        <p>925 sterling silver, plated with 18k gold. Delivered in an illuminated gift box with a Certificate of Authenticity.</p>
+        <h1>Timeless<br>Pearls</h1>
+        <div class="rule2"></div>
+        <div class="tag">Natural AAAA pearl jewelry<br>for every lasting moment</div>
+        <p class="lead">Classic. Modern. Forever yours.<br>Exquisite pearl jewelry that celebrates life's most meaningful moments, selected just for you.</p>
+        <a href="#shop" class="btn gold">Shop the Collection ›</a>
+        <div class="trustline">Certificate of Authenticity · Illuminated gift box · 12-month warranty</div>
       </div>
     </div>
-  </div>
-
-  <div class="banner">
-    <img src="images/banner-wide.jpg" alt="Gold pearl station necklace beside a silver pearl pendant and matching stud earrings on white satin">
-    <div class="on-img">
-      <span class="pill">Natural AAAA pearls</span>
-      <a href="#shop" class="btn solid">Shop Now →</a>
-    </div>
-  </div>
+  </section>
 
   <div class="wrap" id="styles">
     <div class="cats">
@@ -590,6 +638,7 @@
       window.location.href = url;
     });
   });
+  document.querySelectorAll('[data-open]').forEach(function(a){ a.addEventListener('click',function(){ var t=a.dataset.open==='care'?'Pearl care':'About us'; document.querySelectorAll('#info summary').forEach(function(sm){ if(sm.textContent.trim()===t) sm.parentNode.open=true; }); }); });
 </script>
 </body>
 </html>
