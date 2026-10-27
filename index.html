@@ -124,6 +124,14 @@
   .product[hidden]{display:none}
   .grid.f-necklaces .product[data-cat~="sets"]{order:2}
   .product,.story > *{min-width:0}
+  .mtab{margin-top:8px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .mtab summary{list-style:none;cursor:pointer;padding:9px 2px;font-family:var(--sans);color:var(--ink);font-size:13px;font-weight:600;display:flex;justify-content:space-between}
+  .mtab summary::-webkit-details-marker{display:none}
+  .mtab summary::after{content:"+";font-size:17px}
+  .mtab[open] summary::after{content:"–"}
+  .mbody{font-size:13.5px;line-height:1.55;color:var(--muted);padding:0 2px 10px}
+  .mbody strong{display:block;color:var(--ink);font-family:var(--serif);font-size:18px;margin-bottom:4px}
+  .mbody p{margin:0 0 6px}
   .ctab{margin-top:8px;border:1.5px dashed var(--gold);background:#fffdf8}
   .ctab summary{list-style:none;cursor:pointer;padding:10px 12px;font-family:var(--sans);font-size:13px;font-weight:600;color:var(--gold);display:flex;justify-content:space-between;align-items:center;gap:8px;line-height:1.3}
   .ctab summary::-webkit-details-marker{display:none}
@@ -356,6 +364,7 @@
         <button data-f="earrings">Earrings</button>
         <button data-f="necklaces">Necklaces</button>
         <button data-f="sets">Sets</button>
+        <button data-f="moissanite">Moissanite</button>
         <button data-f="all">View All</button>
       </div>
       <div class="grid">
@@ -442,10 +451,13 @@
             <div class="cmsg" role="status"></div>
           </details>
         </article>
-        <article class="product" data-variant="67710415339705" data-cat="earrings" hidden>
+        <article class="product" data-variant="67710415339705" data-cat="earrings moissanite" hidden>
           <div class="frame"><img src="images/solitaire-stud.jpg" alt="El Dorado six-prong solitaire stud earring" style="padding:18%"></div>
           <h3>El Dorado Stud</h3>
-          <div class="meta">Six-prong solitaire studs in 925 sterling silver</div>
+          <div class="meta">1 ct lab-grown moissanite each side · six-prong 925 sterling silver</div>
+          <details class="mtab"><summary>What is moissanite?</summary>
+            <div class="mbody"><strong>The Extraordinary Brilliance of Moissanite</strong><p>Discover the exceptional sparkle of laboratory-grown moissanite, a luxurious gemstone celebrated for its remarkable brilliance, fire, and durability.</p><p>With a hardness of 9.25 on the Mohs scale and an extraordinary ability to reflect light, moissanite offers dazzling beauty and lasting elegance.</p><p>At Timeless Pearls, we pair brilliant moissanite gemstones with genuine pearls to create timeless jewelry of exceptional beauty and value.</p></div>
+          </details>
           <div class="price" data-price="895">₪895</div>
           <button class="btn solid add" type="button">Add to Cart</button>
           <details class="ctab"><summary>Enter discount coupon for best price</summary>
@@ -817,10 +829,13 @@
             <div class="cmsg" role="status"></div>
           </details>
         </article>
-        <article class="product" data-variant="67710415405241" data-cat="earrings" hidden>
+        <article class="product" data-variant="67710415405241" data-cat="earrings moissanite" hidden>
           <div class="frame"><img src="https://cdn.shopify.com/s/files/1/0791/6050/8601/files/Silveradofrontview.jpg?v=1791924685&amp;width=700" alt="Silverado moissanite dangle earrings, 1 ct each, sterling silver hooks" loading="lazy"></div>
           <h3>Silverado Dangle</h3>
-          <div class="meta">1 ct moissanite each side, sterling silver hooks</div>
+          <div class="meta">1 ct lab-grown moissanite each side · sterling silver hooks</div>
+          <details class="mtab"><summary>What is moissanite?</summary>
+            <div class="mbody"><strong>The Extraordinary Brilliance of Moissanite</strong><p>Discover the exceptional sparkle of laboratory-grown moissanite, a luxurious gemstone celebrated for its remarkable brilliance, fire, and durability.</p><p>With a hardness of 9.25 on the Mohs scale and an extraordinary ability to reflect light, moissanite offers dazzling beauty and lasting elegance.</p><p>At Timeless Pearls, we pair brilliant moissanite gemstones with genuine pearls to create timeless jewelry of exceptional beauty and value.</p></div>
+          </details>
           <div class="price" data-price="795">₪795</div>
           <button class="btn solid add" type="button">Add to Cart</button>
           <details class="ctab"><summary>Enter discount coupon for best price</summary>
@@ -922,6 +937,16 @@
               <li>Orders can be cancelled free within 24 hours if not yet shipped; unused items can be returned within 5 days of delivery.</li>
             </ul>
             <p>Questions? Customer assistance with Asher: <a href="tel:+972586380993" style="text-decoration:underline">+972-58-638-0993</a> or <a href="tel:+972586389000" style="text-decoration:underline">058-638-9000</a> · <a href="mailto:asher@maisonperle.store?subject=Timeless%20Pearls%20enquiry" style="text-decoration:underline">Email Timeless Pearls</a></p>
+          </div>
+        </details>
+        <details>
+          <summary>What is moissanite?</summary>
+          <div class="body">
+            <p><strong>The Extraordinary Brilliance of Moissanite</strong></p>
+            <p>Discover the exceptional sparkle of laboratory-grown moissanite, a luxurious gemstone celebrated for its remarkable brilliance, fire, and durability.</p>
+            <p>With a hardness of 9.25 on the Mohs scale and an extraordinary ability to reflect light, moissanite offers dazzling beauty and lasting elegance.</p>
+            <p>At Timeless Pearls, we pair brilliant moissanite gemstones with genuine pearls to create timeless jewelry of exceptional beauty and value.</p>
+            <p><a href="#shop" data-filter="moissanite" style="text-decoration:underline">Shop moissanite jewelry</a></p>
           </div>
         </details>
         <details>
@@ -1029,7 +1054,7 @@
       });
     });
   });
-  var TITLES={best:'Best sellers',earrings:'Earrings',necklaces:'Necklaces',sets:'Sets',all:'All jewelry'};
+  var TITLES={best:'Best sellers',earrings:'Earrings',necklaces:'Necklaces',sets:'Sets',moissanite:'Moissanite',all:'All jewelry'};
   function showCat(f){
     document.querySelectorAll('.ftabs button').forEach(function(b){b.classList.toggle('on',b.dataset.f===f);});
     document.querySelectorAll('#shop .grid .product').forEach(function(p){
