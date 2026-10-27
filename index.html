@@ -289,7 +289,7 @@
 </head>
 <body>
 
-<div class="announce"><b>25% off</b> with code TIMELESS25 · <b>Free delivery</b> over ₪650</div>
+<div class="announce"><b>25% off</b> with your partner code · <b>Free delivery</b> over ₪650</div>
 
 <header>
   <nav class="wrap top">
@@ -349,7 +349,7 @@
   <section class="sec" id="shop">
     <div class="wrap">
       <div class="sec-head">
-        <div><h2 id="shop-title">Best sellers</h2><div style="font-size:13px;color:var(--muted);font-weight:500;margin-top:4px">Enter coupon TIMELESS25 on any piece for 25% off</div></div>
+        <div><h2 id="shop-title">Best sellers</h2><div style="font-size:13px;color:var(--muted);font-weight:500;margin-top:4px">Have a partner code? Enter it on any piece for 25% off</div></div>
       </div>
       <div class="ftabs" role="tablist">
         <button data-f="best" class="on">Best Sellers</button>
@@ -876,8 +876,7 @@
           <div class="pct">25%</div>
           <div>
             <h2>Gifts by budget</h2>
-            <p>25% off every gift with your coupon</p>
-            <button class="code" data-code="TIMELESS25">TIMELESS25 ⧉</button>
+            <p>25% off every gift with your partner coupon code</p>
           </div>
         </div>
         <div class="tiers">
@@ -966,7 +965,7 @@
   </div>
 </footer>
 
-<div class="toast" id="toast">Code copied — 25% off at checkout</div>
+<div class="toast" id="toast"></div>
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
@@ -988,24 +987,26 @@
     });
   });
   // add to cart + coupon tabs
-  var CODES={'TIMELESS25':.25,'OLIM25':.25,'LATINOS25':.25}, applied=null;
+  var KNOWN=['1e2ae35fdd5abd32','18b3ee22375a390e','329f54bdc51136de','f3202f364db8e812','b2ee850f70b0f87c','9623e4166c4cdac9','46affe5656ef8606','76076e5f09fe20e5','29a10bbce6f7885d','d1eeabbc2f4429f8','581b4c08756df8fb','1ceb8e184b548600'], applied=null, rate=0;
+  function h16(s){return crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)).then(function(b){return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,'0');}).join('').slice(0,16);});}
   function fmt(n){return '₪'+Math.round(n).toLocaleString('en-US');}
   function applyAll(){
     document.querySelectorAll('.price[data-price]').forEach(function(el){
       var full=+el.dataset.price;
-      if(applied){el.innerHTML='<ins>'+fmt(full*(1-CODES[applied]))+'</ins> <s>'+fmt(full)+'</s>';el.classList.add('disc');}
+      if(applied&&rate){el.innerHTML='<ins>'+fmt(full*(1-rate))+'</ins> <s>'+fmt(full)+'</s>';el.classList.add('disc');}
       else{el.textContent=fmt(full);el.classList.remove('disc');}
     });
     document.querySelectorAll('.ctab').forEach(function(t){
-      if(applied){t.querySelector('input').value=applied;var m=t.querySelector('.cmsg');m.className='cmsg ok';m.textContent='✓ '+applied+' applied — 25% off';}
+      if(applied){t.querySelector('input').value=applied;var m=t.querySelector('.cmsg');m.className='cmsg ok';m.textContent=rate?'✓ '+applied+' applied — 25% off':'✓ '+applied+' saved — your discount is applied at checkout';}
     });
   }
   document.querySelectorAll('.cform').forEach(function(f){
     f.addEventListener('submit',function(e){
       e.preventDefault();
       var code=f.querySelector('input').value.trim().toUpperCase(), m=f.parentNode.querySelector('.cmsg');
-      if(CODES[code]){applied=code;applyAll();}
-      else{m.className='cmsg err';m.textContent=code?'This code isn’t valid':'Please enter a code';}
+      if(!code){m.className='cmsg err';m.textContent='Please enter a code';return;}
+      if(!/^[A-Z0-9_-]{3,30}$/.test(code)){m.className='cmsg err';m.textContent='This code isn’t valid';return;}
+      h16(code).then(function(x){rate=KNOWN.indexOf(x)>-1?.25:0;applied=code;applyAll();}).catch(function(){rate=0;applied=code;applyAll();});
     });
   });
   document.querySelectorAll('.add').forEach(function(b){
