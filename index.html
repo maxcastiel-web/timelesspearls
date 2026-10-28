@@ -1017,7 +1017,7 @@
     });
   });
   // add to cart + coupon tabs
-  var KNOWN=['1e2ae35fdd5abd32','18b3ee22375a390e','329f54bdc51136de','f3202f364db8e812','b2ee850f70b0f87c','9623e4166c4cdac9','46affe5656ef8606','76076e5f09fe20e5','29a10bbce6f7885d','d1eeabbc2f4429f8','581b4c08756df8fb','1ceb8e184b548600'], applied=null, rate=0;
+  var KNOWN=['b0cad76ac6a4eac3','1e2ae35fdd5abd32','18b3ee22375a390e','329f54bdc51136de','f3202f364db8e812','b2ee850f70b0f87c','9623e4166c4cdac9','46affe5656ef8606','76076e5f09fe20e5','29a10bbce6f7885d','d1eeabbc2f4429f8','581b4c08756df8fb','1ceb8e184b548600'], applied=null, rate=0;
   function h16(s){return crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)).then(function(b){return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,'0');}).join('').slice(0,16);});}
   function fmt(n){return '₪'+Math.round(n).toLocaleString('en-US');}
   function applyAll(){
