@@ -108,6 +108,11 @@
   .product .price{font-family:var(--serif);font-weight:700;font-size:22px}
   .product .price s{font-family:var(--sans);font-size:13px;color:var(--muted);font-weight:400;margin-left:6px}
   .swatches{display:flex;gap:8px;margin-top:8px}
+  .thumbs{display:flex;gap:6px;margin:-4px 0 10px}
+  .thumbs button{flex:1;aspect-ratio:1/1;padding:0;border:1.5px solid var(--line);background:var(--soft) center/cover no-repeat;cursor:pointer;transition:border-color .2s}
+  .thumbs button.main{background-size:contain}
+  .thumbs button.on{border-color:var(--ink)}
+  .product .frame img.extra{padding:0 !important;object-fit:cover;mix-blend-mode:normal}
   .sw{width:22px;height:22px;border-radius:50%;background:var(--c);border:2px solid #fff;box-shadow:0 0 0 1px #cfc8bb;cursor:pointer}
   .sw.on{box-shadow:0 0 0 2px var(--ink)}
   .opts{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
@@ -1064,6 +1069,37 @@
   }
   document.querySelectorAll('.ftabs button').forEach(function(b){ b.addEventListener('click',function(){showCat(b.dataset.f);}); });
   document.querySelectorAll('[data-filter]').forEach(function(a){ a.addEventListener('click',function(e){e.preventDefault();showCat(a.dataset.filter);document.getElementById('shop').scrollIntoView({behavior:'smooth'});}); });
+  // product photo gallery: product photo + gift box, pearl in shell, pearl grading
+  var EXTRA=[
+    ['https://cdn.shopify.com/s/files/1/0791/6050/8601/files/maison-perle-navy-gift-box_b380c8ca-1a85-47f8-a5b2-b79fe82bb42e.png?v=1786957674','Signature gift box'],
+    ['https://cdn.shopify.com/s/files/1/0791/6050/8601/files/story-oyster.png?v=1790232648','Natural pearl in its shell'],
+    ['https://cdn.shopify.com/s/files/1/0791/6050/8601/files/story-grading.png?v=1790232652','Pearls being hand-selected and graded']
+  ];
+  document.querySelectorAll('#shop .grid .product').forEach(function(p){
+    var fr=p.querySelector('.frame'), img=fr.querySelector('img'); if(!img) return;
+    var row=document.createElement('div'); row.className='thumbs';
+    var list=[[img.getAttribute('src'),img.alt||'Product photo',true]].concat(EXTRA.map(function(e){return [e[0],e[1],false];}));
+    var btns=list.map(function(it,i){
+      var b=document.createElement('button'); b.type='button'; b.setAttribute('aria-label',it[1]);
+      if(it[2]) b.className='main on';
+      b.style.backgroundImage='url("'+(it[2]?it[0]:it[0]+'&width=200')+'")';
+      b.dataset.src=it[2]?it[0]:it[0]+'&width=800';
+      b.addEventListener('click',function(){
+        btns.forEach(function(x){x.classList.remove('on');}); b.classList.add('on');
+        img.classList.toggle('extra',!it[2]); img.src=b.dataset.src; img.style.opacity=1;
+      });
+      row.appendChild(b); return b;
+    });
+    fr.insertAdjacentElement('afterend',row);
+    p.querySelectorAll('.sw,.op').forEach(function(s){
+      s.addEventListener('click',function(){
+        if(!s.dataset.img) return;
+        btns[0].dataset.src=s.dataset.img; btns[0].style.backgroundImage='url("'+s.dataset.img+'")';
+        btns.forEach(function(x){x.classList.remove('on');}); btns[0].classList.add('on');
+        img.classList.remove('extra');
+      });
+    });
+  });
   document.querySelectorAll('[data-open]').forEach(function(a){ a.addEventListener('click',function(){ var t=a.dataset.open==='care'?'Pearl care':'About us'; document.querySelectorAll('#info summary').forEach(function(sm){ if(sm.textContent.trim()===t) sm.parentNode.open=true; }); }); });
 </script>
 </body>
