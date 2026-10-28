@@ -119,6 +119,9 @@
   .product .frame img.extra{padding:0 !important;object-fit:cover;mix-blend-mode:normal}
   .sw{width:22px;height:22px;border-radius:50%;background:var(--c);border:2px solid #fff;box-shadow:0 0 0 1px #cfc8bb;cursor:pointer}
   .sw.on{box-shadow:0 0 0 2px var(--ink)}
+  .sw[data-soldout]{position:relative;opacity:.55}
+  .sw[data-soldout]::after{content:"";position:absolute;left:-2px;right:-2px;top:50%;height:1.5px;background:#7a7a7a;transform:rotate(-45deg)}
+  .add.soldout{background:#bdb7ad;border-color:#bdb7ad;cursor:not-allowed}
   .opts{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
   .op{background:#fff;border:1.5px solid var(--line);padding:5px 10px;font-family:var(--sans);font-size:12px;font-weight:600;color:var(--ink);cursor:pointer;transition:.2s}
   .op.on{border-color:var(--ink);background:var(--ink);color:#fff}
@@ -445,7 +448,7 @@
           <div class="price" data-price="895">₪895</div>
           <div class="swatches">
             <button class="sw on" style="--c:#d6b56b" data-variant="49161480011961" data-img="images/venus-necklace-gold.jpg" aria-label="Gold"></button>
-            <button class="sw" style="--c:#c9cbd0" data-variant="49161480044729" data-img="images/venus-necklace-silver.jpg" aria-label="Silver"></button>
+            <button class="sw" style="--c:#c9cbd0" data-variant="49161480044729" data-img="images/venus-necklace-silver.jpg" data-soldout="1" aria-label="Silver (sold out, back soon)" title="Silver: sold out, back soon"></button>
           </div>
           <button class="btn solid add" type="button">Add to Cart</button>
           <details class="ctab"><summary>Enter discount coupon for best price</summary>
@@ -1108,6 +1111,17 @@
         img.classList.remove('extra');
       });
     });
+  });
+  // sold-out options: disable Add to Cart while a sold-out colour/size is chosen
+  function syncStock(p){
+    var sel=p.querySelector('.sw.on,.op.on'), btn=p.querySelector('.add'); if(!btn) return;
+    if(!btn.dataset.label) btn.dataset.label=btn.textContent;
+    var out=sel && sel.dataset.soldout==='1';
+    btn.disabled=!!out; btn.textContent=out?'Sold out · back soon':btn.dataset.label; btn.classList.toggle('soldout',!!out);
+  }
+  document.querySelectorAll('.product').forEach(function(p){
+    p.querySelectorAll('.sw,.op').forEach(function(s){ s.addEventListener('click',function(){ syncStock(p); }); });
+    syncStock(p);
   });
   document.querySelectorAll('[data-open]').forEach(function(a){ a.addEventListener('click',function(){ var t=a.dataset.open==='care'?'Pearl care':'About us'; document.querySelectorAll('#info summary').forEach(function(sm){ if(sm.textContent.trim()===t) sm.parentNode.open=true; }); }); });
 </script>
