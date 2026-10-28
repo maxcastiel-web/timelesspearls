@@ -98,6 +98,10 @@
   .trust svg{width:20px;height:20px;stroke:var(--gold);fill:none;stroke-width:1.6;flex-shrink:0}
 
   /* products */
+  .lumiere-banner{margin:0 0 22px}
+  .lumiere-banner img{width:100%;height:auto;display:block}
+  .lumiere-banner figcaption{font-size:13px;color:var(--muted);margin-top:8px;text-align:center}
+  .lumiere-banner figcaption strong{color:var(--ink);letter-spacing:.12em}
   .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
   .product .frame{position:relative;background:var(--soft);aspect-ratio:1/1;overflow:hidden;margin-bottom:12px}
   .product .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:6%;mix-blend-mode:multiply;transition:opacity .4s,transform 1s}
@@ -372,6 +376,10 @@
         <button data-f="moissanite">LUMIÈRE</button>
         <button data-f="all">View All</button>
       </div>
+      <figure class="lumiere-banner" id="lumiere-banner" hidden>
+        <img src="images/lumiere-moissanite.jpg" alt="LUMIÈRE lab-grown moissanite: brilliant gems in round, princess, emerald, oval, marquise, pear, cushion, heart and asscher cuts" loading="lazy">
+        <figcaption><strong>LUMIÈRE</strong> · Lab-grown moissanite: exceptional brilliance, ethical, durable, timeless</figcaption>
+      </figure>
       <div class="grid">
         <article class="product" data-variant="49161475457209" data-cat="best earrings">
           <div class="frame"><span class="tag">Bridal</span><img src="images/estelle-tristar-white.jpg" alt="Estelle Tri-Star pearl stud earrings"></div>
@@ -1065,6 +1073,7 @@
     document.querySelectorAll('#shop .grid .product').forEach(function(p){
       p.hidden = !(f==='all' || (' '+p.dataset.cat+' ').indexOf(' '+f+' ')>-1);
     });
+    var lb=document.getElementById('lumiere-banner'); if(lb) lb.hidden = (f!=='moissanite');
     var t=document.getElementById('shop-title'); if(t) t.textContent=TITLES[f]||'Shop';
   }
   document.querySelectorAll('.ftabs button').forEach(function(b){ b.addEventListener('click',function(){showCat(b.dataset.f);}); });
