@@ -468,7 +468,7 @@
           </details>
         </article>
         <article class="product" data-variant="67710415339705" data-cat="earrings moissanite" hidden>
-          <div class="frame"><img src="images/solitaire-stud.jpg" alt="El Dorado six-prong solitaire stud earring" style="padding:18%"></div>
+          <div class="frame"><img src="images/eldorado-front.jpg" data-alt="images/eldorado-side.jpg" alt="El Dorado moissanite stud earrings"></div>
           <h3>El Dorado Stud</h3>
           <div class="meta">1 ct lab-grown moissanite each side · six-prong 925 sterling silver</div>
           <details class="mtab"><summary>What is moissanite?</summary>
@@ -846,7 +846,7 @@
           </details>
         </article>
         <article class="product" data-variant="67710415405241" data-cat="earrings moissanite" hidden>
-          <div class="frame"><img src="https://cdn.shopify.com/s/files/1/0791/6050/8601/files/Silveradofrontview.jpg?v=1791924685&amp;width=700" alt="Silverado moissanite dangle earrings, 1 ct each, sterling silver hooks" loading="lazy"></div>
+          <div class="frame"><img src="images/silverado-front.jpg" data-alt="images/silverado-side.jpg" alt="Silverado moissanite dangle earrings" loading="lazy"></div>
           <h3>Silverado Dangle</h3>
           <div class="meta">1 ct lab-grown moissanite each side · sterling silver hooks</div>
           <details class="mtab"><summary>What is moissanite?</summary>
@@ -884,7 +884,7 @@
             </details></div>
         </div>
         <div class="tile prod stud" data-variant="67710415339705">
-          <img src="images/solitaire-stud.jpg" alt="Six-prong solitaire stud earring" loading="lazy">
+          <img src="images/eldorado-front.jpg" alt="El Dorado moissanite stud earrings" loading="lazy">
           <div class="cap"><h3>El Dorado Stud</h3><div class="price" data-price="795">₪795</div></div>
           <div class="tctl"><button class="btn solid add" type="button">Add to Cart</button>
             <details class="ctab"><summary>Enter discount coupon for best price</summary>
@@ -1090,10 +1090,10 @@
   document.querySelectorAll('#shop .grid .product').forEach(function(p){
     var fr=p.querySelector('.frame'), img=fr.querySelector('img'); if(!img) return;
     var row=document.createElement('div'); row.className='thumbs';
-    var list=[[img.getAttribute('src'),img.alt||'Product photo',true]].concat(EXTRA.map(function(e){return [e[0],e[1],false];}));
+    var list=[[img.getAttribute('src'),img.alt||'Product photo',true]].concat(img.dataset.alt?[[img.dataset.alt,'Side view',true]]:[]).concat(EXTRA.map(function(e){return [e[0],e[1],false];}));
     var btns=list.map(function(it,i){
       var b=document.createElement('button'); b.type='button'; b.setAttribute('aria-label',it[1]);
-      if(it[2]) b.className='main on';
+      if(it[2]) b.className=(i===0?'main on':'main');
       b.style.backgroundImage='url("'+(it[2]?it[0]:it[0]+'&width=200')+'")';
       b.dataset.src=it[2]?it[0]:it[0]+'&width=800';
       b.addEventListener('click',function(){
@@ -1122,6 +1122,17 @@
   document.querySelectorAll('.product').forEach(function(p){
     p.querySelectorAll('.sw,.op').forEach(function(s){ s.addEventListener('click',function(){ syncStock(p); }); });
     syncStock(p);
+  });
+  // second photo: hover (desktop) or tap (phone) on the main picture flips to the side view
+  document.querySelectorAll('#shop .grid .product .frame img[data-alt]').forEach(function(img){
+    var fr=img.closest('.frame'), row=fr.nextElementSibling, a=img.getAttribute('src'), b=img.dataset.alt, showing=false;
+    function show(second){ if(img.classList.contains('extra')) return; showing=second; img.src=second?b:a;
+      if(row&&row.classList.contains('thumbs')){ var t=row.querySelectorAll('button'); t.forEach(function(x){x.classList.remove('on');}); t[second?1:0].classList.add('on'); } }
+    (new Image()).src=b;
+    fr.addEventListener('mouseenter',function(){ if(window.matchMedia('(hover:hover)').matches) show(true); });
+    fr.addEventListener('mouseleave',function(){ if(window.matchMedia('(hover:hover)').matches) show(false); });
+    fr.addEventListener('click',function(){ if(!window.matchMedia('(hover:hover)').matches) show(!showing); });
+    fr.style.cursor='pointer';
   });
   document.querySelectorAll('[data-open]').forEach(function(a){ a.addEventListener('click',function(){ var t=a.dataset.open==='care'?'Pearl care':'About us'; document.querySelectorAll('#info summary').forEach(function(sm){ if(sm.textContent.trim()===t) sm.parentNode.open=true; }); }); });
 </script>
