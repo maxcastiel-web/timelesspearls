@@ -305,6 +305,26 @@
     .foot{grid-template-columns:1fr 1fr}
     .foot > div:first-child{grid-column:1/-1}
   }
+  /* VIP Circle pop-up */
+  .vip{position:fixed;inset:0;z-index:60;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(20,19,17,.55)}
+  .vip.open{display:flex}
+  .vip-box{position:relative;background:#fff;max-width:760px;width:100%;display:grid;grid-template-columns:1fr 1.15fr;border:1px solid var(--gold-l);box-shadow:0 20px 60px rgba(0,0,0,.25)}
+  .vip-img{background:var(--soft);display:flex;align-items:center;justify-content:center;padding:20px}
+  .vip-img img{width:100%;max-width:280px;height:auto;object-fit:contain}
+  .vip-body{padding:38px 34px 30px}
+  .vip-body h3{font-size:34px;margin:8px 0 12px}
+  .vip-body p{color:var(--muted);font-size:15.5px;margin:0 0 18px}
+  .vip-form{display:flex;flex-direction:column;gap:10px}
+  .vip-form input{border:1.5px solid #cfc6b6;padding:13px 12px;font-family:var(--sans);font-size:15px;color:var(--ink);outline:none}
+  .vip-form input:focus{border-color:var(--ink)}
+  .vip-small{font-size:12px!important;color:#8a8378!important;margin:12px 0 0!important}
+  .vip-x{position:absolute;top:8px;right:10px;background:none;border:0;font-size:28px;line-height:1;color:var(--ink);cursor:pointer;padding:6px}
+  .vip-code{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1.5px dashed var(--gold);padding:12px 14px;margin:0 0 16px;font-weight:600;letter-spacing:.18em}
+  .vip-code button{background:var(--ink);color:#fff;border:0;padding:8px 12px;font-size:11px;letter-spacing:.14em;cursor:pointer;font-family:var(--sans)}
+  .vip-ok{display:none}
+  .vip.done .vip-form-wrap{display:none}
+  .vip.done .vip-ok{display:block}
+  @media (max-width:640px){.vip-box{grid-template-columns:1fr}.vip-img{display:none}.vip-body{padding:34px 22px 24px}.vip-body h3{font-size:29px}}
 </style>
 </head>
 <body>
@@ -994,7 +1014,7 @@
       <div>
         <div class="logo">Timeless Pearls</div>
         <p>Private offers &amp; new arrivals</p>
-        <form class="news" onsubmit="event.preventDefault();this.querySelector('button').textContent='WELCOME';this.querySelector('input').value='';">
+        <form class="news">
           <input type="email" placeholder="Your email address" required aria-label="Email address">
           <button type="submit">JOIN</button>
         </form>
@@ -1007,6 +1027,33 @@
 </footer>
 
 <div class="toast" id="toast"></div>
+<div class="vip" id="vip" role="dialog" aria-modal="true" aria-labelledby="vip-title">
+  <div class="vip-box">
+    <div class="vip-img"><img src="https://cdn.shopify.com/s/files/1/0791/6050/8601/files/1-white-pearl.png?v=1789645965&amp;width=700" alt="White pearl earrings"></div>
+    <div class="vip-body">
+      <button class="vip-x" type="button" aria-label="Close">&times;</button>
+      <div class="vip-form-wrap">
+        <div class="eyebrow">The Timeless Circle</div>
+        <h3 id="vip-title">Your first delivery is <em>on us</em></h3>
+        <p>Join our private list for early access to new pearls, private offers and pearl care tips &mdash; and enjoy free delivery anywhere in Israel on your first order.</p>
+        <form class="vip-form">
+          <input type="email" placeholder="Your email address" required aria-label="Email address">
+          <button class="btn solid" type="submit">Join &amp; get free delivery</button>
+        </form>
+        <p class="vip-small">No spam &mdash; unsubscribe anytime.</p>
+      </div>
+      <div class="vip-ok">
+        <div class="eyebrow">Welcome to the Circle</div>
+        <h3>Thank you</h3>
+        <p>Your free-delivery code is below. We&rsquo;ve applied it to your basket, and it&rsquo;s on its way to your inbox too.</p>
+        <div class="vip-code"><span>WELCOMESHIP</span><button type="button" data-code="WELCOMESHIP">Copy</button></div>
+        <button class="btn solid vip-shop" type="button">Start shopping</button>
+      </div>
+    </div>
+  </div>
+</div>
+<iframe name="tp-sub" id="tp-sub" title="subscribe" style="display:none" aria-hidden="true"></iframe>
+
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
@@ -1135,6 +1182,39 @@
     fr.style.cursor='pointer';
   });
   document.querySelectorAll('[data-open]').forEach(function(a){ a.addEventListener('click',function(){ var t=a.dataset.open==='care'?'Pearl care':'About us'; document.querySelectorAll('#info summary').forEach(function(sm){ if(sm.textContent.trim()===t) sm.parentNode.open=true; }); }); });
+  // VIP Circle: real sign-up (saved in Shopify as an email subscriber) + free-delivery pop-up
+  (function(){
+    var vip=document.getElementById('vip'); if(!vip) return;
+    function store(k,v){try{ if(v===undefined) return localStorage.getItem(k); localStorage.setItem(k,v);}catch(e){return null;}}
+    function subscribe(email){
+      var f=document.createElement('form');
+      f.method='POST'; f.action='https://maisonperle.store/contact#contact_form'; f.target='tp-sub'; f.style.display='none';
+      [['form_type','customer'],['utf8','\u2713'],['contact[email]',email],['contact[tags]','newsletter,timeless-pearls']].forEach(function(kv){
+        var i=document.createElement('input'); i.type='hidden'; i.name=kv[0]; i.value=kv[1]; f.appendChild(i);
+      });
+      document.body.appendChild(f); f.submit(); setTimeout(function(){f.remove();},3000);
+      store('tp_vip','joined');
+      applied='WELCOMESHIP'; rate=0; applyAll();
+    }
+    function open(){ if(store('tp_vip')==='joined') return; vip.classList.add('open'); }
+    function close(){ vip.classList.remove('open'); if(store('tp_vip')!=='joined') store('tp_vip','closed:'+Date.now()); }
+    vip.querySelector('.vip-x').addEventListener('click',close);
+    vip.addEventListener('click',function(e){ if(e.target===vip) close(); });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&vip.classList.contains('open')) close(); });
+    vip.querySelector('.vip-shop').addEventListener('click',function(){ vip.classList.remove('open'); var sh=document.getElementById('shop'); if(sh) sh.scrollIntoView({behavior:'smooth'}); });
+    vip.querySelector('.vip-form').addEventListener('submit',function(e){
+      e.preventDefault(); var inp=this.querySelector('input'); subscribe(inp.value.trim()); vip.classList.add('done');
+    });
+    document.querySelectorAll('form.news').forEach(function(f){
+      f.addEventListener('submit',function(e){
+        e.preventDefault(); var inp=f.querySelector('input'); subscribe(inp.value.trim()); inp.value='';
+        vip.classList.add('done'); vip.classList.add('open');
+      });
+    });
+    // show once: after 8 seconds; if closed, not again for 7 days
+    var st=store('tp_vip')||''; var last=st.indexOf('closed:')===0?+st.slice(7):0;
+    if(st!=='joined' && (!last || Date.now()-last>7*864e5)) setTimeout(open,8000);
+  })();
 </script>
 </body>
 </html>
