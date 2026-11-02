@@ -1,0 +1,25 @@
+name: Fetch catalog photos
+on:
+  push:
+    branches: [fetch-catalog-photos]
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download product photos from Shopify
+        run: |
+          mkdir -p catalog-photos
+          while read -r name url; do
+            curl -sSfL "$url?width=900" -o "catalog-photos/$name" || echo "FAILED $name"
+          done < .github/catalog-photos.txt
+          ls -la catalog-photos
+      - name: Commit photos
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add catalog-photos
+          git commit -m "Add catalog photos" || echo "nothing to commit"
+          git push
