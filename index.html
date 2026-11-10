@@ -46,9 +46,9 @@
 
   /* header (mockup) */
   header{height:auto}
-  nav.top{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;height:88px}
+  nav.top{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;height:112px}
   .brand{display:flex;flex-direction:column;align-items:center;line-height:1;color:#3b2a1c}
-  .brand img{display:block;height:68px;width:auto}
+  .brand img{display:block;height:95px;width:auto}
   .brand .bn{font-family:"Cinzel",Georgia,serif;font-weight:700;font-size:24px;letter-spacing:.2em;white-space:nowrap}
   .brand .bs{display:flex;align-items:center;gap:8px;font-family:"Cinzel",Georgia,serif;font-size:11px;letter-spacing:.4em;color:var(--gold);margin-top:5px}
   .brand .bs::before,.brand .bs::after{content:"";width:34px;height:1px;background:var(--gold-l)}
@@ -243,12 +243,12 @@
   @media (max-width:640px){
     .announce{font-size:11px;letter-spacing:.08em;padding:8px 10px}
     .logo{font-size:19px;letter-spacing:.2em}
-    nav.top{grid-template-columns:1fr auto;height:72px}
+    nav.top{grid-template-columns:1fr auto;height:90px}
     .menu{display:none}
     .brand .bn{font-size:17px;letter-spacing:.14em}
     .brand .bs{font-size:9px}
     .brand .bs::before,.brand .bs::after{width:20px}
-    .brand img{height:50px}
+    .brand img{height:70px}
     .icons{gap:12px}
     .icons svg{width:22px;height:22px}
     .hero2{flex-direction:column;align-items:stretch;min-height:0}
@@ -325,11 +325,32 @@
   .vip.done .vip-form-wrap{display:none}
   .vip.done .vip-ok{display:block}
   @media (max-width:640px){.vip-box{grid-template-columns:1fr}.vip-img{display:none}.vip-body{padding:34px 22px 24px}.vip-body h3{font-size:29px}}
+  /* 3 interest-free payments line (sentence +20%, amount bold +30%) */
+  .tp-inst{margin:4px 0 2px;font-size:16.8px;line-height:1.45;color:#4a4036}
+  .tp-inst b{font-size:1.0833em;font-weight:700;color:var(--ink);white-space:nowrap}
+  /* Pearl Size Guide link + pop-up */
+  .tp-sg{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:2px 0;background:none;border:0;font-family:var(--sans);font-size:13.5px;letter-spacing:.02em;color:var(--ink);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+  .tp-sg svg{flex-shrink:0}
+  .tp-sgd{position:fixed;inset:0;margin:auto;height:fit-content;border:0;padding:0;width:min(460px,92vw);max-height:88vh;background:#fff;color:var(--ink);box-shadow:0 10px 40px rgba(0,0,0,.18)}
+  .tp-sgd::backdrop{background:rgba(0,0,0,.45)}
+  .tp-sgd .in{position:relative;padding:32px 28px 28px;overflow-y:auto;max-height:88vh}
+  .tp-sgd h3{margin:0 0 8px;font-size:24px}
+  .tp-sgd p{margin:0 0 18px;font-size:14px;line-height:1.6}
+  .tp-sgd ul{list-style:none;margin:0;padding:0}
+  .tp-sgd li{display:flex;align-items:center;gap:16px;padding:12px 0;border-top:1px solid var(--line);font-size:14px;line-height:1.5}
+  .tp-sgd li:last-child{border-bottom:1px solid var(--line)}
+  .tp-sgd small{font-size:12.5px;opacity:.75}
+  .tp-sgd .pl{flex:0 0 56px;display:flex;justify-content:center}
+  .tp-sgd .pl::before{content:"";width:calc(var(--d)*5px);height:calc(var(--d)*5px);border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff 0%,#f6f1ea 35%,#ddd3c6 75%,#c9bdad 100%);box-shadow:0 2px 5px rgba(0,0,0,.18)}
+  .tp-sgd .note{margin:10px 0 16px;font-size:12px;opacity:.6}
+  .tp-sgd .more{font-size:14px;color:var(--ink)}
+  .tp-sgd .x{position:absolute;top:8px;right:12px;background:none;border:0;font-size:28px;line-height:1;cursor:pointer;color:inherit}
+  @media (max-width:640px){.tp-inst{font-size:15.6px}}
 </style>
 </head>
 <body>
 
-<div class="announce"><b>25% off</b> with your partner code · <b>Free delivery</b> over ₪650</div>
+<div class="announce"><b>25% off</b> with your partner code · <b>Free delivery</b> over ₪500</div>
 
 <header>
   <nav class="wrap top">
@@ -934,12 +955,12 @@
           </details>
         </article>
         <article class="product" data-variant="49161475817657" data-cat="earrings necklaces sets" hidden>
-          <div class="frame"><span class="tag">Set</span><img src="https://cdn.shopify.com/s/files/1/0791/6050/8601/files/solar-set-1-gold-white.png?v=1789648799&amp;width=700" alt="Solar gold pendant and tri-star earrings set" loading="lazy"></div>
+          <div class="frame"><span class="tag">Set</span><img src="images/solar-set-gold-light.jpg" alt="Solar gold pendant and tri-star earrings set" loading="lazy"></div>
           <h3>Solar Set</h3>
           <div class="meta">Solar teardrop pendant with Classic 8–9 mm Estelle Tri-Star studs · 40 cm + 6 cm chain</div>
           <div class="price" data-price="830">₪830</div>
           <div class="opts">
-            <button class="op on" type="button" data-variant="49161475817657" data-price="830" data-img="https://cdn.shopify.com/s/files/1/0791/6050/8601/files/solar-set-1-gold-white.png?v=1789648799&amp;width=700">Gold – White Pearl</button>
+            <button class="op on" type="button" data-variant="49161475817657" data-price="830" data-img="images/solar-set-gold-light.jpg">Gold – White Pearl</button>
             <button class="op" type="button" data-variant="49161475850425" data-price="830" data-img="https://cdn.shopify.com/s/files/1/0791/6050/8601/files/solar-set-2-silver-grey.png?v=1789648803&amp;width=700">Silver – Tahitian Grey Color</button>
           </div>
           <button class="btn solid add" type="button">Add to Cart</button>
@@ -1051,7 +1072,7 @@
           <div class="body">
             <ul>
               <li>Delivery anywhere in Israel: <strong>₪29</strong></li>
-              <li><strong>Free delivery</strong> on orders of ₪650 or more</li>
+              <li><strong>Free delivery</strong> on orders of ₪500 or more</li>
               <li>International delivery: flat ₪129</li>
               <li>Orders can be cancelled free within 24 hours if not yet shipped; unused items can be returned within 5 days of delivery.</li>
             </ul>
@@ -1166,6 +1187,12 @@
       var full=+el.dataset.price;
       if(applied&&rate){el.innerHTML='<ins>'+fmt(full*(1-rate))+'</ins> <s>'+fmt(full)+'</s>';el.classList.add('disc');}
       else{el.textContent=fmt(full);el.classList.remove('disc');}
+      if(el.closest('.product')){
+        var pay=(applied&&rate?full*(1-rate):full)/3, amt=Math.floor(pay*100)/100;
+        var s='₪'+(amt%1?amt.toFixed(2):amt.toLocaleString('en-US'));
+        var n=el.nextElementSibling; if(!n||!n.classList.contains('tp-inst')){n=document.createElement('p');n.className='tp-inst';el.insertAdjacentElement('afterend',n);}
+        n.innerHTML='or 3 interest-free payments of <b>'+s+'</b>';
+      }
     });
     document.querySelectorAll('.ctab').forEach(function(t){
       if(applied){t.querySelector('input').value=applied;var m=t.querySelector('.cmsg');m.className='cmsg ok';m.textContent=rate?'✓ '+applied+' applied — 25% off':'✓ '+applied+' saved — your discount is applied at checkout';}
@@ -1298,6 +1325,36 @@
     var st=store('tp_vip')||''; var last=st.indexOf('closed:')===0?+st.slice(7):0;
     if(st!=='joined' && (!last || Date.now()-last>7*864e5)) setTimeout(open,8000);
   })();
+</script>
+<dialog class="tp-sgd" id="tp-sgd" aria-label="Pearl Size Guide" onclick="if(event.target===this)this.close()">
+  <div class="in">
+    <button type="button" class="x" aria-label="Close" onclick="this.closest('dialog').close()">&times;</button>
+    <h3>Pearl Size Guide</h3>
+    <p>Pearl size is measured by the pearl's diameter in millimetres. Even 1 mm makes a visible difference.</p>
+    <ul>
+      <li><span class="pl" style="--d:7.5"></span><span><strong>Bijou</strong> · 7–8 mm<br><small>Delicate and timeless, for every day.</small></span></li>
+      <li><span class="pl" style="--d:8.5"></span><span><strong>Classic</strong> · 8–9 mm<br><small>Balanced and elegant, day to evening.</small></span></li>
+      <li><span class="pl" style="--d:9.5"></span><span><strong>Royal</strong> · 9–10 mm<br><small>A bolder, more luxurious look.</small></span></li>
+      <li><span class="pl" style="--d:10.5"></span><span><strong>Grande</strong> · 10–11 mm<br><small>A statement pearl for special occasions.</small></span></li>
+    </ul>
+    <p class="note">Pearls shown in proportion to each other.</p>
+    <a class="more" href="https://maisonperle.store/pages/pearl-size" target="_blank" rel="noopener">Read the full Pearl Size guide &rarr;</a>
+  </div>
+</dialog>
+<script>
+  (function(){
+    var d=document.getElementById('tp-sgd');
+    var ico='<svg aria-hidden="true" width="26" height="14" viewBox="0 0 26 14" fill="none" stroke="currentColor" stroke-width="1.1"><circle cx="3" cy="9" r="2.4"/><circle cx="10" cy="8" r="3.4"/><circle cx="19.5" cy="7" r="5.4"/></svg>';
+    document.querySelectorAll('.product').forEach(function(p){
+      if((' '+(p.dataset.cat||'')+' ').indexOf(' moissanite ')>-1) return;
+      var add=p.querySelector('.add'); if(!add) return;
+      var b=document.createElement('button'); b.type='button'; b.className='tp-sg'; b.setAttribute('aria-haspopup','dialog');
+      b.innerHTML=ico+'<span>Pearl Size Guide</span>';
+      b.addEventListener('click',function(){ if(d.showModal) d.showModal(); else window.open('https://maisonperle.store/pages/pearl-size','_blank'); });
+      add.insertAdjacentElement('beforebegin',b);
+    });
+  })();
+  if(typeof applyAll==='function') applyAll();
 </script>
 </body>
 </html>
