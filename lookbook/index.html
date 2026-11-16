@@ -1,0 +1,683 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Timeless Pearls Lookbook</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* Layout: a bound magazine on a midnight desk. Two-page spread on wide screens, one page at a time on phones; pages turn on a 3D spine. */
+:root{
+  --desk:#101828;          /* midnight navy, echoes the gift box */
+  --desk-2:#1A2540;
+  --paper:#F3F4F2;         /* cool pearl paper */
+  --ink:#1D2536;
+  --muted:#4D566A;
+  --gold:#A9864F;          /* champagne gold for rules and prices */
+  --gold-soft:#D9C49C;
+  --hair:#D7D9DC;
+  --display:"Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --body:"Jost", "Futura", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+  color-scheme:dark;
+}
+html,body{height:100%}
+body{background:radial-gradient(120% 90% at 50% 20%, var(--desk-2) 0%, var(--desk) 70%);background-color:var(--desk);color:var(--paper);font-family:var(--body);overflow:hidden;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));box-sizing:border-box}
+.app{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding-block:12px;box-sizing:border-box}
+.stage{display:flex;justify-content:center;align-items:center;width:100%;flex:1 1 auto;min-height:0}
+.vp{position:relative;touch-action:pan-y;cursor:pointer;filter:drop-shadow(0 16px 24px rgba(0,0,0,.45))}
+.vp.single{overflow:hidden}
+.book{position:absolute;left:0;top:0;width:880px;height:600px;transform-origin:0 0;perspective:2600px;transition:transform .8s cubic-bezier(.45,.05,.25,1)}
+.leaf{position:absolute;left:440px;top:0;width:440px;height:600px;transform-origin:0 50%;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.45,.05,.25,1)}
+.leaf.turned{transform:rotateY(-180deg)}
+.book.instant,.book.instant .leaf{transition:none!important}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.face.back{transform:rotateY(180deg)}
+@media (prefers-reduced-motion: reduce){.book,.leaf{transition:none!important}}
+
+/* ---------- pages ---------- */
+.page{position:absolute;inset:0;background:var(--paper);color:var(--ink);padding:30px 36px 26px;box-sizing:border-box;display:flex;flex-direction:column;overflow:hidden;font-size:14px;line-height:1.5;font-weight:400}
+.front .page::after,.back .page::after{content:"";position:absolute;top:0;bottom:0;width:38px;pointer-events:none}
+.front .page::after{left:0;background:linear-gradient(90deg,rgba(16,24,40,.16),rgba(16,24,40,0))}
+.back .page::after{right:0;background:linear-gradient(270deg,rgba(16,24,40,.16),rgba(16,24,40,0))}
+.page.dark{background:var(--desk-2);color:var(--paper)}
+.run{display:flex;justify-content:space-between;font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);padding-bottom:8px;border-bottom:1px solid var(--hair)}
+.dark .run{color:var(--gold-soft);border-color:rgba(217,196,156,.3)}
+.folio{margin-top:auto;padding-top:8px;font-family:var(--display);font-style:italic;font-size:13px;color:var(--muted);text-align:center;font-variant-numeric:lining-nums}
+.dark .folio{color:var(--gold-soft)}
+h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance}
+.art{height:190px;margin:12px -8px 6px;border-radius:2px;background:radial-gradient(70% 80% at 50% 45%,#FFFFFF 0%,rgba(255,255,255,0) 75%)}
+.art svg{width:100%;height:100%;display:block}
+.photos{flex:none;height:236px;margin:14px -36px 0;display:grid;gap:6px;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr);overflow:hidden}
+.photos .ph{min-width:0;min-height:0;overflow:hidden;border-radius:0;background:radial-gradient(ellipse 62% 58% at 50% 50%,#FFFFFF 0%,#FFFFFF 42%,#F1EEE8 78%,#E3DED5 100%)}
+.photos img{width:100%;height:100%;object-fit:contain;display:block;mix-blend-mode:multiply;padding:6px;box-sizing:border-box}
+.photos.n4,.photos.n5{grid-auto-flow:row;grid-template-rows:repeat(2,minmax(0,1fr))}
+.photos.n4{grid-template-columns:repeat(2,minmax(0,1fr))}
+.photos.n5{grid-template-columns:repeat(6,minmax(0,1fr))}
+.photos.n5 .ph{grid-column:span 2}.photos.n5 .ph:nth-child(4){grid-column:2 / span 2}
+.copy{margin-top:auto;padding-top:16px;display:flex;flex-direction:column}
+.prod .folio{position:absolute;left:0;right:0;bottom:12px;margin:0;padding:0}
+.prod{padding-bottom:40px}
+.kick{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.pname{font-size:36px;font-weight:500;font-style:italic;line-height:1.05;margin-top:4px}
+.psub{font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.desc{margin:8px 0 10px;max-width:36em}
+.prices{display:flex;flex-direction:column;gap:5px;border-top:1px solid var(--hair);padding-top:9px}
+.row{display:flex;align-items:baseline;gap:8px;font-size:14px}
+.row .opt{white-space:nowrap}
+.row .opt small{color:var(--muted);font-size:12px;letter-spacing:.04em}
+.row .lead{flex:1;border-bottom:1px dotted #B9BCC2;transform:translateY(-3px)}
+.row b,.mx td b{font-family:var(--display);font-weight:600;font-size:16px;color:var(--ink);font-variant-numeric:lining-nums tabular-nums}
+.price-sym{font-family:var(--body);font-weight:500;font-size:12.5px;margin-right:1px;color:var(--gold)}
+.mx{width:100%;margin-top:4px;table-layout:fixed;border-collapse:collapse;font-size:13px}
+.mx th{font-weight:500;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-align:right;padding:0 0 3px;line-height:1.3}
+.mx th:first-child,.mx td:first-child{text-align:left;width:38%}
+.mx th span{display:block;white-space:nowrap;line-height:1.2;letter-spacing:.02em;text-transform:none;font-size:11px;color:#5E677A}
+.mx td{padding:2px 0;border-top:1px solid #E3E4E6;text-align:right}
+.mx td.na{color:#B9BCC2}
+.swatch{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:4px;vertical-align:-1px;box-shadow:inset 0 0 0 .5px rgba(0,0,0,.25)}
+.buy{flex:none;margin-left:6px;font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:#fff;background:var(--ink);padding:4px 9px 3px;border-radius:999px;transform:translateY(-2px);transition:background .2s}
+.buy:hover,.buy:focus-visible{background:var(--gold)}
+.mxbuy{text-decoration:none;color:inherit;display:inline-block;padding:1px 6px;margin-right:-6px;border-radius:999px;border:1px solid transparent}
+.mxbuy:hover,.mxbuy:focus-visible{border-color:var(--gold-soft);background:#fff}
+.mxbuy b{text-decoration:underline;text-decoration-color:var(--gold-soft);text-underline-offset:3px}
+.prod.tight .photos{height:180px}.prod.tighter .photos{height:136px}.prod.tighter .mx td{padding:1px 0}.prod.tighter .pname{font-size:32px}
+.mxfoot{font-size:11.5px;color:var(--muted);margin:6px 0 0}
+.howbuy{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:6px 0 0;font-weight:500}
+.newtag{display:inline-block;vertical-align:middle;margin-left:10px;font-family:var(--body);font-style:normal;font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#fff;background:var(--gold);padding:4px 8px 3px;border-radius:2px;transform:translateY(-4px)}
+i.new{font-style:normal;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-left:4px}
+.note{font-size:12px;color:var(--muted);margin:8px 0 0;font-style:normal}
+.note em{font-family:var(--display);font-style:italic;color:var(--gold);font-size:12px}
+
+/* cover */
+.cover .dlbtn{font:inherit;cursor:pointer;align-self:center;display:inline-flex;align-items:center;gap:12px;margin:14px 0 4px;padding:11px 20px 11px 16px;border:1px solid var(--gold-soft);border-radius:999px;background:rgba(255,255,255,.06);color:var(--paper);text-decoration:none;text-align:left;transition:background .25s,color .25s;position:relative;z-index:3}
+.cover .dlbtn:hover,.cover .dlbtn:focus-visible{background:var(--gold-soft);color:var(--desk-2)}
+.cover .dlbtn svg{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.cover .dlbtn span{font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;line-height:1.35}
+.cover .dlbtn small{display:block;font-size:10px;letter-spacing:.06em;text-transform:none;opacity:.8;font-weight:400}
+body.forpdf .dlbtn,body.forpdf .buy,body.forpdf .howbuy{display:none}
+.cover{background:radial-gradient(90% 70% at 50% 40%,#22305299 0%,transparent 70%),var(--desk-2);color:var(--paper);padding:26px}
+.frame{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:30px 24px 24px}
+.cover .eyebrow{font-size:11px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-soft)}
+.cover .bigpearl{width:250px;height:230px;margin:18px 0 6px}
+.cover h1{font-size:52px;font-style:italic;line-height:1}
+.cover .wordmark{font-family:var(--body);font-weight:400;letter-spacing:.62em;font-size:15px;margin:10px 0 0 .62em;color:var(--gold-soft)}
+.cover .logo{width:100%;max-width:340px;height:auto;margin:auto 0;display:block}
+.cover .logo.back{max-width:300px;margin:0}
+.cover .tag{margin-top:auto;font-size:11.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:#DDE2EA;line-height:1.9}
+.cover .tag strong{display:block;font-family:var(--display);font-style:italic;text-transform:none;letter-spacing:0;font-weight:500;font-size:20px;color:var(--paper)}
+
+/* opener */
+.opener{padding:30px 36px 26px}
+.opener .num{font-family:var(--display);font-size:13px;letter-spacing:.3em;color:var(--gold-soft);margin-top:70px}
+.opener h2{font-size:50px;font-style:italic;line-height:1.02;margin-top:10px}
+.opener .rule{width:56px;height:1px;background:var(--gold);margin:20px 0}
+.opener p{max-width:28em;color:#E6E9EF;font-size:15px}
+.opener .meta{margin-top:14px;font-size:11.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft)}
+.opener .oart{height:170px;margin-top:auto}
+.opener .oart svg{width:100%;height:100%}
+
+/* prose pages */
+.prose h2{font-size:30px;font-style:italic;margin:26px 0 12px}
+.prose p{margin:0 0 10px;max-width:34em}
+.prose .lede{font-family:var(--display);font-size:17px;font-weight:500;line-height:1.5;font-weight:400}
+.sign{margin-top:14px;font-family:var(--display);font-style:italic;font-size:15px}
+.toc{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column}
+.toc li{display:flex;align-items:baseline;gap:10px;padding:11px 0;border-bottom:1px solid var(--hair)}
+.toc .n{font-family:var(--display);font-size:11px;letter-spacing:.2em;color:var(--gold);width:26px}
+.toc button{all:unset;cursor:pointer;font-family:var(--display);font-size:19px;font-style:italic}
+.toc button:hover{color:var(--gold)}
+.toc button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.toc small{display:block;font-family:var(--body);font-style:normal;font-size:12px;color:var(--muted);letter-spacing:.02em}
+.toc .pg{margin-left:auto;font-family:var(--display);font-size:14px;font-variant-numeric:lining-nums tabular-nums}
+.mat{display:grid;grid-template-columns:1fr 1fr;gap:16px 20px;margin-top:4px}
+.mat h3{font-size:16px;font-style:italic;margin-bottom:4px}
+.mat p{margin:0;font-size:13px;line-height:1.45}
+.sizes{display:flex;align-items:flex-end;justify-content:space-between;gap:6px;margin:8px 0 6px;padding:12px 0;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.sz{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:11.5px;text-align:center;line-height:1.3}
+.sz b{font-family:var(--display);font-style:italic;font-weight:400;font-size:13px}
+.sz span{color:var(--muted);font-variant-numeric:tabular-nums}
+.facts{display:flex;flex-direction:column;gap:7px;margin-top:8px}
+.facts div{display:flex;gap:10px;font-size:13px}
+.facts dt,.facts .k{width:112px;flex:none;font-size:10.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);padding-top:2px}
+.contact{display:flex;flex-direction:column;gap:12px;margin-top:6px}
+.contact div{border-top:1px solid var(--hair);padding-top:10px}
+.contact .k{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:2px}
+.contact .v{display:block;font-family:var(--display);font-weight:600;font-size:18px;line-height:1.35;user-select:all;-webkit-user-select:all}
+.contact .v.sm{font-size:15px}
+.contact a{color:inherit;text-decoration:none;border-bottom:1px solid var(--gold-soft)}
+.fine{font-size:11.5px;color:var(--muted);margin-top:auto;line-height:1.5}
+
+/* controls */
+.bar{display:flex;align-items:center;gap:18px;flex:none}
+.bar button{appearance:none;border:1px solid rgba(217,196,156,.45);background:transparent;color:var(--paper);font-family:var(--body);font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:9px 16px;border-radius:999px;cursor:pointer;min-width:44px;white-space:nowrap}
+.bar button:hover:not(:disabled){background:rgba(217,196,156,.12)}
+.bar button:focus-visible{outline:2px solid var(--gold-soft);outline-offset:2px}
+.bar button:disabled{opacity:.3;cursor:default}
+.count{font-family:var(--display);font-style:italic;font-size:14px;color:var(--gold-soft);min-width:110px;text-align:center;font-variant-numeric:lining-nums}
+.hint{font-size:10.5px;letter-spacing:.08em;color:#8792A8;flex:none}
+@media (max-width:520px){.bar{gap:10px}.bar button{padding:9px 12px;font-size:11px}.count{min-width:80px}}
+</style>
+
+<div class="app">
+  <div class="stage" id="stage"><div class="vp" id="vp"><div class="book" id="book"></div></div></div>
+  <div class="bar">
+    <button id="prev" aria-label="Previous page">‹ Prev</button>
+    <button id="toc" aria-label="Go to contents">Contents</button>
+    <span class="count" id="count" aria-live="polite"></span>
+    <button id="next" aria-label="Next page">Next ›</button>
+  </div>
+  <div class="hint">Tap the page edges, swipe, or use the arrow keys to turn pages</div>
+</div>
+
+<script>
+/* ===================== CATALOGUE DATA (prices in ILS) ===================== */
+const SIZE = {Bijou:"7–8 mm",Classic:"8–9 mm",Royal:"9–10 mm",Grande:"10–11 mm",Muse:"5–6 mm",Icon:"6–7 mm"};
+const TINT = {
+  white:{hi:"#FFFFFF",mid:"#EEEDE8",edge:"#BFC2C2",sheen:"#E6E1F2",sw:"#F1F0EB"},
+  rose:{hi:"#FFF7F4",mid:"#EBCFC9",edge:"#BF9890",sheen:"#F4D9E6",sw:"#E9CAC4"},
+  champagne:{hi:"#FFF8EE",mid:"#E9D3BB",edge:"#B99C7C",sheen:"#F2E3CC",sw:"#E6D0B7"},
+  pink:{hi:"#FFF6F6",mid:"#F1D5D6",edge:"#C9A2A5",sheen:"#F7DCE9",sw:"#EFD3D4"},
+  silver:{hi:"#FAFBFC",mid:"#CBD0D7",edge:"#8A919C",sheen:"#DAE2EE",sw:"#C8CDD4"},
+  aubergine:{hi:"#F4EEF6",mid:"#C9B6CE",edge:"#8E7596",sheen:"#E3D4EC",sw:"#BFA9C6"},
+  tahitian:{hi:"#C8CDD2",mid:"#6C727B",edge:"#353940",sheen:"#7C8F8A",sw:"#686E77"}
+};
+const METAL = {silver:{s:"#959CA8",f:"#C3C8CF"},gold:{s:"#B08A47",f:"#D7B676"}};
+
+const CHAPTERS = [
+ {key:"studs",title:"Stud Earrings",intro:"The pearl at the ear: classic studs in five natural colours, from petite to Grande, some framed with ÉCLAT gemstones.",art:{type:"studs",items:[{tint:"white"}],r:52}},
+ {key:"drops",title:"Drop Earrings",intro:"Pearls that move with you. Long and short drops, hoops and teardrops in sterling silver.",art:{type:"drops",parts:["hook","link","gem:5","link","tear:20"],tint:"white",single:true}},
+ {key:"pendants",title:"Pendants & Necklaces",intro:"Single pearls on a fine chain, the Venus station necklace, and the new Aqua lariat with its two teardrop pearls.",art:{type:"pendant",parts:["gem:6","link","tear:22"],tint:"white",metal:"gold"}},
+ {key:"sets",title:"Matching Sets",intro:"Necklace and earrings chosen to be worn together, priced as a set. New this season: five Aqua sets.",art:{type:"studs",items:[{tint:"white",deco:"solitaire",metal:"gold"},{tint:"tahitian",deco:"solitaire"}],r:40}},
+ {key:"lumiere",title:"LUMIÈRE",intro:"Our moissanite collection. Round brilliant stones with fire and sparkle that rival a diamond, set in sterling silver.",art:{type:"mstuds",r:44,single:true}}
+];
+
+const P = [
+/* ---------- studs ---------- */
+{cat:"studs",name:"Constellation",sub:"Pearl Clover Stud Earrings",kick:"Freshwater pearl · ÉCLAT · Sterling silver",
+ desc:"An 8 mm freshwater pearl framed by four ÉCLAT gemstones in a clover outline. Light enough for every day, refined enough for special occasions.",
+ rows:[["Silver","Classic",495,48548578623673]],art:{type:"studs",items:[{tint:"white",deco:"clover"},{tint:"white",deco:"clover"}]}},
+{cat:"studs",name:"Estelle",sub:"Pearl & ÉCLAT Stud Earrings · Five colours",kick:"Four pearl colours · ÉCLAT · Sterling silver",
+ desc:"A freshwater pearl crowned with a single ÉCLAT gemstone, now in five colours.",
+ matrix:{cols:["Bijou","Classic","Royal","Grande"],rows:[["White","white",[249,360,430,480],[47283631063225,49161493151929,47229834985657,47265146765497]],["Champagne Pink","champagne",[249,360,430,null],[68414944411833,48151550460089,48158709514425,null]],["Silver Grey","silver",[249,360,430,null],[68197588598969,48151523426489,48158707417273,null]],["Tahitian Grey","tahitian",[249,360,430,null],[49161494233273,48151583228089,48158709973177,null]],["Mauve Aubergine <i class=new>New</i>","aubergine",[249,null,null,null],[68414944903353,null,null,null]]],foot:"Bijou &amp; Classic also in 18k gold-plated, same price."},
+ art:{type:"studs",items:[{tint:"white",deco:"solitaire"},{tint:"champagne",deco:"solitaire"},{tint:"silver",deco:"solitaire"},{tint:"tahitian",deco:"solitaire"}]}},
+{cat:"studs",name:"Estelle Tri-Star",sub:"Pearl & ÉCLAT Stud Earrings",kick:"AAAA pearl · 18k gold-plated silver",
+ desc:"A lustrous AAAA round pearl crowned by a trio of brilliant ÉCLAT gemstones.",
+ rows:[["White",null,435,49161475457209],["Tahitian Grey",null,435,49161475489977],["White & Sapphire",null,435,49161475522745]],
+ art:{type:"studs",items:[{tint:"white",deco:"tristar",metal:"gold"},{tint:"tahitian",deco:"tristar",metal:"gold"},{tint:"white",deco:"tristar",metal:"gold",gem:"sapphire"}]}},
+{cat:"studs",name:"LYS",sub:"Pearl Stud Earrings",kick:"Freshwater cultured pearl · Gold or sterling silver",
+ desc:"A luminous freshwater pearl in a clean, refined setting, for every day and special occasions.",
+ rows:[["Gold",null,485,48271135310009],["Sterling silver",null,485,48139702730937]],
+ art:{type:"studs",items:[{tint:"white",deco:"post",metal:"gold"},{tint:"white",deco:"post",metal:"silver"}]}},
+{cat:"studs",name:"Soleil",sub:"Pearl Halo Stud Earrings",kick:"Freshwater cultured pearl · ÉCLAT halo · Silver",
+ desc:"A radiant freshwater cultured pearl at the centre, framed by a shimmering halo of ÉCLAT gemstones.",
+ rows:[["Silver","Bijou",520,48139335368889],["Silver","Classic",660,48139335336121]],
+ art:{type:"studs",items:[{tint:"white",deco:"halo"},{tint:"white",deco:"halo"}],r:34}},
+{cat:"studs",name:"Stellar",sub:"Pearl Stud Earrings",kick:"Freshwater pearl · ÉCLAT",
+ desc:"A luminous freshwater pearl accented with brilliant ÉCLAT gemstones for a subtle touch of sparkle.",
+ rows:[["Pearl stud","Bijou",425,68407180263609],["Pearl stud","Classic",495,48139696668857]],art:{type:"studs",items:[{tint:"white",deco:"stellar"},{tint:"white",deco:"stellar"}]}},
+{cat:"studs",name:"Vendôme",sub:"Pearl & ÉCLAT Stud Earrings",kick:"8.5–9 mm freshwater pearl · Silver or gold",
+ desc:"A luminous 8.5–9 mm freshwater pearl framed by four sparkling ÉCLAT gemstones.",
+ rows:[["Silver · White","8.5–9 mm",595,48139675795641],["Gold · White","8.5–9 mm",595,68018390859961]],
+ art:{type:"studs",items:[{tint:"white",deco:"vendome"},{tint:"white",deco:"vendome",metal:"gold"}]}},
+{cat:"studs",name:"Vivienne",sub:"Pearl Stud Earrings · Four colours",kick:"Four pearl colours · The everyday classic",
+ desc:"Our most-loved stud: hand-selected freshwater pearls in four natural colours.",
+ matrix:{cols:["Bijou","Classic","Royal","Grande"],rows:[["White","white",[249,295,340,400],[68094760911033,47229794713785,47229794681017,47265195655353]],["Champagne Rose","rose",[null,295,null,400],[null,48151503208633,null,68414945460409]],["Silver Grey","silver",[null,295,null,null],[null,48151509139641,null,null]],["Tahitian Grey","tahitian",[null,295,null,null],[null,48151153475769,null,null]]],foot:"Bijou &amp; Classic also in 18k gold-plated, same price."},
+ art:{type:"studs",items:[{tint:"white"},{tint:"rose"},{tint:"champagne"},{tint:"silver"},{tint:"tahitian"}]}},
+{cat:"studs",name:"Vivienne Mademoiselle",sub:"Petite Pearl Studs for Girls",kick:"Petite freshwater pearls · Secure, comfortable posts",
+ desc:"Delicate freshwater pearls sized for smaller ears, made for young ladies.",
+ matrix:{cols:["Muse","Icon"],rows:[["White","white",[240,250],[49161350906041,49161350971577]],["Champagne Pink","pink",[240,250],[49161350938809,49161351004345]]],foot:"18k gold-plated backings · White Muse also in sterling silver."},
+ art:{type:"studs",items:[{tint:"white"},{tint:"pink"}],r:28}},
+/* ---------- drops ---------- */
+{cat:"drops",name:"Aurielle",sub:"Pearl Drop Earrings",kick:"8–9 mm freshwater pearl · Pavé ÉCLAT · Sterling silver",
+ desc:"Sterling silver curves set with pavé ÉCLAT gemstones, above a luminous 8–9 mm white freshwater pearl.",
+ rows:[["White","Classic",395,47229821681849]],art:{type:"drops",parts:["pave","link","pearl:17"],tint:"white"}},
+{cat:"drops",name:"Camelia Luxe",sub:"Pearl Drop Earrings",kick:"8–9 mm freshwater pearl · ÉCLAT circle",
+ desc:"A luminous 8–9 mm white freshwater pearl suspended beneath a delicate circle of radiant ÉCLAT gemstones.",
+ rows:[["White","Classic",495,47229822861497]],art:{type:"drops",parts:["ring","link","pearl:17"],tint:"white"}},
+{cat:"drops",name:"Celeste",sub:"Pearl Drop Hoop Earrings",kick:"Freshwater pearl · Sterling silver hoops",
+ desc:"A white freshwater pearl suspended from sleek sterling silver hoops. Fresh, modern and easy to wear.",
+ rows:[["White","Icon",260,68414944936121],["White","Bijou",260,47283698794681],["White","Classic",430,47229773873337]],art:{type:"drops",parts:["hoop","pearl:15"],tint:"white"}},
+{cat:"drops",name:"Éclair",sub:"Teardrop Pearl Drop Earrings",kick:"Teardrop freshwater pearl · Three ÉCLAT cuts",
+ desc:"A round ÉCLAT at the ear, an emerald cut and a pear cut beneath, finished with a teardrop freshwater pearl. A long, linear drop.",
+ rows:[["Sterling silver",null,695,48974926905529]],art:{type:"drops",parts:["gem:7","link","emerald:7","link","peargem:5","link","tear:15"],tint:"white",hook:false}},
+{cat:"drops",name:"Elise",sub:"Teardrop Pearl Drop Earrings",kick:"Teardrop freshwater pearl · Polished sterling silver",
+ desc:"A white teardrop freshwater pearl on a polished sterling silver hook. The gentle drop catches the light with every movement.",
+ rows:[["White","Classic",260,47229778886841]],art:{type:"drops",parts:["hook","link","tear:20"],tint:"white"}},
+{cat:"drops",name:"Juliette",sub:"Pearl Drop Earrings",kick:"Freshwater pearl · Three ÉCLAT gemstones",
+ desc:"Three ÉCLAT gemstones descend toward a graceful white freshwater pearl drop. An elegant vertical line.",
+ rows:[["White","Bijou",295,47283622510777],["White","Classic",380,47229839147193]],art:{type:"drops",parts:["gem:5","gem:5","gem:5","link","pearl:16"],tint:"white",hook:false}},
+{cat:"drops",name:"Lunaire",sub:"Long Pearl Drop Earrings",kick:"Two freshwater pearls · Princess-cut ÉCLAT",
+ desc:"A round pearl at the ear, three graduated princess-cut ÉCLAT gemstones beneath it, and a teardrop pearl at the finish.",
+ rows:[["Sterling silver",null,600,48974202798265]],art:{type:"drops",parts:["pearl:9","link","sq:4","sq:4.6","sq:5.2","link","tear:14"],tint:"white",hook:false}},
+{cat:"drops",name:"Selene",sub:"Pearl Drop Earrings",kick:"Round freshwater pearl · ÉCLAT square setting",
+ desc:"A square setting of ÉCLAT gemstones above a round white freshwater pearl.",
+ rows:[["White","Bijou",375,47283621822649],["White","Grande",435,47233147764921]],art:{type:"drops",parts:["square","link","pearl:18"],tint:"white",hook:false}},
+{cat:"drops",name:"Aqua",sub:"Teardrop Pearl Earrings",kick:"New · AAAA teardrop pearl, 8.5–9 mm · Four ÉCLAT",isNew:true,
+ desc:"A column of four sparkling ÉCLAT gemstones holding a lustrous freshwater teardrop pearl. Light, graceful and made to move.",
+ rows:[["White pearl","8.5–9 mm",490,67842265317561],["Mauve Aubergine pearl","8.5–9 mm",490,68151661166777]],art:{type:"drops",parts:["gem:5","gem:5","gem:5","gem:5","link","tear:16"],tint:"white",hook:false}},
+/* ---------- pendants ---------- */
+{cat:"pendants",name:"Éclair",sub:"Teardrop Pearl Pendant",kick:"Teardrop freshwater pearl · Sterling silver chain",
+ desc:"A teardrop freshwater pearl beneath three graduated ÉCLAT gemstones (round, emerald and pear cut) on a fine sterling silver chain.",
+ rows:[["Sterling silver","40 cm + 6 cm",395,48974163280057]],art:{type:"pendant",parts:["gem:5","link","emerald:5","link","peargem:4","link","tear:15"],tint:"white"}},
+{cat:"pendants",name:"Estelle",sub:"Pearl & ÉCLAT Pendant",kick:"AAAA round pearl, 9–10 mm · ÉCLAT solitaire",
+ desc:"A single AAAA-grade round pearl beneath a brilliant ÉCLAT solitaire, on a fine chain.",
+ rows:[["Gold · White pearl","40 cm + 6 cm",470,49161475588281],["Silver · Tahitian Grey","40 cm + 6 cm",470,49161475621049]],
+ art:{type:"pendants2",parts:["gem:6","link","pearl:17"],v:[["gold","white"],["silver","tahitian"]]}},
+{cat:"pendants",name:"Solar",sub:"Teardrop Pearl Pendant",kick:"AAAA teardrop pearl, 8.5–9 mm · ÉCLAT halo",
+ desc:"A radiant halo of ÉCLAT gemstones suspending an AAAA-grade teardrop freshwater pearl.",
+ rows:[["Gold · White pearl","40 cm + 6 cm",470,49161475752121],["Silver · Tahitian Grey","40 cm + 6 cm",470,49161475784889]],
+ art:{type:"pendants2",parts:["ring","link","tear:13"],v:[["gold","white"],["silver","tahitian"]]}},
+{cat:"pendants",name:"Venus",sub:"Seven-Pearl Station Necklace",kick:"Seven AAAA pearls, 8–9 mm · Exclusive design",
+ desc:"Seven lustrous round pearls stationed along a fine chain. An exclusive design, custom made by skilled artisans.",
+ rows:[["18k gold-plated","42 cm + 6 cm",895,49161480011961],["18k gold-plated","50 cm",895,68414940348601],["Sterling silver","50 cm",895,68414940381369]],art:{type:"station"}},
+{cat:"pendants",name:"Aqua",sub:"Double Teardrop Pearl Necklace",kick:"New · Two teardrop pearls, 9–10 mm · 76 cm lariat",isNew:true,
+ desc:"A fluid lariat of snake-bone chain ending in two freshwater teardrop pearls. A sliding helix set with ÉCLAT gems adjusts it from a close collar to a long, elegant drop.",
+ rows:[["White pearls","76 cm",750,67842265350329],["Mauve Aubergine pearls","76 cm",750,68151265034425]],art:{type:"pendant",parts:["gem:5","link","tear:14"],tint:"white"}},
+/* ---------- sets ---------- */
+{cat:"sets",name:"Éclair Set",sub:"Pendant & Drop Earrings",kick:"Sterling silver · Teardrop freshwater pearls",
+ desc:"The complete Éclair look: the long drop earrings with the matching teardrop pendant.",
+ rows:[["Pendant + earrings",null,995,48975207497913]],note:"Separately <em>₪1,090</em>",
+ art:{type:"set",pend:["gem:5","link","emerald:5","link","peargem:4","link","tear:14"],ear:{type:"drops",parts:["gem:7","link","emerald:7","link","peargem:5","link","tear:15"],hook:false},tint:"white",metal:"silver"}},
+{cat:"sets",name:"Estelle Set",sub:"Pendant & Stud Earrings",kick:"AAAA pearls · ÉCLAT · Gold or silver",
+ desc:"The Estelle pendant with matching Classic pearl studs, each topped with an ÉCLAT gem.",
+ rows:[["Gold · White pearl",null,720,49161475686585],["Silver · Tahitian Grey",null,720,49161475719353]],note:"Separately <em>₪830</em>",
+ art:{type:"set",pend:["gem:6","link","pearl:16"],ear:{type:"studs",deco:"solitaire"},tint:"white",metal:"gold"}},
+{cat:"sets",name:"Solar & Tri-Star",sub:"Pendant & Stud Earrings",kick:"AAAA pearls · Gold or silver",
+ desc:"The Solar teardrop pendant with matching Estelle Tri-Star pearl studs.",
+ rows:[["Gold · White pearl",null,830,49161475817657],["Silver · Tahitian Grey",null,830,49161475850425]],note:"Separately <em>₪905</em>",
+ art:{type:"set",pend:["ring","link","tear:13"],ear:{type:"studs",deco:"tristar"},tint:"white",metal:"gold"}},
+{cat:"sets",name:"Solaray Set",sub:"Pendant & Stud Earrings",kick:"AAAA pearls · Gold or silver",
+ desc:"The Solar teardrop pendant paired with classic pearl stud earrings.",
+ rows:[["Gold · White pearl",null,795,50506323886265],["Silver · Tahitian Grey",null,795,50506323919033]],
+ art:{type:"set",pend:["ring","link","tear:13"],ear:{type:"studs",deco:"post"},tint:"tahitian",metal:"silver"}},
+{cat:"sets",name:"Venus Set",sub:"Necklace & Vivienne Studs",kick:"18k gold-plated · White pearls",
+ desc:"The Venus seven-pearl station necklace in gold with Bijou (7–8 mm) white pearl studs on gold backings.",
+ rows:[["Necklace + studs",null,1090,68114395365561]],art:{type:"station",studs:true}},
+{cat:"sets",name:"Aqua Set",sub:"Necklace & Aqua Earrings",kick:"New · Teardrop pearls · ÉCLAT",isNew:true,
+ desc:"The Aqua double teardrop necklace with the matching Aqua teardrop earrings, in white or mauve-aubergine pearls.",
+ rows:[["White pearls",null,995,67842265383097],["Mauve Aubergine pearls",null,995,68151661297849]],note:"Separately <em>₪1,240</em>",
+ art:{type:"set",pend:["gem:5","link","tear:14"],ear:{type:"studs",deco:"post"},tint:"white",metal:"silver"}},
+{cat:"sets",name:"Aqua & Vivienne",sub:"Necklace & Pearl Studs",kick:"New · White pearls",isNew:true,
+ desc:"The Aqua necklace with classic Vivienne white pearl studs, Bijou (7–8 mm). Fluid at the neckline, pure at the ear.",
+ rows:[["Necklace + studs",null,860,68156981117113]],note:"Separately <em>₪999</em>",
+ art:{type:"set",pend:["gem:5","link","tear:14"],ear:{type:"studs",deco:"post"},tint:"white",metal:"silver"}},
+{cat:"sets",name:"Aqua & Estelle",sub:"Necklace & ÉCLAT Pearl Studs",kick:"New · White pearls · ÉCLAT",isNew:true,
+ desc:"The Aqua necklace with Estelle studs, Bijou (7–8 mm): a white pearl crowned with a single ÉCLAT gem.",
+ rows:[["Necklace + studs",null,899,68156981215417]],note:"Separately <em>₪999</em>",
+ art:{type:"set",pend:["gem:5","link","tear:14"],ear:{type:"studs",deco:"post"},tint:"white",metal:"silver"}},
+{cat:"sets",name:"Aqua & Tri-Star",sub:"Necklace & Tri-Star Studs",kick:"New · AAAA white pearls · ÉCLAT",isNew:true,
+ desc:"The Aqua necklace with Estelle Tri-Star studs, Classic (8–9 mm), each crowned with three ÉCLAT gems.",
+ rows:[["Necklace + studs",null,1065,68156981313721]],note:"Separately <em>₪1,185</em>",
+ art:{type:"set",pend:["gem:5","link","tear:14"],ear:{type:"studs",deco:"post"},tint:"white",metal:"silver"}},
+{cat:"sets",name:"Aqua & Lunaire",sub:"Necklace & Long Drop Earrings",kick:"New · Teardrop pearls · ÉCLAT",isNew:true,
+ desc:"The Aqua necklace with Lunaire long drops: teardrop pearls at the neck and the ear for an elongated evening look.",
+ rows:[["Necklace + earrings",null,1215,68156981412025]],note:"Separately <em>₪1,350</em>",
+ art:{type:"set",pend:["gem:5","link","tear:14"],ear:{type:"studs",deco:"post"},tint:"white",metal:"silver"}},
+/* ---------- lumière ---------- */
+{cat:"lumiere",name:"El Dorado",sub:"Moissanite Stud Earrings · 2 ct",kick:"LUMIÈRE · Moissanite · Sterling silver",
+ desc:"A 1-carat round brilliant moissanite in each earring (2 carats the pair), held high in a classic six-prong setting.",
+ rows:[["Sterling silver","2 ct total",795,67710415339705]],art:{type:"mstuds",r:40}},
+{cat:"lumiere",name:"Silverado",sub:"Moissanite Dangle Earrings · 2 ct",kick:"LUMIÈRE · Moissanite · Sterling silver",
+ desc:"A 1-carat round brilliant moissanite in each earring (2 carats the pair) in a six-prong setting, on sterling silver hooks.",
+ rows:[["Sterling silver","2 ct total",795,67710415405241]],art:{type:"drops",parts:["hook","link","facet:18"],tint:"white"}}
+];
+
+/* ===================== DRAWING ===================== */
+let GID=0;
+function uid(){return "g"+(GID++)}
+function pearlGrads(D,t){
+  const a=uid(),b=uid();
+  D.push(`<radialGradient id="${a}" cx="38%" cy="32%" r="74%"><stop offset="0" stop-color="${t.hi}"/><stop offset=".5" stop-color="${t.mid}"/><stop offset="1" stop-color="${t.edge}"/></radialGradient>`);
+  D.push(`<radialGradient id="${b}" cx="62%" cy="80%" r="55%"><stop offset="0" stop-color="${t.sheen}" stop-opacity=".8"/><stop offset="1" stop-color="${t.sheen}" stop-opacity="0"/></radialGradient>`);
+  return [a,b];
+}
+function pearl(D,cx,cy,r,tn,shadow){
+  const t=TINT[tn]||TINT.white,[a,b]=pearlGrads(D,t);
+  let s="";
+  if(shadow) s+=`<ellipse cx="${cx}" cy="${cy+r*1.02}" rx="${r*.8}" ry="${r*.14}" fill="#1D2536" opacity=".10"/>`;
+  s+=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="url(#${a})"/><circle cx="${cx}" cy="${cy}" r="${r}" fill="url(#${b})"/>`;
+  s+=`<ellipse cx="${cx-r*.33}" cy="${cy-r*.38}" rx="${r*.22}" ry="${r*.12}" fill="#fff" opacity=".8" transform="rotate(-32 ${cx-r*.33} ${cy-r*.38})"/>`;
+  return s;
+}
+function tearPath(cx,cy,r){
+  return `M${cx} ${cy-1.55*r} C${cx+.45*r} ${cy-1.0*r} ${cx+r} ${cy-.45*r} ${cx+r} ${cy+.2*r} A${r} ${r} 0 0 1 ${cx-r} ${cy+.2*r} C${cx-r} ${cy-.45*r} ${cx-.45*r} ${cy-1.0*r} ${cx} ${cy-1.55*r} Z`;
+}
+function tear(D,cx,cy,r,tn){
+  const t=TINT[tn]||TINT.white,[a,b]=pearlGrads(D,t);
+  const d=tearPath(cx,cy,r);
+  return `<path d="${d}" fill="url(#${a})"/><path d="${d}" fill="url(#${b})"/><ellipse cx="${cx-r*.32}" cy="${cy-r*.25}" rx="${r*.17}" ry="${r*.3}" fill="#fff" opacity=".7" transform="rotate(18 ${cx-r*.32} ${cy-r*.25})"/>`;
+}
+function gemGrad(D,kind){
+  const id=uid();
+  if(kind==="sapphire") D.push(`<radialGradient id="${id}" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#6F8FD8"/><stop offset=".55" stop-color="#2A4A9A"/><stop offset="1" stop-color="#14245A"/></radialGradient>`);
+  else D.push(`<radialGradient id="${id}" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".6" stop-color="#E9EDF3"/><stop offset="1" stop-color="#B9C2CF"/></radialGradient>`);
+  return id;
+}
+function gem(D,cx,cy,r,metal,kind){
+  const m=METAL[metal]||METAL.silver,id=gemGrad(D,kind);
+  let s=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="url(#${id})" stroke="${m.s}" stroke-width="${Math.max(.6,r*.14)}"/>`;
+  if(r>=3.5) s+=`<path d="M${cx-r*.55} ${cy}H${cx+r*.55}M${cx} ${cy-r*.55}V${cy+r*.55}" stroke="#fff" stroke-width="${r*.12}" opacity=".85"/>`;
+  return s;
+}
+function sqgem(D,cx,cy,r,metal){
+  const m=METAL[metal]||METAL.silver,id=gemGrad(D);
+  return `<rect x="${cx-r}" y="${cy-r}" width="${2*r}" height="${2*r}" fill="url(#${id})" stroke="${m.s}" stroke-width="${r*.18}"/><path d="M${cx-r} ${cy-r}L${cx+r} ${cy+r}M${cx+r} ${cy-r}L${cx-r} ${cy+r}" stroke="#fff" stroke-width="${r*.1}" opacity=".7"/>`;
+}
+function emerald(D,cx,cy,r,metal){
+  const m=METAL[metal]||METAL.silver,id=gemGrad(D),w=r*1.4,h=r*2;
+  return `<rect x="${cx-w/2}" y="${cy-h/2}" width="${w}" height="${h}" rx="${r*.18}" fill="url(#${id})" stroke="${m.s}" stroke-width="${r*.16}"/><rect x="${cx-w/4}" y="${cy-h/4}" width="${w/2}" height="${h/2}" fill="none" stroke="#fff" stroke-width="${r*.1}" opacity=".85"/>`;
+}
+function peargem(D,cx,cy,r,metal){
+  const m=METAL[metal]||METAL.silver,id=gemGrad(D);
+  return `<path d="${tearPath(cx,cy,r)}" fill="url(#${id})" stroke="${m.s}" stroke-width="${r*.16}"/>`;
+}
+function facet(D,cx,cy,r,metal){
+  const m=METAL[metal]||METAL.silver,id=uid(),rb=uid();
+  D.push(`<radialGradient id="${id}" cx="42%" cy="38%" r="72%"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".55" stop-color="#E6ECF4"/><stop offset="1" stop-color="#A9B4C4"/></radialGradient>`);
+  D.push(`<linearGradient id="${rb}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F6D7F0" stop-opacity=".0"/><stop offset=".45" stop-color="#CDE6FF" stop-opacity=".55"/><stop offset=".7" stop-color="#FFF1C7" stop-opacity=".45"/><stop offset="1" stop-color="#E5D6FF" stop-opacity="0"/></linearGradient>`);
+  const o=[],t=[];
+  for(let i=0;i<8;i++){const a=Math.PI/8+i*Math.PI/4;o.push([cx+r*Math.cos(a),cy+r*Math.sin(a)]);t.push([cx+r*.52*Math.cos(a),cy+r*.52*Math.sin(a)]);}
+  const poly=p=>p.map(q=>q[0].toFixed(1)+","+q[1].toFixed(1)).join(" ");
+  let s="";
+  for(let i=0;i<6;i++){const a=i*Math.PI/3-Math.PI/2;s+=`<circle cx="${cx+r*1.0*Math.cos(a)}" cy="${cy+r*1.0*Math.sin(a)}" r="${r*.1}" fill="${m.f}" stroke="${m.s}" stroke-width="${r*.03}"/>`;}
+  s=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="url(#${id})"/>`+`<circle cx="${cx}" cy="${cy}" r="${r}" fill="url(#${rb})"/>`+`<polygon points="${poly(t)}" fill="none" stroke="#fff" stroke-width="${r*.04}"/>`+
+    o.map((p,i)=>`<line x1="${p[0]}" y1="${p[1]}" x2="${t[i][0]}" y2="${t[i][1]}" stroke="#8D9AAD" stroke-width="${r*.025}" opacity=".7"/>`).join("")+
+    t.map((p,i)=>`<line x1="${p[0]}" y1="${p[1]}" x2="${cx}" y2="${cy}" stroke="#fff" stroke-width="${r*.02}" opacity=".55"/>`).join("")+
+    `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${m.s}" stroke-width="${r*.05}"/>`+s;
+  return s;
+}
+function stud(D,cx,cy,r,o){
+  const tn=o.tint||"white",metal=o.metal||"silver",deco=o.deco||"none",k=o.gem;
+  const m=METAL[metal];let s="",pre="";
+  const at=(ang,dist,gr)=>gem(D,cx+dist*Math.cos(ang*Math.PI/180),cy+dist*Math.sin(ang*Math.PI/180),gr,metal,k);
+  if(deco==="halo"){pre+=`<circle cx="${cx}" cy="${cy}" r="${r*1.2}" fill="none" stroke="${m.s}" stroke-width="${r*.12}"/>`;for(let i=0;i<16;i++)s+=at(i*22.5,r*1.2,r*.16);}
+  if(deco==="clover")[45,135,225,315].forEach(a=>s+=at(a,r*1.08,r*.3));
+  if(deco==="vendome")[0,90,180,270].forEach(a=>s+=at(a,r*1.13,r*.25));
+  if(deco==="tristar")[-130,-90,-50].forEach(a=>s+=at(a,r*1.22,r*.25));
+  if(deco==="stellar")[-95,-70,-45,-20].forEach((a,i)=>s+=at(a,r*1.16,r*(.12+i*.035)));
+  if(deco==="solitaire")s+=gem(D,cx,cy-r*1.32,r*.3,metal,k);
+  if(deco==="post")pre+=`<circle cx="${cx}" cy="${cy}" r="${r*1.07}" fill="${m.f}" opacity=".9"/>`;
+  return pre+pearl(D,cx,cy,r,tn,true)+s;
+}
+/* vertical stack (drop earrings / pendants) at x=0, starting y=0 */
+function stack(D,parts,metal,tn){
+  const m=METAL[metal]||METAL.silver;let y=0,s="";
+  parts.forEach(p=>{
+    const [k,v]=p.split(":"),r=parseFloat(v);
+    if(k==="hook"){s+=`<path d="M0 ${y+24}V${y+9}a8 8 0 0 1 16 0v6" fill="none" stroke="${m.s}" stroke-width="1.7" stroke-linecap="round"/>`;y+=24;}
+    else if(k==="link"){s+=`<line x1="0" y1="${y}" x2="0" y2="${y+6}" stroke="${m.s}" stroke-width="1.3"/>`;y+=6;}
+    else if(k==="gem"){s+=gem(D,0,y+r,r,metal);y+=2*r+1;}
+    else if(k==="sq"){s+=sqgem(D,0,y+r,r,metal);y+=2*r+1.5;}
+    else if(k==="emerald"){s+=emerald(D,0,y+r,r,metal);y+=2*r;}
+    else if(k==="peargem"){s+=peargem(D,0,y+1.55*r,r,metal);y+=2.75*r;}
+    else if(k==="pearl"){s+=pearl(D,0,y+r,r,tn);y+=2*r;}
+    else if(k==="tear"){s+=tear(D,0,y+1.55*r,r,tn);y+=2.75*r;}
+    else if(k==="facet"){s+=facet(D,0,y+r,r,metal);y+=2*r;}
+    else if(k==="pave"){s+=`<path d="M-17 ${y+4}Q0 ${y+26} 17 ${y+4}" fill="none" stroke="${m.s}" stroke-width="1.4"/>`;
+      [-15,-10,-5,0,5,10,15].forEach(x=>{const yy=y+4+(1-(x/17)**2)*11;s+=gem(D,x,yy,2.6,metal);});y+=17;}
+    else if(k==="ring"){for(let i=0;i<12;i++){const a=i*Math.PI/6;s+=gem(D,13*Math.cos(a),y+14+13*Math.sin(a),3.1,metal);}y+=29;}
+    else if(k==="hoop"){s+=`<circle cx="0" cy="${y+26}" r="25" fill="none" stroke="${m.s}" stroke-width="2.6"/><circle cx="0" cy="${y+26}" r="25" fill="none" stroke="${m.f}" stroke-width="1" opacity=".8"/>`;y+=49;}
+    else if(k==="square"){[[-11,-11],[0,-11],[11,-11],[-11,0],[11,0],[-11,11],[0,11],[11,11]].forEach(q=>s+=gem(D,q[0],y+13+q[1],4,metal));y+=29;}
+  });
+  return {s,h:y};
+}
+function pendantAt(D,cx,x0,x1,top,bottom,parts,metal,tn,maxH){
+  const m=METAL[metal]||METAL.silver,ctrlY=bottom*2-top;
+  let s=`<path d="M${x0} ${top}Q${cx} ${ctrlY} ${x1} ${top}" fill="none" stroke="${m.s}" stroke-width="1.1"/>`;
+  const st=stack(D,["link",...parts],metal,tn),sc=Math.min(1.25,maxH/st.h);
+  s+=`<g transform="translate(${cx} ${bottom}) scale(${sc})">${st.s}</g>`;
+  return s;
+}
+function catPoint(x0,x1,top,cy,t){const cx=(x0+x1)/2,c=2*cy-top;return [(1-t)*(1-t)*x0+2*(1-t)*t*cx+t*t*x1,(1-t)*(1-t)*top+2*(1-t)*t*c+t*t*top];}
+function art(a){
+  const D=[];let b="";
+  const W=360,H=220;
+  if(a.type==="studs"){
+    const n=a.items.length,r=a.r||Math.min(40,300/n/2.7),gap=W/(n+1);
+    a.items.forEach((it,i)=>b+=stud(D,gap*(i+1),H*.54,r,it));
+  } else if(a.type==="drops"){
+    const st=stack(D,(a.hook===false?[]:[]).concat(a.parts[0]==="hook"||a.hook===false?a.parts:["hook","link",...a.parts]),a.metal||"silver",a.tint);
+    const sc=Math.min(1.6,196/st.h),y0=(H-st.h*sc)/2;
+    const xs=a.single?[180]:[135,225];
+    xs.forEach(x=>b+=`<g transform="translate(${x} ${y0}) scale(${sc})">${st.s}</g>`);
+  } else if(a.type==="pendant"){
+    b+=pendantAt(D,180,24,336,4,92,a.parts,a.metal||"silver",a.tint,122);
+  } else if(a.type==="pendants2"){
+    a.v.forEach((v,i)=>{const cx=i?262:98;b+=pendantAt(D,cx,cx-78,cx+78,6,88,a.parts,v[0],v[1],124);});
+  } else if(a.type==="station"){
+    const x0=20,x1=340,top=a.studs?6:18,cy=a.studs?150:190;
+    b+=`<path d="M${x0} ${top}Q180 ${cy*2-top-((a.studs?150:190)*1-cy)} ${x1} ${top}" fill="none" stroke="${METAL.gold.s}" stroke-width="1.1"/>`;
+    for(let i=0;i<7;i++){const t=.2+i*.1,[x,y]=catPoint(x0,x1,top,cy,t);b+=pearl(D,x,y,10.5,"white");}
+    if(a.studs){b+=stud(D,150,180,13,{tint:"white",deco:"post",metal:"gold"})+stud(D,210,180,13,{tint:"white",deco:"post",metal:"gold"});}
+  } else if(a.type==="set"){
+    b+=pendantAt(D,118,30,206,6,86,a.pend,a.metal,a.tint,124);
+    if(a.ear.type==="studs"){b+=stud(D,262,112,17,{tint:a.tint,deco:a.ear.deco,metal:a.metal})+stud(D,318,112,17,{tint:a.tint,deco:a.ear.deco,metal:a.metal});}
+    else{const st=stack(D,a.ear.parts,a.metal,a.tint),sc=170/st.h,y0=(H-st.h*sc)/2;[262,318].forEach(x=>b+=`<g transform="translate(${x} ${y0}) scale(${sc})">${st.s}</g>`);}
+  } else if(a.type==="mstuds"){
+    const r=a.r||40,xs=a.single?[180]:[128,232];xs.forEach(x=>b+=`<ellipse cx="${x}" cy="${H*.52+r*1.05}" rx="${r*.75}" ry="${r*.13}" fill="#1D2536" opacity=".1"/>`+facet(D,x,H*.52,r,"silver"));
+  } else if(a.type==="cover"){
+    b+=pearl(D,180,112,84,"white");
+  }
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-hidden="true"><defs>${D.join("")}</defs>${b}</svg>`;
+}
+
+/* ===================== PAGES ===================== */
+const PHOTOS={
+"Constellation":["constellation"],
+"Estelle|Pearl & ÉCLAT Stud Earrings · Five colours":["estelle-white","estelle-champagne","estelle-silver","estelle-tahitian"],
+"Estelle Tri-Star":["estelle-tristar-white","tristar-grey","estelle-tristar-sapphire"],
+"LYS":["lys-gold","lys-silver"],
+"Soleil":["soleil"],
+"Stellar":["stellar-rose"],
+"Vendôme":["vendome-silver","vendome-gold"],
+"Vivienne":["vivienne-white","vivienne-rose","vivienne-silver","vivienne-tahitian"],
+"Vivienne Mademoiselle":["mademoiselle-white","mademoiselle-pink"],
+"Aurielle":["aurielle"],"Camelia Luxe":["camelia"],"Celeste":["celeste"],
+"Éclair|Teardrop Pearl Drop Earrings":["eclair-earrings"],"Elise":["elise"],"Juliette":["juliette"],"Lunaire":["lunaire"],"Selene":["selene"],
+"Éclair|Teardrop Pearl Pendant":["eclair-pendant"],
+"Estelle|Pearl & ÉCLAT Pendant":["estelle-pendant-gold-v2","estelle-pendant-silver-v2"],
+"Solar":["solar-pendant-gold","solar-pendant-silver-grey"],
+"Venus":["venus-necklace-gold-cable"],
+"Éclair Set":["eclair-set"],"Estelle Set":["estelle-set-gold-v2","estelle-set-silver-v2"],
+"Solar & Tri-Star":["solar-tristar-set"],"Solaray Set":["solaray-set-gold","solaray-set-silver-grey"],
+"Venus Set":["venus-set-gold-photo"],
+"Aqua|Teardrop Pearl Earrings":["aqua-earrings-white","aqua-earrings-mauve"],"Aqua|Double Teardrop Pearl Necklace":["aqua-necklace"],
+"Aqua Set":["aqua-set"],"Aqua & Vivienne":["aqua-vivienne-set"],"Aqua & Estelle":["aqua-estelle-set"],"Aqua & Tri-Star":["aqua-tristar-set"],"Aqua & Lunaire":["aqua-lunaire-set"],"El Dorado":["eldorado-front"],"Silverado":["silverado-front"]};
+function photosFor(p){return PHOTOS[p.name+"|"+p.sub]||PHOTOS[p.name]||null;}
+function photoBlock(p){const ph=photosFor(p);if(!ph)return null;
+  return `<div class="photos n${ph.length}">${ph.map(f=>`<div class="ph"><img src="photos/${f}.jpg" alt="${p.name} ${p.sub}" loading="eager" decoding="async"></div>`).join("")}</div>`;}
+
+const SHOP="https://maisonperle.store";
+const buy=id=>`${SHOP}/cart/${id}:1`;
+const nis=n=>`<span class="price-sym">₪</span>${n.toLocaleString("en-US")}`;
+function priceBlock(p){
+  if(p.matrix){
+    const c=p.matrix.cols;
+    return `<div class="prices"><table class="mx"><thead><tr><th>Colour</th>${c.map(x=>`<th>${x}<span>${SIZE[x]}</span></th>`).join("")}</tr></thead><tbody>`+
+      p.matrix.rows.map(r=>`<tr><td>${r[1].split(",").map(t=>`<span class="swatch" style="background:${TINT[t].sw}"></span>`).join("")}${r[0]}</td>${r[2].map((v,j)=>v==null?`<td class="na">—</td>`:(r[3]&&r[3][j]?`<td><a class="mxbuy" href="${buy(r[3][j])}" target="_blank" rel="noopener" aria-label="Order ${p.name} ${r[0].replace(/<[^>]+>/g,"")} ${c[j]}"><b>${nis(v)}</b></a></td>`:`<td><b>${nis(v)}</b></td>`)).join("")}</tr>`).join("")+`</tbody></table>${p.matrix.foot?`<p class="mxfoot">${p.matrix.foot}</p>`:""}<p class="howbuy">Tap a price to order · secure checkout</p></div>`;
+  }
+  return `<div class="prices">`+p.rows.map(r=>{
+    const sz=r[1]?(SIZE[r[1]]?` <small>· ${r[1]} ${SIZE[r[1]]}</small>`:` <small>· ${r[1]}</small>`):"";
+    return `<div class="row"><span class="opt">${r[0]}${sz}</span><i class="lead"></i><b>${nis(r[2])}</b>${r[3]?`<a class="buy" href="${buy(r[3])}" target="_blank" rel="noopener" aria-label="Order ${p.name} ${r[0]}">Order</a>`:""}</div>`;}).join("")+`</div>`;
+}
+const chapterTitle=k=>CHAPTERS.find(c=>c.key===k).title;
+function productPage(p,i){
+  const nr=p.matrix?p.matrix.rows.length+2:p.rows.length;const tc=nr>=6?" tighter":nr>=3?" tight":"";
+  return `<div class="page prod${tc}"><div class="run"><span>${chapterTitle(p.cat)}</span><span>Timeless Pearls</span></div>
+  ${photoBlock(p)||`<div class="art">${art(p.art)}</div>`}<div class="copy">${p.matrix?"":`<div class="kick">${p.kick}</div>`}<h2 class="pname">${p.name}${p.isNew?`<span class="newtag">New</span>`:""}</h2><div class="psub">${p.sub}</div>
+  ${p.matrix?"":`<p class="desc">${p.desc}</p>`}${priceBlock(p)}${p.note?`<p class="note">${p.note}</p>`:""}</div><div class="folio">${i}</div></div>`;
+}
+const ROMAN=["I","II","III","IV","V"];
+function openerPage(c,ci,i){
+  const items=P.filter(p=>p.cat===c.key);
+  const prices=items.flatMap(p=>p.matrix?p.matrix.rows.flatMap(r=>r[2].filter(v=>v!=null)):p.rows.map(r=>r[2]));
+  const lo=Math.min(...prices),hi=Math.max(...prices);
+  const range=lo===hi?`${nis(lo).replace(/<[^>]+>/g,"")}`:`₪${lo.toLocaleString("en-US")} – ₪${hi.toLocaleString("en-US")}`;
+  return `<div class="page dark opener"><div class="run"><span>Chapter ${ROMAN[ci]}</span><span>Timeless Pearls</span></div>
+  <div class="num">${ROMAN[ci]}</div><h2>${c.title}</h2><div class="rule"></div><p>${c.intro}</p>
+  <div class="meta">${items.length} designs · ${range}</div><div class="oart">${art(c.art)}</div><div class="folio">${i}</div></div>`;
+}
+const pages=[];
+const tocMap={};
+pages.push(()=>`<div class="page cover"><div class="frame"><div class="eyebrow">The Collection · 2026–2027</div>
+  <img class="logo" src="photos/logo.png" alt="Maison Perle · Timeless Pearls">
+  <button type="button" class="dlbtn" id="dlbtn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg><span>Download the lookbook<small id="dlsub">PDF · save to your phone or computer</small></span></button>
+  <div class="tag"><strong>Lookbook &amp; Price List</strong>Freshwater pearls · Sterling silver · ÉCLAT · LUMIÈRE</div></div></div>`);
+pages.push(i=>`<div class="page prose"><div class="run"><span>Welcome</span><span>Timeless Pearls</span></div>
+  <h2>A word of welcome</h2>
+  <p class="lede">Pearls have been worn at life’s meaningful moments for generations: a wedding, a bat mitzvah, a Shabbat table, a gift between mother and daughter.</p>
+  <p>This lookbook gathers every design in our current collection, with full prices, so you can browse at your leisure and share it with those you serve.</p>
+  <p>Each piece is an exclusive design, custom made for us by skilled craftsmen and silversmiths. Our pearls are hand-selected freshwater cultured pearls, set in sterling silver or 18k gold-plated sterling silver.</p>
+  <p>If you would like to see a piece, ask a question, or arrange an order for your community, we are glad to help personally. Our details are at the back of this book.</p>
+  <div class="sign">Timeless Pearls</div><div class="folio">${i}</div></div>`);
+pages.push(i=>`<div class="page prose"><div class="run"><span>Contents</span><span>Timeless Pearls</span></div>
+  <h2>Contents</h2><ol class="toc">${["guide",...CHAPTERS.map(c=>c.key),"order"].map((k,n)=>{
+    const lbl={guide:["Materials &amp; Sizes","Pearl grades, metals, ÉCLAT and the size guide"],order:["How to Order","Contact, hours and prices"]}[k]||[chapterTitle(k),P.filter(p=>p.cat===k).length+" designs"];
+    return `<li><span class="n">${n===0?"·":n===6?"·":ROMAN[n-1]}</span><span><button type="button" data-go="${k}">${lbl[0]}</button><small>${lbl[1]}</small></span><span class="pg" data-pg="${k}"></span></li>`;}).join("")}</ol><div class="folio">${i}</div></div>`);
+tocMap.guide=pages.length;
+pages.push(i=>`<div class="page prose"><div class="run"><span>Materials</span><span>Timeless Pearls</span></div>
+  <h2>What our jewelry is made of</h2>
+  <div class="mat">
+   <div><h3>Freshwater pearls</h3><p>Hand-selected cultured freshwater pearls with a bright lustre. Our Estelle, Solar and Tri-Star designs use AAAA, our top grade.</p></div>
+   <div><h3>Natural colours</h3><p>White, champagne rose, silver grey and Tahitian grey. Our grey pearls are freshwater pearls in a Tahitian-grey tone.</p></div>
+   <div><h3>Precious metals</h3><p>Sterling silver throughout. Gold pieces are 18k gold-plated sterling silver.</p></div>
+   <div><h3>ÉCLAT</h3><p>Our signature name for the premium cubic zirconia gemstones that accent many designs.</p></div>
+   <div><h3>LUMIÈRE</h3><p>Our moissanite collection: a lab-grown gem with exceptional brilliance and hardness.</p></div>
+   <div><h3>Exclusive designs</h3><p>Every piece is made for us by skilled craftsmen and silversmiths, and is not sold under other names.</p></div>
+  </div><div class="folio">${i}</div></div>`);
+pages.push(i=>{
+  const mm=[["Muse","5–6",5.5],["Icon","6–7",6.5],["Bijou","7–8",7.5],["Classic","8–9",8.5],["Royal","9–10",9.5],["Grande","10–11",10.5]];
+  return `<div class="page prose"><div class="run"><span>Size Guide</span><span>Timeless Pearls</span></div>
+  <h2>Pearl sizes</h2><p>Pearl size is measured across the pearl, in millimetres. The circles below are drawn to scale with each other.</p>
+  <div class="sizes">${mm.map(s=>{const d=s[2]*5.2;return `<div class="sz"><svg width="${d+4}" height="${d+4}" viewBox="0 0 ${d+4} ${d+4}" aria-hidden="true"><defs><radialGradient id="sz${s[0]}" cx="38%" cy="32%" r="74%"><stop offset="0" stop-color="#fff"/><stop offset=".5" stop-color="#EEEDE8"/><stop offset="1" stop-color="#BFC2C2"/></radialGradient></defs><circle cx="${d/2+2}" cy="${d/2+2}" r="${d/2}" fill="url(#sz${s[0]})" stroke="#C9CCD0" stroke-width=".5"/></svg><b>${s[0]}</b><span>${s[1]} mm</span></div>`;}).join("")}</div>
+  <div class="facts">
+   <div><span class="k">Muse &amp; Icon</span><span>Petite sizes for girls, in the Vivienne Mademoiselle studs.</span></div>
+   <div><span class="k">Classic</span><span>Our most popular size, and the size used for studs in most sets.</span></div>
+   <div><span class="k">Chains</span><span>Estelle, Solar and Éclair: 40 cm + 6 cm extension. Venus: 42 cm + 6 cm, or 50 cm. Aqua: 76 cm lariat with sliding helix.</span></div>
+   <div><span class="k">Moissanite</span><span>LUMIÈRE studs are 1 carat each, 2 carats the pair.</span></div>
+  </div><div class="folio">${i}</div></div>`;});
+CHAPTERS.forEach((c,ci)=>{
+  tocMap[c.key]=pages.length;
+  pages.push(i=>openerPage(c,ci,i));
+  P.filter(p=>p.cat===c.key).forEach(p=>pages.push(i=>productPage(p,i)));
+});
+tocMap.order=pages.length;
+pages.push(i=>`<div class="page prose"><div class="run"><span>How to Order</span><span>Timeless Pearls</span></div>
+  <h2>How to order</h2><p>Tap <b>Order</b> or any price on a product page to go straight to secure checkout. Or speak with Asher, who will help you choose and arrange delivery personally.</p>
+  <div class="contact">
+   <div><span class="k">Online</span><span class="v"><a href="https://timelesspearls.shop" target="_blank" rel="noopener">timelesspearls.shop</a></span></div>
+   <div><span class="k">Phone &amp; WhatsApp · Asher</span><span class="v">+972-58-638-0993</span><span class="v">058-638-9000</span></div>
+   <div><span class="k">Email</span><span class="v sm">asher@maisonperle.store</span><span class="v sm">maxcastiel@gmail.com</span></div>
+   <div><span class="k">Hours</span><span class="v sm">Sunday – Thursday, 9:00 – 18:00</span></div>
+  </div>
+  <p class="note" style="margin-top:14px">Free delivery over ₪650 · Certificate of authenticity · Illuminated gift box · 12-month warranty</p>
+  <p class="fine">Prices in Israeli shekels (₪), correct as of 16 November 2026.</p>
+  <div class="folio">${i}</div></div>`);
+pages.push(()=>`<div class="page cover"><div class="frame" style="justify-content:center;gap:14px">
+  <img class="logo back" src="photos/logo.png" alt="Maison Perle · Timeless Pearls">
+  <div class="tag" style="margin-top:22px"><strong>timelesspearls.shop</strong>Asher · +972-58-638-0993 · 058-638-9000<br>Sunday – Thursday, 9:00 – 18:00</div></div></div>`);
+if(pages.length%2) pages.splice(pages.length-1,0,()=>`<div class="page"></div>`);
+
+/* ===================== BOOK ===================== */
+const book=document.getElementById("book"),vp=document.getElementById("vp"),stage=document.getElementById("stage");
+const N=pages.length/2,leaves=[];
+for(let k=0;k<N;k++){
+  const L=document.createElement("div");L.className="leaf";
+  L.innerHTML=`<div class="face front">${pages[2*k](2*k)}</div><div class="face back">${pages[2*k+1](2*k+1)}</div>`;
+  book.appendChild(L);leaves.push(L);
+}
+document.querySelectorAll("[data-pg]").forEach(el=>el.textContent=tocMap[el.dataset.pg]);
+let t=0,side="R",single=false,scale=1;
+function zs(){leaves.forEach((L,i)=>{if(!L.dataset.flip)L.style.zIndex=i<t?i+1:N-i;});}
+function layout(){
+  single=window.innerWidth<760;
+  const availW=stage.clientWidth,availH=stage.clientHeight;
+  const bw=single?440:880;
+  scale=Math.max(.3,Math.min(availW/bw,availH/600,1.25));
+  vp.style.width=bw*scale+"px";vp.style.height=600*scale+"px";
+  vp.classList.toggle("single",single);
+  place();
+}
+function place(){
+  let off;
+  if(single) off=side==="R"?-440:0;
+  else off=t===0?-220:t===N?220:0;
+  book.style.transform=`scale(${scale}) translateX(${off}px)`;
+  leaves.forEach((L,i)=>L.classList.toggle("turned",i<t));
+  zs();update();
+}
+function flip(i){const L=leaves[i];L.dataset.flip="1";L.style.zIndex=N+5;setTimeout(()=>{delete L.dataset.flip;zs();},820);}
+function next(){
+  if(single){
+    if(side==="R"){if(t>=N)return;flip(t);t++;side="L";}
+    else{if(2*t>=pages.length)return;side="R";}
+  } else {if(t>=N)return;flip(t);t++;}
+  place();
+}
+function prev(){
+  if(single){
+    if(side==="L"){flip(t-1);t--;side="R";}
+    else{if(t===0)return;side="L";}
+  } else {if(t<=0)return;flip(t-1);t--;}
+  place();
+}
+function goTo(p){
+  book.classList.add("instant");
+  if(p%2===0){t=p/2;side="R";}else{t=(p+1)/2;side="L";}
+  if(!single&&p%2===0&&p>0){/* show the spread that contains p on the right */}
+  place();void book.offsetWidth;book.classList.remove("instant");
+}
+function current(){return single?(side==="R"?2*t:2*t-1):null;}
+function update(){
+  const c=document.getElementById("count"),last=pages.length-1;
+  let txt;
+  if(single){const p=current();txt=p===0?"Cover":p===last?"Back cover":`Page ${p} of ${last-1}`;}
+  else txt=t===0?"Cover":t===N?"Back cover":`Pages ${2*t-1}–${2*t}`;
+  c.textContent=txt;
+  document.getElementById("prev").disabled=single?(t===0&&side==="R"):t===0;
+  document.getElementById("next").disabled=single?(side==="L"?2*t>last:t>=N):t>=N;
+}
+document.getElementById("next").onclick=next;
+document.getElementById("prev").onclick=prev;
+document.getElementById("toc").onclick=()=>goTo(2);
+book.addEventListener("click",e=>{
+  const g=e.target.closest("[data-go]");
+  if(g){e.stopPropagation();goTo(tocMap[g.dataset.go]);return;}
+  if(e.target.closest("a,button"))return;
+  const r=vp.getBoundingClientRect();(e.clientX-r.left>r.width/2?next:prev)();
+});
+let sx=null;
+vp.addEventListener("pointerdown",e=>{sx=e.clientX;});
+vp.addEventListener("pointerup",e=>{if(sx==null)return;const dx=e.clientX-sx;sx=null;if(Math.abs(dx)>45){e.preventDefault();(dx<0?next:prev)();vp.dataset.swiped="1";setTimeout(()=>delete vp.dataset.swiped,50);}});
+vp.addEventListener("click",e=>{if(vp.dataset.swiped)e.stopPropagation();},true);
+document.addEventListener("keydown",e=>{if(e.key==="ArrowRight")next();if(e.key==="ArrowLeft")prev();});
+window.addEventListener("resize",layout);
+layout();
+(function(){
+  const PDF="Timeless-Pearls-Lookbook.pdf";
+  let dl=null;
+  const ready=(window.claude&&claude.use)?claude.use("downloads").then(d=>{dl=d;}).catch(()=>{}):Promise.resolve();
+  document.addEventListener("click",async e=>{
+    const btn=e.target.closest("#dlbtn");if(!btn)return;
+    e.preventDefault();e.stopPropagation();
+    const sub=btn.querySelector("small"),old=sub.textContent;
+    sub.textContent="Preparing…";
+    try{
+      await ready;
+      if(dl){
+        const blob=await (await fetch(PDF)).blob();
+        await dl.save({filename:PDF,data:blob});
+        sub.textContent="Saved ✓";
+      } else {
+        const a=document.createElement("a");a.href=PDF;a.download=PDF;a.target="_blank";document.body.appendChild(a);a.click();a.remove();sub.textContent=old;
+      }
+    }catch(err){
+      const c=err&&err.code;
+      sub.textContent=c==="declined"?old:(c==="rate_limited"?"One moment, then try again":"Download unavailable here");
+    }
+    setTimeout(()=>{sub.textContent=old;},4000);
+  },true);
+})();
+</script>
+
+</body></html>
