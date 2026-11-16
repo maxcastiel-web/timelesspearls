@@ -360,9 +360,11 @@
       <a href="#shop">Shop</a>
       <a href="#info" data-open="about">Our Story</a>
       <a href="#info" data-open="care">Pearl Care</a>
+      <a href="#lookbook">Lookbook</a>
       <a href="#contact">Contact</a>
     </div>
     <div class="icons">
+      <a href="#lookbook" class="lb-ico" aria-label="Lookbook"><svg viewBox="0 0 24 24"><path d="M12 7c-2-1.5-5-2-8.5-1.5v12.5c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5V5.5C17 5 14 5.5 12 7z"/><path d="M12 7v12.5"/></svg></a>
       <a href="#shop" aria-label="Search the collection"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg></a>
       <a href="https://maisonperle.store/account" aria-label="My account"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></a>
       <a href="https://maisonperle.store/cart" aria-label="Cart"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></a>
@@ -389,6 +391,75 @@
     </div>
   </section>
 
+  <!-- LOOKBOOK section: fill FLIPBOOK_URL and PDF_URL in its script when the lookbook is ready -->
+<style>
+  #lookbook{background:var(--cream);color:#14120F;padding:80px 24px;text-align:center}
+  #lookbook .lb-in{max-width:620px;margin:0 auto}
+  #lookbook .lb-icon{width:88px;height:88px;margin:0 auto 22px;border-radius:50%;border:1px solid #D9C29A;display:flex;align-items:center;justify-content:center;background:#fff}
+  #lookbook .lb-icon svg{width:46px;height:46px}
+  #lookbook .lb-badge{display:inline-block;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#8c6d3a;border-top:1px solid #D9C29A;border-bottom:1px solid #D9C29A;padding:6px 14px;margin-bottom:18px}
+  #lookbook h2{font-family:var(--serif);font-weight:500;font-size:clamp(34px,5vw,52px);line-height:1.1;margin:0 0 14px}
+  #lookbook h2 em{font-style:italic;color:#8c6d3a}
+  #lookbook p{max-width:520px;margin-left:auto;margin-right:auto;font-size:16px;line-height:1.7;color:#3A342C;margin:0 0 30px}
+  #lookbook .lb-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  #lookbook .lb-btn{font-family:var(--sans);font-weight:600;font-size:13px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;padding:15px 30px;display:inline-flex;align-items:center;gap:10px;transition:background .25s,color .25s}
+  #lookbook .lb-btn svg{width:16px;height:16px}
+  #lookbook .lb-solid{background:#14120F;color:#fff;border:1px solid #14120F}
+  #lookbook .lb-solid:hover{background:#8c6d3a;border-color:#8c6d3a}
+  #lookbook .lb-line{color:#14120F;border:1px solid #14120F}
+  #lookbook .lb-line:hover{background:#14120F;color:#fff}
+  #lookbook .lb-soon{color:#BDB3A5;border:1px dashed #BDB3A5;cursor:default}
+  #lookbook [hidden]{display:none !important}
+  @keyframes lbshine{0%,100%{opacity:.35}50%{opacity:1}}
+  #lookbook .lb-spark{animation:lbshine 2.6s ease-in-out infinite}
+  @media (prefers-reduced-motion:reduce){#lookbook .lb-spark{animation:none}}
+</style>
+
+<section id="lookbook" aria-labelledby="lookbook-title">
+  <div class="lb-in">
+    <div class="lb-icon" aria-hidden="true">
+      <svg viewBox="0 0 48 48" fill="none" stroke="#8c6d3a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M24 14c-4-3-10-4-17-3v25c7-1 13 0 17 3 4-3 10-4 17-3V11c-7-1-13 0-17 3z"/>
+        <path d="M24 14v25"/>
+        <path d="M11 18c3-.4 6 0 8.5 1M11 23c3-.4 6 0 8.5 1M11 28c3-.4 6 0 8.5 1" stroke-width="1"/>
+        <circle cx="32.5" cy="24" r="4.2" fill="#F4EFE7"/>
+        <path d="M31 22.6a1.6 1.6 0 0 1 1.6-.9" stroke-width="1"/>
+        <path class="lb-spark" d="M38.5 7v4M36.5 9h4" stroke-width="1.2"/>
+      </svg>
+    </div>
+    <div class="lb-badge" id="lb-badge">Coming soon</div>
+    <h2 id="lookbook-title">The <em>Lookbook</em></h2>
+    <p>Our complete collection in one flip-page lookbook. Browse it online or download the PDF.</p>
+    <div class="lb-btns">
+      <a class="lb-btn lb-solid" id="lb-view" target="_blank" rel="noopener" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+        View online
+      </a>
+      <a class="lb-btn lb-line" id="lb-pdf" target="_blank" rel="noopener" download hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg>
+        Download PDF
+      </a>
+      <span class="lb-btn lb-soon" id="lb-soon" aria-disabled="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg>
+        Lookbook coming soon
+      </span>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var FLIPBOOK_URL = ""; // e.g. https://heyzine.com/flip-book/xxxx
+    var PDF_URL = "";      // e.g. https://cdn.shopify.com/.../lookbook.pdf
+    var v = document.getElementById('lb-view'), p = document.getElementById('lb-pdf');
+    if (FLIPBOOK_URL) { v.href = FLIPBOOK_URL; v.hidden = false; }
+    if (PDF_URL) { p.href = PDF_URL; p.hidden = false; }
+    if (FLIPBOOK_URL || PDF_URL) {
+      document.getElementById('lb-badge').hidden = true;
+      document.getElementById('lb-soon').hidden = true;
+    }
+  })();
+</script>
   <div class="wrap" id="styles">
     <div class="cats">
       <a href="#earrings" data-filter="earrings" class="cat"><div class="c"><img src="images/estelle-tristar-white.jpg" alt=""></div><span>Earrings</span></a>
