@@ -999,18 +999,15 @@
           <div class="frame"><span class="tag">Petite</span><img src="https://cdn.shopify.com/s/files/1/0791/6050/8601/files/1-white-pearl.png?v=1789645965&amp;width=700" alt="Vivienne Mademoiselle white pearl stud earrings" loading="lazy"></div>
           <h3>Vivienne Mademoiselle Stud</h3>
           <div class="meta">Petite 5–7 mm pearl studs for young ladies</div>
-          <div class="price" data-price="240">₪240</div>
+          <div class="price" data-price="98" data-was="240" data-nocoupon>₪98 <s class="was">₪240</s></div>
           <div class="opts">
-            <button class="op on" type="button" data-variant="49161350906041" data-price="240" data-img="https://cdn.shopify.com/s/files/1/0791/6050/8601/files/1-white-pearl.png?v=1789645965&amp;width=700">White · Muse (5–6 mm)</button>
-            <button class="op" type="button" data-variant="49161350938809" data-price="240" data-img="https://cdn.shopify.com/s/files/1/0791/6050/8601/files/2-pink-pearl.png?v=1789645968&amp;width=700">Champagne Pink · Muse (5–6 mm)</button>
-            <button class="op" type="button" data-variant="49161350971577" data-price="250" data-img="https://cdn.shopify.com/s/files/1/0791/6050/8601/files/1-white-pearl.png?v=1789645965&amp;width=700">White · Icon (6–7 mm)</button>
-            <button class="op" type="button" data-variant="49161351004345" data-price="250" data-img="https://cdn.shopify.com/s/files/1/0791/6050/8601/files/2-pink-pearl.png?v=1789645968&amp;width=700">Champagne Pink · Icon (6–7 mm)</button>
+            <button class="op on" type="button" data-variant="49161350906041" data-price="98" data-was="240" data-img="https://cdn.shopify.com/s/files/1/0791/6050/8601/files/1-white-pearl.png?v=1789645965&amp;width=700">White · Muse (5–6 mm)</button>
+            <button class="op" type="button" data-variant="49161350938809" data-price="98" data-was="240" data-img="https://cdn.shopify.com/s/files/1/0791/6050/8601/files/2-pink-pearl.png?v=1789645968&amp;width=700">Champagne Pink · Muse (5–6 mm)</button>
+            <button class="op" type="button" data-variant="49161350971577" data-price="98" data-was="240" data-img="https://cdn.shopify.com/s/files/1/0791/6050/8601/files/1-white-pearl.png?v=1789645965&amp;width=700">White · Icon (6–7 mm)</button>
+            <button class="op" type="button" data-variant="49161351004345" data-price="98" data-was="240" data-img="https://cdn.shopify.com/s/files/1/0791/6050/8601/files/2-pink-pearl.png?v=1789645968&amp;width=700">Champagne Pink · Icon (6–7 mm)</button>
           </div>
           <button class="btn solid add" type="button">Add to Cart</button>
-          <details class="ctab"><summary>Enter discount coupon for best price</summary>
-            <form class="cform"><input type="text" placeholder="Coupon code" aria-label="Coupon code" autocapitalize="characters"><button type="submit">Apply</button></form>
-            <div class="cmsg" role="status"></div>
-          </details>
+          <p class="cmsg ok" style="padding:8px 0 0">Special price — discount coupons don't apply to this item</p>
         </article>
         <article class="product" data-variant="49161475686585" data-cat="earrings necklaces sets" hidden>
           <div class="frame"><span class="tag">Set</span><img src="images/estelle-set-gold-v2.jpg" alt="Estelle gold pendant and earrings set" loading="lazy"></div>
@@ -1258,10 +1255,11 @@
   function applyAll(){
     document.querySelectorAll('.price[data-price]').forEach(function(el){
       var full=+el.dataset.price;
-      if(applied&&rate){el.innerHTML='<ins>'+fmt(full*(1-rate))+'</ins> <s>'+fmt(full)+'</s>';el.classList.add('disc');}
+      var nc=el.hasAttribute('data-nocoupon');
+      if(applied&&rate&&!nc){el.innerHTML='<ins>'+fmt(full*(1-rate))+'</ins> <s>'+fmt(full)+'</s>';el.classList.add('disc');}
       else{var was=+(el.dataset.was||0);if(was>full){el.innerHTML=fmt(full)+' <s class="was">'+fmt(was)+'</s>';}else{el.textContent=fmt(full);}el.classList.remove('disc');}
       if(el.closest('.product')){
-        var pay=(applied&&rate?full*(1-rate):full)/3, amt=Math.floor(pay*100)/100;
+        var pay=(applied&&rate&&!nc?full*(1-rate):full)/3, amt=Math.floor(pay*100)/100;
         var s='₪'+(amt%1?amt.toFixed(2):amt.toLocaleString('en-US'));
         var n=el.nextElementSibling; if(!n||!n.classList.contains('tp-inst')){n=document.createElement('p');n.className='tp-inst';el.insertAdjacentElement('afterend',n);}
         n.innerHTML='or 3 interest-free payments of <b>'+s+'</b>';
