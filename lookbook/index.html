@@ -59,6 +59,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance}
 .prod{padding-bottom:40px}
 .kick{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500}
 .pname{font-size:36px;font-weight:500;font-style:italic;line-height:1.05;margin-top:4px}
+.pgrade{font-size:10.5px;font-weight:500;letter-spacing:.2em;color:var(--gold);margin-top:3px;direction:ltr}
 .psub{font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:4px}
 .desc{margin:8px 0 10px;max-width:36em}
 .prices{display:flex;flex-direction:column;gap:5px;border-top:1px solid var(--hair);padding-top:9px}
@@ -198,7 +199,7 @@ const P = [
  rows:[["Silver","Classic",395,48548578623673]],art:{type:"studs",items:[{tint:"white",deco:"clover"},{tint:"white",deco:"clover"}]}},
 {cat:"studs",name:"Estelle",sub:"Pearl & ÉCLAT Stud Earrings · Five colours",kick:"Four pearl colours · ÉCLAT · Sterling silver",
  desc:"A freshwater pearl crowned with a single ÉCLAT gemstone, now in five colours.",
- matrix:{cols:["Bijou","Classic","Royal","Grande"],rows:[["White","white",[249,360,430,480],[47283631063225,49161493151929,47229834985657,47265146765497]],["Champagne Pink","champagne",[249,360,430,null],[68414944411833,48151550460089,48158709514425,null]],["Silver Grey","silver",[249,360,430,null],[68197588598969,48151523426489,48158707417273,null]],["Tahitian Grey","tahitian",[249,360,430,null],[49161494233273,48151583228089,48158709973177,null]],["Mauve Aubergine <i class=new>New</i>","aubergine",[249,null,null,null],[68639481757881,null,null,null]]],foot:"Bijou &amp; Classic also in 18k gold-plated, same price."},
+ matrix:{cols:["Bijou","Classic","Royal","Grande"],rows:[["White","white",[249,360,430,480],[47283631063225,49161493151929,47229834985657,47265146765497]],["Champagne Pink","champagne",[249,360,430,null],[68414944411833,48151550460089,48158709514425,null]],["Silver Grey","silver",[249,360,430,null],[68197588598969,48151523426489,48158707417273,null]],["Tahitian Grey","tahitian",[249,360,430,null],[49161494233273,48151583228089,48158709973177,null]],["Mauve-Aubergine <i class=new>New</i>","aubergine",[249,null,null,null],[68639481757881,null,null,null]]],foot:"Bijou &amp; Classic also in 18k gold-plated, same price."},
  art:{type:"studs",items:[{tint:"white",deco:"solitaire"},{tint:"champagne",deco:"solitaire"},{tint:"silver",deco:"solitaire"},{tint:"tahitian",deco:"solitaire"}]}},
 {cat:"studs",name:"Estelle Tri-Star",sub:"Pearl & ÉCLAT Stud Earrings",kick:"AAAA pearl · 18k gold-plated silver",
  desc:"A lustrous AAAA round pearl crowned by a trio of brilliant ÉCLAT gemstones.",
@@ -221,7 +222,7 @@ const P = [
  art:{type:"studs",items:[{tint:"white",deco:"vendome"},{tint:"white",deco:"vendome",metal:"gold"}]}},
 {cat:"studs",name:"Vivienne",sub:"Pearl Stud Earrings · Four colours",kick:"Four pearl colours · The everyday classic",
  desc:"Our most-loved stud: hand-selected freshwater pearls in four natural colours.",
- matrix:{cols:["Bijou","Classic","Royal","Grande"],rows:[["White","white",[249,295,340,400],[68094760911033,47229794713785,47229794681017,47265195655353]],["Champagne Rose","rose",[null,295,null,400],[null,48151503208633,null,68414945460409]],["Silver Grey","silver",[null,295,null,null],[null,48151509139641,null,null]],["Tahitian Grey","tahitian",[null,295,null,null],[null,48151153475769,null,null]]],foot:"Bijou &amp; Classic also in 18k gold-plated, same price."},
+ matrix:{cols:["Bijou","Classic","Royal","Grande"],rows:[["White","white",[249,295,340,400],[68094760911033,47229794713785,47229794681017,47265195655353]],["Champagne Pink","rose",[null,295,null,400],[null,48151503208633,null,68414945460409]],["Silver Grey","silver",[null,295,null,null],[null,48151509139641,null,null]],["Tahitian Grey","tahitian",[null,295,null,null],[null,48151153475769,null,null]]],foot:"Bijou &amp; Classic also in 18k gold-plated, same price."},
  art:{type:"studs",items:[{tint:"white"},{tint:"rose"},{tint:"champagne"},{tint:"silver"},{tint:"tahitian"}]}},
 {cat:"studs",name:"Vivienne Mademoiselle",sub:"Petite Pearl Studs for Girls",kick:"Petite freshwater pearls · Secure, comfortable posts",
  desc:"Delicate freshwater pearls sized for smaller ears, made for young ladies.",
@@ -254,7 +255,7 @@ const P = [
  rows:[["White","Grande",495,47233147764921]],art:{type:"drops",parts:["square","link","pearl:18"],tint:"white",hook:false}},
 {cat:"drops",name:"Aqua",sub:"Teardrop Pearl Earrings",kick:"New · AAAA teardrop pearl, 8.5–9 mm · Four ÉCLAT",isNew:true,
  desc:"A column of four sparkling ÉCLAT gemstones holding a lustrous freshwater teardrop pearl. Light, graceful and made to move.",
- rows:[["White pearl","8.5–9 mm",395,67842265317561],["Mauve Aubergine pearl","8.5–9 mm",395,68151661166777]],art:{type:"drops",parts:["gem:5","gem:5","gem:5","gem:5","link","tear:16"],tint:"white",hook:false}},
+ rows:[["White pearl","8.5–9 mm",395,67842265317561],["Mauve-Aubergine pearl","8.5–9 mm",395,68151661166777]],art:{type:"drops",parts:["gem:5","gem:5","gem:5","gem:5","link","tear:16"],tint:"white",hook:false}},
 /* ---------- pendants ---------- */
 {cat:"pendants",name:"Éclair",sub:"Teardrop Pearl Pendant",kick:"Teardrop freshwater pearl · Sterling silver chain",
  desc:"A teardrop freshwater pearl beneath three graduated ÉCLAT gemstones (round, emerald and pear cut) on a fine sterling silver chain.",
@@ -272,7 +273,7 @@ const P = [
  rows:[["18k gold-plated","42 cm + 6 cm",740,49161480011961],["18k gold-plated","50 cm",740,68414940348601],["Sterling silver","50 cm",740,68414940381369]],art:{type:"station"}},
 {cat:"pendants",name:"Aqua",sub:"Double Teardrop Pearl Necklace",kick:"New · Two teardrop pearls, 9–10 mm · 76 cm lariat",isNew:true,
  desc:"A fluid lariat of snake-bone chain ending in two freshwater teardrop pearls. A sliding helix set with ÉCLAT gems adjusts it from a close collar to a long, elegant drop.",
- rows:[["White pearls","76 cm",695,67842265350329],["Mauve Aubergine pearls","76 cm",695,68151265034425]],art:{type:"pendant",parts:["gem:5","link","tear:14"],tint:"white"}},
+ rows:[["White pearls","76 cm",695,67842265350329],["Mauve-Aubergine pearls","76 cm",695,68151265034425]],art:{type:"pendant",parts:["gem:5","link","tear:14"],tint:"white"}},
 /* ---------- sets ---------- */
 {cat:"sets",name:"Éclair Set",sub:"Pendant & Drop Earrings",kick:"Sterling silver · Teardrop freshwater pearls",
  desc:"The complete Éclair look: the long drop earrings with the matching teardrop pendant.",
@@ -295,7 +296,7 @@ const P = [
  rows:[["Necklace + studs",null,1090,68114395365561]],art:{type:"station",studs:true}},
 {cat:"sets",name:"Aqua Set",sub:"Necklace & Aqua Earrings",kick:"New · Teardrop pearls · ÉCLAT",isNew:true,
  desc:"The Aqua double teardrop necklace with the matching Aqua teardrop earrings, in white or mauve-aubergine pearls.",
- rows:[["White pearls",null,895,67842265383097],["Mauve Aubergine pearls",null,895,68151661297849]],note:"Separately <em>₪1,145</em>",
+ rows:[["White pearls",null,895,67842265383097],["Mauve-Aubergine pearls",null,895,68151661297849]],note:"Separately <em>₪1,145</em>",
  art:{type:"set",pend:["gem:5","link","tear:14"],ear:{type:"studs",deco:"post"},tint:"white",metal:"silver"}},
 {cat:"sets",name:"Aqua & Vivienne",sub:"Necklace & Pearl Studs",kick:"New · White pearls",isNew:true,
  desc:"The Aqua necklace with classic Vivienne white pearl studs, Bijou (7–8 mm). Fluid at the neckline, pure at the ear.",
@@ -504,7 +505,7 @@ const chapterTitle=k=>CHAPTERS.find(c=>c.key===k).title;
 function productPage(p,i){
   const nr=p.matrix?p.matrix.rows.length+2:p.rows.length;const tc=nr>=6?" tighter":nr>=3?" tight":"";
   return `<div class="page prod${tc}"><div class="run"><span>${chapterTitle(p.cat)}</span><span>Timeless Pearls</span></div>
-  ${photoBlock(p)||`<div class="art">${art(p.art)}</div>`}<div class="copy">${p.matrix?"":`<div class="kick">${p.kick}</div>`}<h2 class="pname">${p.name}${p.isNew?`<span class="newtag">New</span>`:""}</h2><div class="psub">${p.sub}</div>
+  ${photoBlock(p)||`<div class="art">${art(p.art)}</div>`}<div class="copy">${p.matrix?"":`<div class="kick">${p.kick}</div>`}<h2 class="pname">${p.name}${p.isNew?`<span class="newtag">New</span>`:""}</h2>${p.cat!=="lumiere"?`<div class="pgrade">PEARL GRADE AAAA</div>`:""}<div class="psub">${p.sub}</div>
   ${p.matrix?"":`<p class="desc">${p.desc}</p>`}${priceBlock(p)}${p.note?`<p class="note">${p.note}</p>`:""}</div><div class="folio">${i}</div></div>`;
 }
 const ROMAN=["I","II","III","IV","V"];
@@ -539,7 +540,7 @@ pages.push(i=>`<div class="page prose"><div class="run"><span>Materials</span><s
   <h2>What our jewelry is made of</h2>
   <div class="mat">
    <div><h3>Freshwater pearls</h3><p>Hand-selected cultured freshwater pearls with a bright lustre. Our Estelle, Solar and Tri-Star designs use AAAA, our top grade.</p></div>
-   <div><h3>Natural colours</h3><p>White, champagne rose, silver grey and Tahitian grey. Our grey pearls are freshwater pearls in a Tahitian-grey tone.</p></div>
+   <div><h3>Natural colours</h3><p>White, champagne pink, silver grey and Tahitian grey. Our grey pearls are freshwater pearls in a Tahitian-grey tone.</p></div>
    <div><h3>Precious metals</h3><p>Sterling silver throughout. Gold pieces are 18k gold-plated sterling silver.</p></div>
    <div><h3>ÉCLAT</h3><p>Our signature name for the premium cubic zirconia gemstones that accent many designs.</p></div>
    <div><h3>LUMIÈRE</h3><p>Our moissanite collection: a lab-grown gem with exceptional brilliance and hardness.</p></div>

@@ -59,6 +59,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance}
 .prod{padding-bottom:40px}
 .kick{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500}
 .pname{font-size:36px;font-weight:500;font-style:italic;line-height:1.05;margin-top:4px}
+.pgrade{font-size:10.5px;font-weight:500;letter-spacing:.2em;color:var(--gold);margin-top:3px;direction:ltr}
 .psub{font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:4px}
 .desc{margin:8px 0 10px;max-width:36em}
 .prices{display:flex;flex-direction:column;gap:5px;border-top:1px solid var(--hair);padding-top:9px}
@@ -198,7 +199,7 @@ const P = [
  rows:[["Argent","Classic",395,48548578623673]],art:{type:"studs",items:[{tint:"white",deco:"clover"},{tint:"white",deco:"clover"}]}},
 {cat:"studs",name:"Estelle",sub:"Clous perle &amp; ÉCLAT · Cinq couleurs",kick:"Cinq couleurs de perle · ÉCLAT · Argent sterling",
  desc:"Une perle d’eau douce couronnée d’une pierre ÉCLAT, désormais en cinq couleurs.",
- matrix:{cols:["Bijou","Classic","Royal","Grande"],rows:[["Blanc","white",[249,360,430,480],[47283631063225,49161493151929,47229834985657,47265146765497]],["Rose champagne","champagne",[249,360,430,null],[68414944411833,48151550460089,48158709514425,null]],["Gris argent","silver",[249,360,430,null],[68197588598969,48151523426489,48158707417273,null]],["Gris Tahiti","tahitian",[249,360,430,null],[49161494233273,48151583228089,48158709973177,null]],["Mauve aubergine <i class=new>Nouveau</i>","aubergine",[249,null,null,null],[68639481757881,null,null,null]]],foot:"Bijou &amp; Classic aussi en plaqué or 18 ct, même prix."},
+ matrix:{cols:["Bijou","Classic","Royal","Grande"],rows:[["Blanc","white",[249,360,430,480],[47283631063225,49161493151929,47229834985657,47265146765497]],["Rose champagne","champagne",[249,360,430,null],[68414944411833,48151550460089,48158709514425,null]],["Gris argent","silver",[249,360,430,null],[68197588598969,48151523426489,48158707417273,null]],["Gris Tahiti","tahitian",[249,360,430,null],[49161494233273,48151583228089,48158709973177,null]],["Mauve-aubergine <i class=new>Nouveau</i>","aubergine",[249,null,null,null],[68639481757881,null,null,null]]],foot:"Bijou &amp; Classic aussi en plaqué or 18 ct, même prix."},
  art:{type:"studs",items:[{tint:"white",deco:"solitaire"},{tint:"champagne",deco:"solitaire"},{tint:"silver",deco:"solitaire"},{tint:"tahitian",deco:"solitaire"}]}},
 {cat:"studs",name:"Estelle Tri-Star",sub:"Clous perle &amp; ÉCLAT",kick:"Perle AAAA · Argent plaqué or 18 ct",
  desc:"Une perle ronde AAAA lumineuse, couronnée d’un trio de pierres ÉCLAT étincelantes.",
@@ -254,7 +255,7 @@ const P = [
  rows:[["Blanc","Grande",495,47233147764921]],art:{type:"drops",parts:["square","link","pearl:18"],tint:"white",hook:false}},
 {cat:"drops",name:"Aqua",sub:"Boucles perle goutte",kick:"Nouveau · Perle goutte AAAA, 8,5–9 mm · Quatre ÉCLAT",isNew:true,
  desc:"Une colonne de quatre pierres ÉCLAT scintillantes retenant une lumineuse perle d’eau douce en goutte. Légère, gracieuse et faite pour bouger.",
- rows:[["Perle blanche","8,5–9 mm",395,67842265317561],["Perle mauve aubergine","8,5–9 mm",395,68151661166777]],art:{type:"drops",parts:["gem:5","gem:5","gem:5","gem:5","link","tear:16"],tint:"white",hook:false}},
+ rows:[["Perle blanche","8,5–9 mm",395,67842265317561],["Perle mauve-aubergine","8,5–9 mm",395,68151661166777]],art:{type:"drops",parts:["gem:5","gem:5","gem:5","gem:5","link","tear:16"],tint:"white",hook:false}},
 /* ---------- pendants ---------- */
 {cat:"pendants",name:"Éclair",sub:"Pendentif perle goutte",kick:"Perle d’eau douce goutte · Chaîne en argent sterling",
  desc:"Une perle d’eau douce en goutte sous trois pierres ÉCLAT en dégradé (tailles ronde, émeraude et poire), sur une fine chaîne en argent sterling.",
@@ -272,7 +273,7 @@ const P = [
  rows:[["Plaqué or 18 ct","42 cm + 6 cm",740,49161480011961],["Plaqué or 18 ct","50 cm",740,68414940348601],["Argent sterling","50 cm",740,68414940381369]],art:{type:"station"}},
 {cat:"pendants",name:"Aqua",sub:"Collier double perle goutte",kick:"Nouveau · Deux perles goutte, 9–10 mm · Sautoir 76 cm",isNew:true,
  desc:"Un sautoir fluide en chaîne serpent, terminé par deux perles d’eau douce en goutte. Une hélice coulissante sertie d’ÉCLAT permet de le porter en ras-de-cou ou en long pendant élégant.",
- rows:[["Perles blanches","76 cm",695,67842265350329],["Perles mauve aubergine","76 cm",695,68151265034425]],art:{type:"pendant",parts:["gem:5","link","tear:14"],tint:"white"}},
+ rows:[["Perles blanches","76 cm",695,67842265350329],["Perles mauve-aubergine","76 cm",695,68151265034425]],art:{type:"pendant",parts:["gem:5","link","tear:14"],tint:"white"}},
 /* ---------- sets ---------- */
 {cat:"sets",name:"Éclair Set",sub:"Pendentif &amp; boucles pendantes",kick:"Argent sterling · Perles d’eau douce goutte",
  desc:"Le look Éclair complet : les longues boucles pendantes et le pendentif goutte assorti.",
@@ -294,8 +295,8 @@ const P = [
  desc:"Le collier Venus à sept perles, en or, avec des clous perle blanche Bijou (7–8 mm) sur fermoirs dorés.",
  rows:[["Collier + clous",null,1090,68114395365561]],art:{type:"station",studs:true}},
 {cat:"sets",name:"Aqua Set",sub:"Collier &amp; boucles Aqua",kick:"Nouveau · Perles goutte · ÉCLAT",isNew:true,
- desc:"Le collier Aqua double goutte avec les boucles Aqua assorties, en perles blanches ou mauve aubergine.",
- rows:[["Perles blanches",null,895,67842265383097],["Perles mauve aubergine",null,895,68151661297849]],note:"Séparément <em>1 145 ₪</em>",
+ desc:"Le collier Aqua double goutte avec les boucles Aqua assorties, en perles blanches ou mauve-aubergine.",
+ rows:[["Perles blanches",null,895,67842265383097],["Perles mauve-aubergine",null,895,68151661297849]],note:"Séparément <em>1 145 ₪</em>",
  art:{type:"set",pend:["gem:5","link","tear:14"],ear:{type:"studs",deco:"post"},tint:"white",metal:"silver"}},
 {cat:"sets",name:"Aqua & Vivienne",sub:"Collier &amp; clous perle",kick:"Nouveau · Perles blanches",isNew:true,
  desc:"Le collier Aqua avec les clous perle blanche Vivienne, Bijou (7–8 mm). Fluide au décolleté, pur à l’oreille.",
@@ -504,7 +505,7 @@ const chapterTitle=k=>CHAPTERS.find(c=>c.key===k).title;
 function productPage(p,i){
   const nr=p.matrix?p.matrix.rows.length+2:p.rows.length;const tc=nr>=6?" tighter":nr>=3?" tight":"";
   return `<div class="page prod${tc}"><div class="run"><span>${chapterTitle(p.cat)}</span><span>Timeless Pearls</span></div>
-  ${photoBlock(p)||`<div class="art">${art(p.art)}</div>`}<div class="copy">${p.matrix?"":`<div class="kick">${p.kick}</div>`}<h2 class="pname">${p.name}${p.isNew?`<span class="newtag">Nouveau</span>`:""}</h2><div class="psub">${p.sub}</div>
+  ${photoBlock(p)||`<div class="art">${art(p.art)}</div>`}<div class="copy">${p.matrix?"":`<div class="kick">${p.kick}</div>`}<h2 class="pname">${p.name}${p.isNew?`<span class="newtag">Nouveau</span>`:""}</h2>${p.cat!=="lumiere"?`<div class="pgrade">PEARL GRADE AAAA</div>`:""}<div class="psub">${p.sub}</div>
   ${p.matrix?"":`<p class="desc">${p.desc}</p>`}${priceBlock(p)}${p.note?`<p class="note">${p.note}</p>`:""}</div><div class="folio">${i}</div></div>`;
 }
 const ROMAN=["I","II","III","IV","V"];
@@ -539,7 +540,7 @@ pages.push(i=>`<div class="page prose"><div class="run"><span>Matières</span><s
   <h2>Nos matières</h2>
   <div class="mat">
    <div><h3>Perles d’eau douce</h3><p>Perles de culture d’eau douce sélectionnées à la main, au lustre éclatant. Estelle, Solar et Tri-Star utilisent la qualité AAAA, notre meilleure.</p></div>
-   <div><h3>Couleurs naturelles</h3><p>Blanc, rose champagne, gris argent, gris Tahiti et mauve aubergine. Nos perles grises sont des perles d’eau douce de teinte gris Tahiti.</p></div>
+   <div><h3>Couleurs naturelles</h3><p>Blanc, rose champagne, gris argent, gris Tahiti et mauve-aubergine. Nos perles grises sont des perles d’eau douce de teinte gris Tahiti.</p></div>
    <div><h3>Métaux précieux</h3><p>Argent sterling partout. Les pièces dorées sont en argent sterling plaqué or 18 carats.</p></div>
    <div><h3>ÉCLAT</h3><p>Notre nom signature pour les zircons cubiques haut de gamme qui subliment de nombreuses créations.</p></div>
    <div><h3>LUMIÈRE</h3><p>Notre collection de moissanite : une pierre créée en laboratoire, d’une brillance et d’une dureté exceptionnelles.</p></div>

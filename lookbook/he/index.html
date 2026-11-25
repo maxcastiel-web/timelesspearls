@@ -59,6 +59,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance}
 .prod{padding-bottom:40px}
 .kick{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500}
 .pname{font-size:36px;font-weight:500;font-style:italic;line-height:1.05;margin-top:4px}
+.pgrade{font-size:10.5px;font-weight:500;letter-spacing:.2em;color:var(--gold);margin-top:3px;direction:ltr}
 .psub{font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:4px}
 .desc{margin:8px 0 10px;max-width:36em}
 .prices{display:flex;flex-direction:column;gap:5px;border-top:1px solid var(--hair);padding-top:9px}
@@ -436,7 +437,7 @@ const chapterTitle=k=>CHAPTERS.find(c=>c.key===k).title;
 function productPage(p,i){
   const nr=p.matrix?p.matrix.rows.length+2:p.rows.length;const tc=nr>=6?" tighter":nr>=3?" tight":"";
   return `<div class="page prod${tc}"><div class="run"><span>${chapterTitle(p.cat)}</span><span>Timeless Pearls</span></div>
-  ${photoBlock(p)||`<div class="art">${art(p.art)}</div>`}<div class="copy">${p.matrix?"":`<div class="kick">${p.kick}</div>`}<h2 class="pname">${p.name}${p.isNew?`<span class="newtag">חדש</span>`:""}</h2><div class="psub">${p.sub}</div>
+  ${photoBlock(p)||`<div class="art">${art(p.art)}</div>`}<div class="copy">${p.matrix?"":`<div class="kick">${p.kick}</div>`}<h2 class="pname">${p.name}${p.isNew?`<span class="newtag">חדש</span>`:""}</h2>${p.cat!=="lumiere"?`<div class="pgrade">PEARL GRADE AAAA</div>`:""}<div class="psub">${p.sub}</div>
   ${p.matrix?"":`<p class="desc">${p.desc}</p>`}${priceBlock(p)}${p.note?`<p class="note">${p.note}</p>`:""}</div><div class="folio">${i}</div></div>`;
 }
 const ROMAN=["I","II","III","IV","V"];
