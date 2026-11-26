@@ -201,7 +201,8 @@ const CHAPTERS = [
  {key:"drops",title:"עגילים תלויים",intro:"פנינים שזזות איתך: עגילים תלויים קצרים וארוכים, חישוקים וטיפות, בכסף סטרלינג.",art:{type:"drops",parts:["hook","link","gem:5","link","tear:20"],tint:"white",single:true}},
  {key:"pendants",title:"תליונים ושרשראות",intro:"פנינה אחת על שרשרת דקה, שרשרת Venus ושרשרת Aqua החדשה עם שתי פניני טיפה.",art:{type:"pendant",parts:["gem:6","link","tear:22"],tint:"white",metal:"gold"}},
  {key:"sets",title:"סטים",intro:"שרשרת ועגילים שנועדו להיענד יחד, במחיר סט. חדש העונה: חמישה סטים של Aqua.",art:{type:"studs",items:[{tint:"white",deco:"solitaire",metal:"gold"},{tint:"tahitian",deco:"solitaire"}],r:40}},
- {key:"lumiere",title:"LUMIÈRE",intro:"קולקציית המואסניט שלנו: אבנים עגולות בליטוש בריליאנט, עם ברק ואש של יהלום, משובצות בכסף סטרלינג.",art:{type:"mstuds",r:44,single:true}}
+ {key:"lumiere",title:"LUMIÈRE",intro:"קולקציית המואסניט שלנו: אבנים עגולות בליטוש בריליאנט, עם ברק ואש של יהלום, משובצות בכסף סטרלינג.",art:{type:"mstuds",r:44,single:true}},
+ {key:"upcoming",soon:true,title:"קולקציית Marco Veneto",intro:"מהדורות מוגבלות מאת Marco Veneto, אחד המעצבים שמעניקים ל־Maison Perle את יופייה. הצצה ראשונה לתכשיטים שיגיעו בקרוב.",art:{type:"set",pend:["pave","link","tear:15"],ear:{type:"drops",parts:["hook","pave","link","tear:13"]},tint:"white",metal:"silver"}}
 ];
 
 const P = [{"cat":"studs","name":"Constellation","sub":"עגילי פנינה צמודים בצורת תלתן","kick":"פנינת מים מתוקים · ÉCLAT · כסף סטרלינג","desc":"פנינת מים מתוקים של 8 מ״מ במסגרת של ארבע אבני ÉCLAT בצורת תלתן. קלה מספיק ליומיום, מעודנת מספיק לאירועים.","rows":[["כסף","Classic",395,48548578623673]],"art":{"type":"studs","items":[{"tint":"white","deco":"clover"},
@@ -434,14 +435,14 @@ function priceBlock(p){
     return `<div class="row"><span class="opt">${r[0]}${sz}</span><i class="lead"></i><b>${nis(r[2])}</b>${r[3]?`<a class="buy" href="${buy(r[3])}" target="_blank" rel="noopener" aria-label="להזמנה ${p.name} ${r[0]}">להזמנה</a>`:""}</div>`;}).join("")+`</div>`;
 }
 const chapterTitle=k=>CHAPTERS.find(c=>c.key===k).title;
-function productPage(p,i){
-  const nr=p.matrix?p.matrix.rows.length+2:p.rows.length;const tc=nr>=6?" tighter":nr>=3?" tight":"";
-  return `<div class="page prod${tc}"><div class="run"><span>${chapterTitle(p.cat)}</span><span>Timeless Pearls</span></div>
-  ${photoBlock(p)||`<div class="art">${art(p.art)}</div>`}<div class="copy">${p.matrix?"":`<div class="kick">${p.kick}</div>`}<h2 class="pname">${p.name}${p.isNew?`<span class="newtag">חדש</span>`:""}</h2>${p.cat!=="lumiere"?`<div class="pgrade">PEARL GRADE AAAA</div>`:""}<div class="psub">${p.sub}</div>
-  ${p.matrix?"":`<p class="desc">${p.desc}</p>`}${priceBlock(p)}${p.note?`<p class="note">${p.note}</p>`:""}</div><div class="folio">${i}</div></div>`;
+function productPage(p,i){if(p.soon)p.matrix=null;
+  const nr=p.soon?2:(p.matrix?p.matrix.rows.length+2:p.rows.length);const tc=nr>=6?" tighter":nr>=3?" tight":"";
+  return `<div class="page prod${tc}${p.soon?" soon":""}"><div class="run"><span>${p.soon?"Marco Veneto":chapterTitle(p.cat)}</span><span>Timeless Pearls</span></div>
+  ${photoBlock(p)||`<div class="art">${art(p.art)}</div>`}<div class="copy">${p.matrix?"":`<div class="kick">${p.kick}</div>`}<h2 class="pname">${p.name}${p.isNew?`<span class="newtag">חדש</span>`:""}</h2>${p.cat!=="lumiere"&&!p.soon?`<div class="pgrade">PEARL GRADE AAAA</div>`:""}<div class="psub">${p.sub}</div>
+  ${p.matrix?"":`<p class="desc">${p.desc}</p>`}${p.soon?soonBlock():priceBlock(p)}${p.note?`<p class="note">${p.note}</p>`:""}</div><div class="folio">${i}</div></div>`;
 }
-const ROMAN=["I","II","III","IV","V"];
-function openerPage(c,ci,i){
+const ROMAN=["I","II","III","IV","V","VI"];
+function openerPage(c,ci,i){if(c.soon)return soonOpener(c,ci,i);
   const items=P.filter(p=>p.cat===c.key);
   const prices=items.flatMap(p=>p.matrix?p.matrix.rows.flatMap(r=>r[2].filter(v=>v!=null)):p.rows.map(r=>r[2]));
   const lo=Math.min(...prices),hi=Math.max(...prices);
@@ -450,6 +451,52 @@ function openerPage(c,ci,i){
   <div class="num">${ROMAN[ci]}</div><h2>${c.title}</h2><div class="rule"></div><p>${c.intro}</p>
   <div class="meta">${items.length} עיצובים · ${range}</div><div class="oart">${art(c.art)}</div><div class="folio">${i}</div></div>`;
 }
+
+/* ===================== UPCOMING: THE MARCO VENETO COLLECTION ===================== */
+P.push(...[{"cat": "upcoming", "soon": true, "name": "Spiral", "sub": "תליון ועגילים תלויים", "kick": "פניני טיפה · ספירלה נוצצת", "desc": "ספירלה מפוסלת של אבנים נוצצות מעטרת פנינת טיפה, בתליון ובעגילים תלויים תואמים.", "rows": [], "art": {"type": "set", "pend": ["pave", "link", "tear:15"], "ear": {"type": "drops", "parts": ["hook", "pave", "link", "tear:13"]}, "tint": "white", "metal": "silver"}}, {"cat": "upcoming", "soon": true, "name": "Twist", "sub": "תליון פנינה", "kick": "פנינת טיפה · קשר משובץ", "desc": "קשר משובץ ושני סרטים מפוסלים של ניצוץ, שאוחזים בפנינת טיפה אחת.", "rows": [], "art": {"type": "pendant", "parts": ["gem:5", "link", "tear:20"], "tint": "white"}}, {"cat": "upcoming", "soon": true, "name": "Trio", "sub": "עגילי פנינה תלויים", "kick": "פנינת טיפה · שלוש אבנים מבריקות", "desc": "שלוש אבנים מבריקות מעל פנינת טיפה זוהרת.", "rows": [], "art": {"type": "pendant", "parts": ["gem:5", "link", "tear:20"], "tint": "white"}}, {"cat": "upcoming", "soon": true, "name": "Trio", "sub": "תליון פנינה", "kick": "פנינת טיפה · שלוש אבנים מבריקות", "desc": "שלוש אבנים מבריקות מעל פנינת טיפה, תואם לעגילי Trio.", "rows": [], "art": {"type": "pendant", "parts": ["gem:5", "link", "tear:20"], "tint": "white"}}, {"cat": "upcoming", "soon": true, "name": "Champagne Pink & White", "sub": "שרשרת פנינים", "kick": "פנינים בצבע Champagne Pink ולבן · טיפה", "desc": "פנינים בצבע Champagne Pink ולבן שזורות יחד, ובסופן פנינת טיפה אחת.", "rows": [], "art": {"type": "strand"}}, {"cat": "upcoming", "soon": true, "name": "Silver Pearl Station", "sub": "שרשרת פנינים", "kick": "פנינים לבנות · שרשרת כסף · V משובץ", "desc": "פנינים לבנות לאורך שרשרת כסף דקה, שנאספות לתליון משובץ בצורת V.", "rows": [], "art": {"type": "pendant", "parts": ["gem:5", "link", "tear:20"], "tint": "white"}}, {"cat": "upcoming", "soon": true, "name": "Eclipse", "sub": "שרשרת פנינים", "kick": "פנינים לבנות ו־Tahitian Grey Color · זהב או כסף", "desc": "פנינים לבנות ובצבע Tahitian Grey Color עם טיפת פנינה ארוכה, בזהב או בכסף.", "rows": [], "art": {"type": "pendant", "parts": ["gem:5", "link", "tear:20"], "tint": "white"}}]);
+Object.assign(PHOTOS,{"Twist|תליון פנינה": ["upcoming-twist"], "Trio|עגילי פנינה תלויים": ["upcoming-trio-earrings"], "Trio|תליון פנינה": ["upcoming-trio-pendant"], "Silver Pearl Station|שרשרת פנינים": ["upcoming-silver-station"], "Eclipse|שרשרת פנינים": ["upcoming-eclipse"]});
+const UPL={"soonTag": "מהדורה מוגבלת", "soonMain": "בקרוב", "soonNote": "עדיין לא זמין להזמנה.", "meta": "{n} עיצובים · מהדורות מוגבלות · בקרוב", "run": "המעצב", "byline": "מהדורות מוגבלות בעיצוב Marco Veneto", "bio1": "Marco Veneto נולד וגדל בטרוויזו שבאיטליה, ועבר לפדובה כסטודנט צעיר. כיום הוא מעצב גאה בצוות של Maison Perle.", "bio2": "בקולקציה הזו, פנינים זוהרות פוגשות שיבוצים מפוסלים ונגיעה של ניצוץ. כל עיצוב ייוצר במהדורה מוגבלת בלבד.", "atelier": "מהסדנה", "caps": ["בחירת כל פנינה", "שיבוץ בעבודת יד", "מן המים"]};
+function soonBlock(){return `<div class="soonbox"><span>${UPL.soonTag}</span><b>${UPL.soonMain}</b><small>${UPL.soonNote}</small></div>`;}
+function soonOpener(c,ci,i){const n=P.filter(p=>p.cat===c.key).length;
+  return `<div class="page dark opener"><div class="run"><span>Chapter ${ROMAN[ci]}</span><span>Timeless Pearls</span></div>
+  <div class="num">${ROMAN[ci]}</div><h2>${c.title}</h2><div class="rule"></div><p>${c.intro}</p>
+  <div class="meta">${UPL.meta.replace("{n}",n)}</div><div class="oart">${art(c.art)}</div><div class="folio">${i}</div></div>`;}
+function designerPage(i){return `<div class="page prose designer"><div class="run"><span>${UPL.run}</span><span>Timeless Pearls</span></div>
+  <div class="mvhead"><div class="mvmono"><b>MV</b></div><div><h2>Marco Veneto</h2><div class="mvby">${UPL.byline}</div></div></div>
+  <p>${UPL.bio1}</p><p>${UPL.bio2}</p>
+  <h3 class="athead">${UPL.atelier}</h3>
+  <div class="atrow">${["selecting","setting","water"].map((f,k)=>`<figure><div class="ati"><img src="../photos/atelier-${f}.jpg" alt="${UPL.caps[k]}" loading="eager"></div><figcaption>${UPL.caps[k]}</figcaption></figure>`).join("")}</div>
+  <div class="folio">${i}</div></div>`;}
+const _artBase=art;
+art=function(a){
+  if(!a||a.type!=="strand")return _artBase(a);
+  const D=[];let b="";const W=360,H=220,x0=30,x1=330,top=6,cy=150;
+  b+=`<path d="M${x0} ${top}Q180 ${2*cy-top} ${x1} ${top}" fill="none" stroke="${METAL.silver.s}" stroke-width="1"/>`;
+  for(let k=0;k<=26;k++){const t=.04+k*.0354;if(Math.abs(t-.5)<.02)continue;const [x,y]=catPoint(x0,x1,top,cy,t);b+=pearl(D,x,y,7.2,k%2?"pink":"white");}
+  const [mx,my]=catPoint(x0,x1,top,cy,.5);
+  const st=stack(D,["gem:5","link","tear:16"],"silver","white");b+=`<g transform="translate(${mx} ${my-2})">${st.s}</g>`;
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-hidden="true"><defs>${D.join("")}</defs>${b}</svg>`;
+};
+document.head.insertAdjacentHTML("beforeend",`<style>
+.prod.soon .photos img,.designer .ati img{filter:grayscale(1) sepia(.12) contrast(1.06)}
+.prod.soon .photos,.prod.soon .art{height:200px}
+.soonbox{margin-top:12px;border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);padding:8px 0 9px;display:flex;flex-direction:column;gap:3px}
+.soonbox span{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.soonbox b{font-family:var(--display);font-style:italic;font-weight:400;font-size:24px}
+.soonbox small{font-size:11.5px;color:var(--muted,#5b6270)}
+.designer .mvhead{display:flex;align-items:center;gap:18px;margin:22px 0 14px}
+.designer .mvmono{flex:none;width:78px;height:78px;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center}
+.designer .mvmono b{font-family:var(--display);font-style:italic;font-weight:400;font-size:38px;color:var(--gold)}
+.designer h2{margin:0!important}
+.designer .mvby{font-family:var(--display);font-style:italic;font-size:15px;opacity:.8;margin-top:4px}
+.designer p{font-size:13.5px}
+.designer .athead{font-family:var(--display);font-style:italic;font-weight:400;font-size:20px;margin:auto 0 10px}
+.designer .atrow{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.designer figure{margin:0}
+.designer .ati{aspect-ratio:3/2;overflow:hidden}
+.designer .ati img{width:100%;height:100%;object-fit:cover;display:block}
+.designer figcaption{font-family:var(--display);font-style:italic;font-size:11.5px;text-align:center;margin-top:4px}
+</style>`);
 const pages=[];
 const tocMap={};
 pages.push(()=>`<div class="page cover"><div class="frame"><div class="eyebrow">הקולקציה · 2026–2027</div>
@@ -466,7 +513,7 @@ pages.push(i=>`<div class="page prose"><div class="run"><span>ברוכים הב�
 pages.push(i=>`<div class="page prose"><div class="run"><span>תוכן העניינים</span><span>Timeless Pearls</span></div>
   <h2>תוכן העניינים</h2><ol class="toc">${["guide",...CHAPTERS.map(c=>c.key),"order"].map((k,n)=>{
     const lbl={guide:["חומרים ומידות","איכות הפנינים, מתכות, ÉCLAT ומדריך מידות"],order:["הזמנה","פרטי קשר, שעות פעילות ומחירים"]}[k]||[chapterTitle(k),P.filter(p=>p.cat===k).length+" עיצובים"];
-    return `<li><span class="n">${n===0?"·":n===6?"·":ROMAN[n-1]}</span><span><button type="button" data-go="${k}">${lbl[0]}</button><small>${lbl[1]}</small></span><span class="pg" data-pg="${k}"></span></li>`;}).join("")}</ol><div class="folio">${i}</div></div>`);
+    return `<li><span class="n">${n===0?"·":n===CHAPTERS.length+1?"·":ROMAN[n-1]}</span><span><button type="button" data-go="${k}">${lbl[0]}</button><small>${lbl[1]}</small></span><span class="pg" data-pg="${k}"></span></li>`;}).join("")}</ol><div class="folio">${i}</div></div>`);
 tocMap.guide=pages.length;
 pages.push(i=>`<div class="page prose"><div class="run"><span>חומרים</span><span>Timeless Pearls</span></div>
   <h2>החומרים שלנו</h2>
@@ -491,7 +538,7 @@ pages.push(i=>{
   </div><div class="folio">${i}</div></div>`;});
 CHAPTERS.forEach((c,ci)=>{
   tocMap[c.key]=pages.length;
-  pages.push(i=>openerPage(c,ci,i));
+  pages.push(i=>openerPage(c,ci,i));if(c.soon)pages.push(i=>designerPage(i));
   P.filter(p=>p.cat===c.key).forEach(p=>pages.push(i=>productPage(p,i)));
 });
 tocMap.order=pages.length;
@@ -503,7 +550,7 @@ pages.push(i=>`<div class="page prose"><div class="run"><span>הזמנה</span><
    <div><span class="k">אימייל</span><span class="v sm">asher@maisonperle.store</span><span class="v sm">maxcastiel@gmail.com</span></div>
    <div><span class="k">שעות פעילות</span><span class="v sm">ראשון–חמישי, 9:00–18:00</span></div>
   </div>
-  <p class="note" style="margin-top:14px">משלוח חינם מ־650 ₪ · תעודת מקוריות · קופסת מתנה מוארת · אחריות 12 חודשים</p>
+  <p class="note" style="margin-top:14px">משלוח חינם מ־500 ₪ · תעודת מקוריות · קופסת מתנה מוארת · אחריות 12 חודשים</p>
   <p class="fine">המחירים בשקלים (₪), נכונים ל־24 בנובמבר 2026.</p>
   <div class="folio">${i}</div></div>`);
 pages.push(()=>`<div class="page cover"><div class="frame" style="justify-content:center;gap:14px">
