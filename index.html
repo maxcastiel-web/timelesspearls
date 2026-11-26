@@ -477,7 +477,7 @@
   #upcoming .up-by{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--muted);margin-bottom:18px}
   #upcoming .up-bio{font-size:16px;line-height:1.75;color:var(--muted);max-width:560px}
   #upcoming .up-bio+.up-bio{margin-top:10px}
-  #upcoming .up-grid{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px}
+  #upcoming .up-grid{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px 24px}
   #upcoming .up-img{position:relative;aspect-ratio:4/5;background:#fff;border:1px solid var(--line);overflow:hidden}
   #upcoming .up-img img{width:100%;height:100%;object-fit:cover}
   #upcoming .up-ph{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:linear-gradient(160deg,#fff,var(--cream))}
@@ -485,10 +485,10 @@
   #upcoming .up-ph span{text-align:center;padding:0 10px;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
   #upcoming .up-tag{position:absolute;top:12px;left:12px;background:rgba(20,19,17,.85);color:#fff;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;padding:6px 10px;font-weight:500}
   #upcoming h3{font-size:20px;margin:14px 0 6px}
-  #upcoming .up-card p{font-size:13.5px;line-height:1.6;color:var(--muted)}
+  #upcoming .up-img+p{margin-top:14px}#upcoming .up-card p{font-size:13.5px;line-height:1.6;color:var(--muted)}
   #upcoming .up-soon{display:block;margin-top:8px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600}
   #upcoming .up-foot{text-align:center;margin-top:44px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink)}
-  @media (max-width:1100px){#upcoming .up-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  
   @media (max-width:820px){#upcoming .up-head{grid-template-columns:1fr;gap:30px;text-align:center}#upcoming .up-mono{margin:0 auto;max-width:240px}#upcoming .up-mono b{font-size:80px}#upcoming .up-bio{margin:0 auto}}
   @media (max-width:640px){#upcoming{padding:56px 0 64px}#upcoming .up-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 14px}#upcoming h3{font-size:18px}#upcoming .up-tag{font-size:8.5px;letter-spacing:.18em;padding:5px 8px;top:8px;left:8px}}
 </style>
@@ -505,6 +505,11 @@
       </div>
     </div>
     <ul class="up-grid">
+      <li class="up-card">
+        <div class="up-img"><img src="images/upcoming-knot-pendant.jpg" alt="Pavé knot pendant with a teardrop pearl" loading="lazy" width="1024" height="1280"><span class="up-tag">Limited Edition</span></div>
+        <p>A pavé knot and two sculpted ribbons of sparkle, holding a single teardrop pearl.</p>
+        <span class="up-soon">Name &amp; launch coming soon</span>
+      </li>
       <li class="up-card">
         <div class="up-img"><img src="images/upcoming-trio-drop-earrings.jpg" alt="Trio Drop Earrings" loading="lazy" width="900" height="1125"><span class="up-tag">Limited Edition</span></div>
         <h3>Trio Drop Earrings</h3>
