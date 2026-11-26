@@ -472,6 +472,10 @@
   #upcoming .up-mono{aspect-ratio:1;max-width:340px;width:100%;border:1px solid var(--gold-l);background:var(--cream);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:relative}
   #upcoming .up-mono::after{content:"";position:absolute;inset:12px;border:1px solid rgba(140,109,58,.25)}
   #upcoming .up-mono b{font-family:var(--serif);font-style:italic;font-weight:500;font-size:110px;line-height:1;color:var(--gold)}
+  #upcoming .up-sketch{aspect-ratio:4/5;padding:14px 14px 0;background:#fff;gap:0;justify-content:flex-start}
+  #upcoming .up-sketch::after{display:none}
+  #upcoming .up-sketch img{width:100%;flex:1;min-height:0;object-fit:cover}
+  #upcoming .up-sketch figcaption{font-family:var(--serif);font-style:italic;font-size:17px;color:var(--muted);padding:10px 0 12px}
   #upcoming .up-mono small{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
   #upcoming h2{font-size:clamp(36px,4.8vw,62px);font-weight:500;margin:14px 0 14px}
   #upcoming .up-by{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--muted);margin-bottom:18px}
@@ -495,7 +499,7 @@
 <section id="upcoming" aria-labelledby="upcoming-title">
   <div class="wrap">
     <div class="up-head">
-      <div class="up-mono" aria-hidden="true"><b>MV</b><small>Marco Veneto</small></div>
+      <figure class="up-mono up-sketch"><img src="images/upcoming-marco-sketches.jpg" alt="Marco Veneto's pencil sketches of a pearl necklace and drop earrings" width="405" height="470"><figcaption>Sketches by Marco Veneto</figcaption></figure>
       <div>
         <div class="eyebrow">Upcoming Collection</div>
         <h2 id="upcoming-title">The Marco Veneto <em>Collection</em></h2>
